@@ -7,8 +7,18 @@
 //
 
 import UIKit
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+import ENSwiftSideMenu
+
+class ViewController: UIViewController, ENSideMenuDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sideMenuController()?.sideMenu?.delegate = self
+    }
+    
+    @IBAction func toggleSideMenu(sender: AnyObject) {
+        toggleSideMenuView()
+    }
     
     @IBOutlet weak var imageView: UICollectionView!
 
@@ -51,6 +61,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
     }
     
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return true
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
 
 
 }

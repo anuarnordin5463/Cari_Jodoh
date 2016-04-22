@@ -65,7 +65,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8VB-ng-Pam"/>
+                    <navigationItem key="navigationItem" id="8VB-ng-Pam">
+                        <barButtonItem key="leftBarButtonItem" title="SideMenu" id="eYq-Fw-4bu">
+                            <connections>
+                                <action selector="toggleSideMenu:" destination="BYZ-38-t0r" id="kSG-Ub-8WD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="Mfa-aa-fjs" id="NTC-xm-l23"/>
                     </connections>
