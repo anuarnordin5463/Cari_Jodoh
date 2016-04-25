@@ -81,7 +81,7 @@ class MyMenuTableViewController: UITableViewController {
         selectedMenuItem = indexPath.row
         
         //Present new view controller
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        /*let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
@@ -96,8 +96,8 @@ class MyMenuTableViewController: UITableViewController {
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ViewController4")
             break
-        }
-        sideMenuController()?.setContentViewController(destViewController)
+        }*/
+        //sideMenuController()?.setContentViewController(destViewController)
     }
     
     

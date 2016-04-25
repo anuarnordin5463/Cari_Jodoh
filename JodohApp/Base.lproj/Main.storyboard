@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="2141" y="576"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My Navigation Controller-->
         <scene sceneID="sCo-6R-ekD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jYh-S2-yts" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jYh-S2-yts" customClass="MyNavigationController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PbN-Md-jOs">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>

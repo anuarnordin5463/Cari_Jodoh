@@ -13,11 +13,13 @@ class ViewController: UIViewController, ENSideMenuDelegate, UICollectionViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.sideMenuController()?.sideMenu?.delegate = self
     }
     
     @IBAction func toggleSideMenu(sender: AnyObject) {
         toggleSideMenuView()
+        
     }
     
     @IBOutlet weak var imageView: UICollectionView!
