@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47CD4BA2CFD969354D9FA7D9 /* Pods_JodohApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5DE618D4A8EEA0E878EAD5 /* Pods_JodohApp.framework */; };
-		FC4933F81CCA1C3700AECFBB /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4933F71CCA1C3700AECFBB /* MyNavigationController.swift */; };
-		FC4933FE1CCA215200AECFBB /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4933FD1CCA215200AECFBB /* MyMenuTableViewController.swift */; };
-		FC4934001CCA255A00AECFBB /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4933FF1CCA255A00AECFBB /* ViewController2.swift */; };
-		FCF14FF31CC8D88800BDA1DB /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF14FF21CC8D88800BDA1DB /* test.storyboard */; };
-		FCF14FF51CC8DA3E00BDA1DB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF14FF41CC8DA3E00BDA1DB /* TestViewController.swift */; };
+		968C81DE9328E6A75A8AC465 /* Pods_JodohApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48551E2C49146AC4FD8BEF85 /* Pods_JodohApp.framework */; };
+		FC063FEE1CCDEA2E0097B4C5 /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC063FED1CCDEA2E0097B4C5 /* ExtensionFile.swift */; };
+		FC063FF01CCDEBC70097B4C5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC063FEF1CCDEBC70097B4C5 /* ExSlideMenuController.swift */; };
+		FC063FF21CCDED260097B4C5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC063FF11CCDED260097B4C5 /* LeftMenuViewController.swift */; };
+		FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */; };
+		FCA16AB01CCF56D700FFC839 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA16AAF1CCF56D700FFC839 /* Login.storyboard */; };
 		FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */; };
 		FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C51CC86FAE000F9B3B /* ViewController.swift */; };
 		FCFA85C91CC86FAF000F9B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFA85C71CC86FAF000F9B3B /* Main.storyboard */; };
@@ -24,14 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0155E33FF28F019044D303FD /* Pods-JodohApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JodohApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JodohApp/Pods-JodohApp.release.xcconfig"; sourceTree = "<group>"; };
-		21988B277852D71420C82AD7 /* Pods-JodohApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JodohApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JodohApp/Pods-JodohApp.debug.xcconfig"; sourceTree = "<group>"; };
-		CC5DE618D4A8EEA0E878EAD5 /* Pods_JodohApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JodohApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC4933F71CCA1C3700AECFBB /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
-		FC4933FD1CCA215200AECFBB /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
-		FC4933FF1CCA255A00AECFBB /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		FCF14FF21CC8D88800BDA1DB /* test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
-		FCF14FF41CC8DA3E00BDA1DB /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		48551E2C49146AC4FD8BEF85 /* Pods_JodohApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JodohApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		784655437F1DB91D4B0EA235 /* Pods-JodohApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JodohApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JodohApp/Pods-JodohApp.release.xcconfig"; sourceTree = "<group>"; };
+		DE0677F1FF237FAC415BA127 /* Pods-JodohApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JodohApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JodohApp/Pods-JodohApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FC063FED1CCDEA2E0097B4C5 /* ExtensionFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
+		FC063FEF1CCDEBC70097B4C5 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
+		FC063FF11CCDED260097B4C5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FCA16AAF1CCF56D700FFC839 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FCFA85C01CC86FAE000F9B3B /* JodohApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JodohApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCFA85C51CC86FAE000F9B3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,28 +49,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47CD4BA2CFD969354D9FA7D9 /* Pods_JodohApp.framework in Frameworks */,
+				968C81DE9328E6A75A8AC465 /* Pods_JodohApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		113A1AAA8E7CD59DCFE8858C /* Frameworks */ = {
+		751A2292E94CBF9DFD1A7E81 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CC5DE618D4A8EEA0E878EAD5 /* Pods_JodohApp.framework */,
+				DE0677F1FF237FAC415BA127 /* Pods-JodohApp.debug.xcconfig */,
+				784655437F1DB91D4B0EA235 /* Pods-JodohApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD07BC2E0DB33C5ED14BA33E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48551E2C49146AC4FD8BEF85 /* Pods_JodohApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CBBE7B3084734AC7DD26F2BF /* Pods */ = {
+		FCA16AAE1CCF56A500FFC839 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				21988B277852D71420C82AD7 /* Pods-JodohApp.debug.xcconfig */,
-				0155E33FF28F019044D303FD /* Pods-JodohApp.release.xcconfig */,
+				FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */,
+				FCA16AAF1CCF56D700FFC839 /* Login.storyboard */,
 			);
-			name = Pods;
+			name = Login;
+			sourceTree = "<group>";
+		};
+		FCDC31401CCF599700F5E041 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FCFA85EB1CC88F76000F9B3B /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		FCDC31411CCF59D700F5E041 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FC063FF11CCDED260097B4C5 /* LeftMenuViewController.swift */,
+			);
+			name = LeftMenu;
 			sourceTree = "<group>";
 		};
 		FCFA85B71CC86FAE000F9B3B = {
@@ -78,8 +103,8 @@
 			children = (
 				FCFA85C21CC86FAE000F9B3B /* JodohApp */,
 				FCFA85C11CC86FAE000F9B3B /* Products */,
-				CBBE7B3084734AC7DD26F2BF /* Pods */,
-				113A1AAA8E7CD59DCFE8858C /* Frameworks */,
+				751A2292E94CBF9DFD1A7E81 /* Pods */,
+				DD07BC2E0DB33C5ED14BA33E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,18 +119,15 @@
 		FCFA85C21CC86FAE000F9B3B /* JodohApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCDC31411CCF59D700F5E041 /* LeftMenu */,
+				FCDC31401CCF599700F5E041 /* Profile */,
+				FCA16AAE1CCF56A500FFC839 /* Login */,
 				FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */,
-				FC4933FF1CCA255A00AECFBB /* ViewController2.swift */,
-				FC4933F71CCA1C3700AECFBB /* MyNavigationController.swift */,
-				FC4933FD1CCA215200AECFBB /* MyMenuTableViewController.swift */,
+				FC063FED1CCDEA2E0097B4C5 /* ExtensionFile.swift */,
 				FCFA85C51CC86FAE000F9B3B /* ViewController.swift */,
-				FCF14FF21CC8D88800BDA1DB /* test.storyboard */,
-				FCF14FF41CC8DA3E00BDA1DB /* TestViewController.swift */,
-				FCFA85EB1CC88F76000F9B3B /* ProfileViewController.swift */,
 				FCFA85C71CC86FAF000F9B3B /* Main.storyboard */,
 				FCFA85E41CC878BC000F9B3B /* MyCollectionViewCell.swift */,
-				FCFA85CA1CC86FAF000F9B3B /* Assets.xcassets */,
-				FCFA85CC1CC86FAF000F9B3B /* LaunchScreen.storyboard */,
+				FC063FEF1CCDEBC70097B4C5 /* ExSlideMenuController.swift */,
 				FCFA85CF1CC86FAF000F9B3B /* Info.plist */,
 				FCFA85E61CC88637000F9B3B /* SupportFile */,
 			);
@@ -115,6 +137,8 @@
 		FCFA85E61CC88637000F9B3B /* SupportFile */ = {
 			isa = PBXGroup;
 			children = (
+				FCFA85CA1CC86FAF000F9B3B /* Assets.xcassets */,
+				FCFA85CC1CC86FAF000F9B3B /* LaunchScreen.storyboard */,
 				FCFA85E91CC88BA3000F9B3B /* greenBubble.png */,
 			);
 			name = SupportFile;
@@ -127,12 +151,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCFA85D21CC86FAF000F9B3B /* Build configuration list for PBXNativeTarget "JodohApp" */;
 			buildPhases = (
-				49F7F194D4211DA80B18E8B0 /* Check Pods Manifest.lock */,
+				98732144261BD014C7B2C96D /* Check Pods Manifest.lock */,
 				FCFA85BC1CC86FAE000F9B3B /* Sources */,
 				FCFA85BD1CC86FAE000F9B3B /* Frameworks */,
 				FCFA85BE1CC86FAE000F9B3B /* Resources */,
-				C6D796167BCA091DF8A09D92 /* Embed Pods Frameworks */,
-				AF71A3D1F1FE995C491DF557 /* Copy Pods Resources */,
+				58B80428690763832414B55C /* Embed Pods Frameworks */,
+				021DF7480A5C6D4A2C252AB0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,7 +208,7 @@
 				FCFA85CE1CC86FAF000F9B3B /* LaunchScreen.storyboard in Resources */,
 				FCFA85CB1CC86FAF000F9B3B /* Assets.xcassets in Resources */,
 				FCFA85C91CC86FAF000F9B3B /* Main.storyboard in Resources */,
-				FCF14FF31CC8D88800BDA1DB /* test.storyboard in Resources */,
+				FCA16AB01CCF56D700FFC839 /* Login.storyboard in Resources */,
 				FCFA85EA1CC88BA3000F9B3B /* greenBubble.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,22 +216,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49F7F194D4211DA80B18E8B0 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AF71A3D1F1FE995C491DF557 /* Copy Pods Resources */ = {
+		021DF7480A5C6D4A2C252AB0 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,7 +231,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JodohApp/Pods-JodohApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6D796167BCA091DF8A09D92 /* Embed Pods Frameworks */ = {
+		58B80428690763832414B55C /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -237,6 +246,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JodohApp/Pods-JodohApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		98732144261BD014C7B2C96D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -244,13 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF14FF51CC8DA3E00BDA1DB /* TestViewController.swift in Sources */,
-				FC4934001CCA255A00AECFBB /* ViewController2.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,
-				FC4933F81CCA1C3700AECFBB /* MyNavigationController.swift in Sources */,
-				FC4933FE1CCA215200AECFBB /* MyMenuTableViewController.swift in Sources */,
+				FC063FF01CCDEBC70097B4C5 /* ExSlideMenuController.swift in Sources */,
 				FCFA85EC1CC88F76000F9B3B /* ProfileViewController.swift in Sources */,
+				FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */,
+				FC063FEE1CCDEA2E0097B4C5 /* ExtensionFile.swift in Sources */,
+				FC063FF21CCDED260097B4C5 /* LeftMenuViewController.swift in Sources */,
 				FCFA85E51CC878BC000F9B3B /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,10 +388,11 @@
 		};
 		FCFA85D31CC86FAF000F9B3B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21988B277852D71420C82AD7 /* Pods-JodohApp.debug.xcconfig */;
+			baseConfigurationReference = DE0677F1FF237FAC415BA127 /* Pods-JodohApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JodohApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me-tech.JodohApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -377,10 +402,11 @@
 		};
 		FCFA85D41CC86FAF000F9B3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0155E33FF28F019044D303FD /* Pods-JodohApp.release.xcconfig */;
+			baseConfigurationReference = 784655437F1DB91D4B0EA235 /* Pods-JodohApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = JodohApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me-tech.JodohApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";

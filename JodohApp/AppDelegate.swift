@@ -1,12 +1,13 @@
 //
 //  AppDelegate.swift
 //  JodohApp
-//test
+//  test
 //  Created by Nazri Hussein on 4/21/16.
 //  Copyright © 2016 intern. All rights reserved.
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // create viewController code...
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 182.0/255.0, blue: 211.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UINavigationBar.appearance().tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
+        //UINavigationBar.appearance().title = UIColor(red: 0.0/255.0, green: 182.0/255.0, blue: 211.0/255.0, alpha: 1.0)
+        //UINavigationBar.appearance().translucent = false
+ 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
+        
+        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+        
+        
+        leftViewController.mainViewController = nvc
+        
+        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
+        slideMenuController.automaticallyAdjustsScrollViewInsets = true
+        slideMenuController.delegate = mainViewController
+        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
+        
+        // Override point for customization after application launch.
         return true
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

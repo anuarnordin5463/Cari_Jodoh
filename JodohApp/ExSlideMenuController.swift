@@ -1,26 +1,32 @@
 //
-//  TestViewController.swift
+//  ExSlideMenuController.swift
 //  JodohApp
 //
-//  Created by Nazri Hussein on 4/21/16.
+//  Created by Nazri Hussein on 4/25/16.
 //  Copyright © 2016 intern. All rights reserved.
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
-class TestViewController: UIViewController {
-    var imgName = String()
-    var userName = String()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class ExSlideMenuController: SlideMenuController {
+    
+    override func isTagetViewController() -> Bool {
+        
+        if let vc = UIApplication.topViewController() {
+            
+            if vc is ViewController || vc is ProfileViewController{
+                return true
+            }
+            
+        }
+        
+        return false
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
+    
+}
     
 
     /*
@@ -33,4 +39,4 @@ class TestViewController: UIViewController {
     }
     */
 
-}
+

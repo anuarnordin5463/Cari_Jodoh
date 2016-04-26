@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="jYh-S2-yts">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ukf-0q-8Da">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,51 +8,51 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xRL-Hq-Phm"/>
+                        <viewControllerLayoutGuide type="bottom" id="giB-mx-lHo"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="Mfa-aa-fjs">
-                                <rect key="frame" x="20" y="20" width="728" height="984"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mfa-aa-fjs">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kbq-Pf-pxI">
-                                    <size key="itemSize" width="356" height="300"/>
+                                    <size key="itemSize" width="356" height="326"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1gR-F1-LDW">
-                                    <rect key="frame" x="0.0" y="-64" width="728" height="984"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="v3W-AG-qd9" customClass="MyCollectionViewCell" customModule="JodohApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="356" height="300"/>
+                                        <rect key="frame" x="0.0" y="64" width="356" height="326"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="356" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="356" height="326"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameOfUser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ti8-t5-GKg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nameOfUser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ti8-t5-GKg">
                                                     <rect key="frame" x="51" y="257" width="255" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nora.png" id="bea-af-zjN">
-                                                    <rect key="frame" x="86" y="16" width="185" height="225"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBubble.png" id="qTM-uB-QsI">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenBubble.png" translatesAutoresizingMaskIntoConstraints="NO" id="qTM-uB-QsI">
                                                     <rect key="frame" x="257" y="245" width="15" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nora.png" translatesAutoresizingMaskIntoConstraints="NO" id="bea-af-zjN">
+                                                    <rect key="frame" x="78" y="43" width="200" height="200"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="imgPic" destination="bea-af-zjN" id="9rn-Lj-EyK"/>
                                             <outlet property="myLabel" destination="Ti8-t5-GKg" id="oeP-CA-j8y"/>
                                         </connections>
                                     </collectionViewCell>
@@ -64,14 +64,14 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mfa-aa-fjs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Dtv-7q-xH7"/>
+                            <constraint firstAttribute="trailing" secondItem="Mfa-aa-fjs" secondAttribute="trailing" id="Lyt-b0-1xR"/>
+                            <constraint firstItem="Mfa-aa-fjs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SS6-KT-Gma"/>
+                            <constraint firstItem="giB-mx-lHo" firstAttribute="top" secondItem="Mfa-aa-fjs" secondAttribute="bottom" id="Tni-xP-vWK"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8VB-ng-Pam">
-                        <barButtonItem key="leftBarButtonItem" title="SideMenu" id="eYq-Fw-4bu">
-                            <connections>
-                                <action selector="toggleSideMenu:" destination="BYZ-38-t0r" id="kSG-Ub-8WD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="8VB-ng-Pam"/>
                     <connections>
                         <outlet property="imageView" destination="Mfa-aa-fjs" id="NTC-xm-l23"/>
                     </connections>
@@ -80,63 +80,104 @@
             </objects>
             <point key="canvasLocation" x="1293" y="576"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Left Menu View Controller-->
+        <scene sceneID="sK7-wv-JWs">
+            <objects>
+                <viewController storyboardIdentifier="LeftVC" id="MAa-eo-p1c" customClass="LeftMenuViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RUz-oz-je5"/>
+                        <viewControllerLayoutGuide type="bottom" id="B1w-jt-85M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="djt-sJ-zjm">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GBk-zj-3AX">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="FI3-Vn-8yl">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FI3-Vn-8yl" id="8or-RR-0Ny">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="MAa-eo-p1c" id="oih-23-yMV"/>
+                                    <outlet property="delegate" destination="MAa-eo-p1c" id="E65-3T-c9F"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GBk-zj-3AX" firstAttribute="top" secondItem="djt-sJ-zjm" secondAttribute="top" id="Dlm-Zf-ND5"/>
+                            <constraint firstItem="B1w-jt-85M" firstAttribute="top" secondItem="GBk-zj-3AX" secondAttribute="bottom" id="VSX-CJ-w3g"/>
+                            <constraint firstAttribute="trailing" secondItem="GBk-zj-3AX" secondAttribute="trailing" id="Xy7-uD-YlP"/>
+                            <constraint firstItem="GBk-zj-3AX" firstAttribute="leading" secondItem="djt-sJ-zjm" secondAttribute="leading" id="dDe-K1-PYZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="leftTableView" destination="GBk-zj-3AX" id="Sep-Vg-673"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sJf-bY-d2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1295" y="1678"/>
+        </scene>
+        <!--Profile-->
         <scene sceneID="FVt-8v-yhk">
             <objects>
-                <viewController storyboardIdentifier="profileVC" id="Ukf-0q-8Da" customClass="ProfileViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="Ukf-0q-8Da" customClass="ProfileViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jWb-oj-D7j"/>
+                        <viewControllerLayoutGuide type="bottom" id="VQn-SK-6aE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" semanticContentAttribute="playback" id="i8O-To-q32">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBubble.png" id="jM1-7f-9Xf">
-                                <rect key="frame" x="511" y="459" width="15" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameOfCustomer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KHZ-3u-4UF">
-                                <rect key="frame" x="215" y="485" width="339" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YiY-Yi-Uwo">
-                                <rect key="frame" x="322" y="587" width="115" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Log In" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiY-Yi-Uwo">
+                                <rect key="frame" x="461" y="580" width="115" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HaD-EM-UXF">
-                                <rect key="frame" x="322" y="640" width="115" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Register"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Register" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaD-EM-UXF">
+                                <rect key="frame" x="194" y="580" width="115" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Register"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ada-5e-99g">
-                                <rect key="frame" x="347" y="80" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6XY-6c-TOA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6XY-6c-TOA">
                                 <rect key="frame" x="241" y="146" width="285" height="305"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zm8-jD-ZCd"/>
+                    <navigationItem key="navigationItem" title="Profile" id="Zm8-jD-ZCd" colorLabel="IBBuiltInLabel-Red"/>
                     <connections>
                         <outlet property="img" destination="6XY-6c-TOA" id="JIf-Gt-d78"/>
-                        <outlet property="user" destination="KHZ-3u-4UF" id="hgv-11-war"/>
+                        <outlet property="loginButton" destination="YiY-Yi-Uwo" id="Q6k-93-U5x"/>
+                        <outlet property="registerButton" destination="HaD-EM-UXF" id="BeF-4Q-Y3u"/>
+                        <outlet property="user2" destination="Zm8-jD-ZCd" id="uPP-wA-p9s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RoW-gs-87l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2141" y="576"/>
+            <point key="canvasLocation" x="1293" y="-544"/>
         </scene>
-        <!--My Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="sCo-6R-ekD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jYh-S2-yts" customClass="MyNavigationController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jYh-S2-yts" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PbN-Md-jOs">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -144,16 +185,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="o0a-7c-lN6"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="MainVC" id="tT5-mk-OOV"/>
+                        <segue destination="Ukf-0q-8Da" kind="push" identifier="ProfileVC" id="OIl-A3-kvw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOk-ua-V9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="576"/>
+            <point key="canvasLocation" x="325" y="576"/>
         </scene>
     </scenes>
     <resources>
         <image name="greenBubble.png" width="600" height="600"/>
-        <image name="nora.png" width="350" height="447"/>
+        <image name="nora.png" width="182" height="333"/>
     </resources>
 </document>
