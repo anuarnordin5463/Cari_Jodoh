@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  JodohApp
-//  test
+//  test2
 //  Created by Nazri Hussein on 4/21/16.
 //  Copyright © 2016 intern. All rights reserved.
 //
@@ -26,12 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UINavigationBar.appearance().translucent = false
  
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let storyboard2 = UIStoryboard(name: "Register", bundle: nil)
         
-        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
+        //let mainViewController = storyboard2.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
+        //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-        
         
         leftViewController.mainViewController = nvc
         
@@ -44,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         return true
-        
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -31,7 +31,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = leftTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        
+        //wrong
         if indexPath.row == 0{
             cell.textLabel?.text = "Home"
         }else if indexPath.row == 1{
@@ -50,7 +50,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             //cell.textLabel?.text = "Page \(indexPath.row)"
         }
         
-        
         return cell
     }
     
@@ -61,23 +60,24 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0{
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 1{
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 2{
+            let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 3{
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else{
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
-            //swiftViewController.lblName = "View Controller \(indexPath.row)"
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+            
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }
         
-        
         self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

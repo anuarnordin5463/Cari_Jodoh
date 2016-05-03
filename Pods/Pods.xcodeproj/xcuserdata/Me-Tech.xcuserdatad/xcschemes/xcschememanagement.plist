@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SlideMenuControllerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XLForm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>099C58556533B4FCDA47D76430D4D7B4</key>
+		<key>0902E18EE1442CA3B9D3FB3370D76942</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0C755C7AE0F54910077140818414EA15</key>
+		<key>191D238AFCE45B91F138E0E397CDD6FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>78EEB06DB6E34D8F9FAEB8C3BD71D1FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A0ECE4C29394F5B705BAC09491E951C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

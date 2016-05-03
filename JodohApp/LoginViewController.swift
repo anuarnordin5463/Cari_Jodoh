@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, SlideMenuControllerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setNavigationBarItem()
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +21,19 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func registerButtonPressed(sender: AnyObject) {
+        print("RegisterButtonPressed")
+        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
-    */
+
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+        print("LoginButtonPressed")
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+    }
 
 }
