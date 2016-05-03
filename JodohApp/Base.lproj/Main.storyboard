@@ -43,7 +43,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nora.png" translatesAutoresizingMaskIntoConstraints="NO" id="bea-af-zjN">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bea-af-zjN">
                                                     <rect key="frame" x="18" y="8" width="114" height="115"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenBubble.png" translatesAutoresizingMaskIntoConstraints="NO" id="qTM-uB-QsI">
@@ -328,6 +328,5 @@
     <resources>
         <image name="greenBubble.png" width="600" height="600"/>
         <image name="homePic" width="187" height="165"/>
-        <image name="nora.png" width="182" height="333"/>
     </resources>
 </document>

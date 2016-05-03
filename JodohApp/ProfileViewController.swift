@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, SlideMenuControllerDelegate {
         self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
     @IBOutlet weak var img: UIImageView!
-    var imgName = String()
+    var imgName = UIImage()
     
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController, SlideMenuControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.setNavigationBarItem()
-        img.image = UIImage(named: imgName)
+        img.image = imgName
         //user.text = userName
         user2.title = userName
         //self.setNavigationBarItem()

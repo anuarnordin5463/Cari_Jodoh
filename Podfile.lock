@@ -1,5 +1,5 @@
 PODS:
-  - SCLAlertView (0.5.4)
+  - SCLAlertView (0.5.5)
   - SlideMenuControllerSwift (2.1.1)
   - XLForm (3.1.1)
 
@@ -9,7 +9,7 @@ DEPENDENCIES:
   - XLForm (~> 3.0)
 
 SPEC CHECKSUMS:
-  SCLAlertView: 081f824b17b7cf41057159535591f4d6fc8acde3
+  SCLAlertView: 393f6753ac73c2ede54e9a42cc220a48cc7ee3cf
   SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
   XLForm: c9ee7e0f859341279bfd894f9589a9d25c23e4df
 
