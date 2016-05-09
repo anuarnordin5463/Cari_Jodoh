@@ -157,23 +157,5 @@
             </objects>
             <point key="canvasLocation" x="1084" y="-739"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Nen-hv-c82">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eVZ-c9-b3X" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mjh-Cs-pOx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Klg-N5-WKa" kind="relationship" relationship="rootViewController" id="Diy-If-Evw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hZQ-a3-u0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="272" y="-739"/>
-        </scene>
     </scenes>
 </document>

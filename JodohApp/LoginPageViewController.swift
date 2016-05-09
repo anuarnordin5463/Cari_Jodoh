@@ -8,8 +8,9 @@
 
 import UIKit
 import SCLAlertView
+import SlideMenuControllerSwift
 
-class LoginPageViewController: UIViewController {
+class LoginPageViewController: UIViewController,SlideMenuControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
