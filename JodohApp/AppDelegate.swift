@@ -26,12 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UINavigationBar.appearance().translucent = false
  
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let storyboard2 = UIStoryboard(name: "Register", bundle: nil)
-        let storyboard3 = UIStoryboard(name: "MyProfile", bundle: nil)
+        let storyboard2 = UIStoryboard(name: "Register", bundle: nil)
+        //let storyboard3 = UIStoryboard(name: "MyProfile", bundle: nil)
         
         //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
-        let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+        //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+        let mainViewController = storyboard2.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
         //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
