@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TPKeyboardAvoiding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>XLForm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0902E18EE1442CA3B9D3FB3370D76942</key>
+		<key>41D958190D66E51DBBC656430A18B681</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>191D238AFCE45B91F138E0E397CDD6FB</key>
+		<key>67C1691B16DEA9CF6AE77EE7CC2861AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>78EEB06DB6E34D8F9FAEB8C3BD71D1FD</key>
+		<key>6F77358C658AC030D863ACBD580B8269</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A0ECE4C29394F5B705BAC09491E951C</key>
+		<key>9C72EC9DA1897B34041EBC62B122822F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE84638E0600912B20D7EC67B8C928AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

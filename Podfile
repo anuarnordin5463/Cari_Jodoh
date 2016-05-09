@@ -7,5 +7,7 @@ target 'JodohApp' do
 pod 'SlideMenuControllerSwift'
 pod 'SCLAlertView'
 pod 'XLForm', '~> 3.0'
+pod 'TPKeyboardAvoiding', '~> 1.2.3'
+
 end
 

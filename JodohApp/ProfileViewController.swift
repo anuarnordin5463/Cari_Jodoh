@@ -12,7 +12,9 @@ import SlideMenuControllerSwift
 
 class ProfileViewController: UIViewController, SlideMenuControllerDelegate {
     
-    //var lblName = String()
+    @IBOutlet weak var registerButtonPressed: UIButton!
+    @IBOutlet weak var loginButtonPressed: UIButton!
+        //var lblName = String()
     
     @IBAction func registerButtonPressed(sender: AnyObject) {
         print("RegisterButtonPressed")
@@ -38,6 +40,10 @@ class ProfileViewController: UIViewController, SlideMenuControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //registerButtonPressed.hidden = true
+        //loginButtonPressed.hidden = true
+        //registerButtonPressed.enabled = false
         //self.setNavigationBarItem()
         img.image = imgName
         //user.text = userName

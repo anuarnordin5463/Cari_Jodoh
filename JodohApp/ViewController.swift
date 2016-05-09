@@ -16,12 +16,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         self.setNavigationBarItem()
         
-        //imgPic.layer.borderWidth = 1
-        //imgPic.masksToBounds = false
-        //imgPic.layer.borderColor = UIColor.whiteColor().CGColor
-        //imgPic.layer.cornerRadius = imgPic.frame.height/2
-        //imgPic.clipsToBounds = true
-
         // Do any additional setup after loading the view, typically from a nib.
     }
     

@@ -1,16 +1,19 @@
 PODS:
   - SCLAlertView (0.5.6)
   - SlideMenuControllerSwift (2.1.1)
+  - TPKeyboardAvoiding (1.2.11)
   - XLForm (3.1.1)
 
 DEPENDENCIES:
   - SCLAlertView
   - SlideMenuControllerSwift
+  - TPKeyboardAvoiding (~> 1.2.3)
   - XLForm (~> 3.0)
 
 SPEC CHECKSUMS:
   SCLAlertView: c2b916952520d96cf5e886a38053f1b8c3da502e
   SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
+  TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
   XLForm: c9ee7e0f859341279bfd894f9589a9d25c23e4df
 
 COCOAPODS: 0.39.0
