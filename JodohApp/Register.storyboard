@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EF8-ta-dS4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="15" y="0.0" width="570" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="KzX-k1-9G8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="570" height="70"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-pE-w9H">
@@ -45,10 +45,10 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="p0X-KF-5qe">
-                                    <rect key="frame" x="0.0" y="70" width="600" height="76"/>
+                                    <rect key="frame" x="0.0" y="70" width="570" height="76"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-y6-MuA">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-y6-MuA">
                                             <rect key="frame" x="30" y="35" width="540" height="30"/>
                                             <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -73,9 +73,9 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EF8-ta-dS4" secondAttribute="trailing" id="J1I-xb-ZXu"/>
+                            <constraint firstAttribute="trailing" secondItem="EF8-ta-dS4" secondAttribute="trailing" constant="15" id="J1I-xb-ZXu"/>
                             <constraint firstItem="EF8-ta-dS4" firstAttribute="top" secondItem="5bL-XT-AZT" secondAttribute="top" id="R8H-RN-KE7"/>
-                            <constraint firstItem="EF8-ta-dS4" firstAttribute="leading" secondItem="5bL-XT-AZT" secondAttribute="leading" id="hJa-7g-hJh"/>
+                            <constraint firstItem="EF8-ta-dS4" firstAttribute="leading" secondItem="5bL-XT-AZT" secondAttribute="leading" constant="15" id="hJa-7g-hJh"/>
                             <constraint firstItem="woh-Tv-X4W" firstAttribute="top" secondItem="EF8-ta-dS4" secondAttribute="bottom" id="nQx-OJ-6sH"/>
                         </constraints>
                     </view>

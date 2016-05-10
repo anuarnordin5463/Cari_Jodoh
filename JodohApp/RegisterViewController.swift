@@ -35,7 +35,8 @@ class RegisterViewController: XLFormViewController, SlideMenuControllerDelegate 
     func initializeForm() {
         
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
-        
+        let star = [NSForegroundColorAttributeName : UIColor.redColor()]
+        var attrString = NSMutableAttributedString()
         let form : XLFormDescriptor
         var section : XLFormSectionDescriptor
         var row : XLFormRowDescriptor
@@ -49,29 +50,49 @@ class RegisterViewController: XLFormViewController, SlideMenuControllerDelegate 
         
         // First Name/Given Name-------------------
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "Username")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         section.addFormRow(row)
         
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "E-mail")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         section.addFormRow(row)
         
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "Password")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         section.addFormRow(row)
         
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "Confirm Password")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         section.addFormRow(row)

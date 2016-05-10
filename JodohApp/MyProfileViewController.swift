@@ -42,9 +42,9 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
         let star = [NSForegroundColorAttributeName : UIColor.redColor()]
-        //let text = [NSForegroundColorAttributeName : UIColor.blackColor()]
+        let text = [NSForegroundColorAttributeName : UIColor.lightGrayColor()]
         var attrString = NSMutableAttributedString()
-        //var attrText = NSMutableAttributedString()
+        var attrText = NSMutableAttributedString()
         let form : XLFormDescriptor
         var section : XLFormSectionDescriptor
         var row : XLFormRowDescriptor
@@ -81,10 +81,15 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // First Name/Given Name
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeDate , title:"Date of Birth *")
+        row = XLFormRowDescriptor(tag: "", rowType: XLFormRowDescriptorTypeDate , title:"Date of Birth *")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Date of Birth *"
-        row.value = NSDate()
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Date of Birth", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         row.required = true
+        //row.value = NSDate()
         section.addFormRow(row)
         
         // Selector Picker View
@@ -166,9 +171,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Smoker/Vapes *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Yes", "No"]
         //row.value = "Option 4"
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Smoker/Vapes", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
         
         // Basic Information - Section----------------------
@@ -195,9 +205,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"State *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
         //row.value = "Option 4"
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "State", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -250,8 +265,13 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Marital status *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Divorced", "Married", "Single", "Widowed"]
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Marital status", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         //row.value = "Option 4"
         section.addFormRow(row)
 
@@ -262,9 +282,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Have a children *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Yes", "No"]
         //row.value = "Option 4"
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Have a children", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -274,9 +299,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Marital status *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Serius mencari", "Tidak serius mencari", "Sedang mengenali seseorang", "Tidak pasti"]
         //row.value = "Option 4"
+        attrString = NSMutableAttributedString(string: "Marital status", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -286,9 +316,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Polygamy *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Agreed", "Can be discussed", "Do not agree", "Haven\'t thought yet"]
+        attrString = NSMutableAttributedString(string: "Polygamy", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         //row.value = "Option 4"
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -298,9 +333,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         section.addFormRow(row)*/
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Financial level *")
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         row.selectorOptions = ["Unemployed", "Low income", "Middle income", "High income","Need more information"]
+        attrString = NSMutableAttributedString(string: "Financial level", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         //row.value = "Option 4"
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
         
         self.form = form

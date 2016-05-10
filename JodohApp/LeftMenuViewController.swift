@@ -31,6 +31,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = leftTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
         //wrong
         if indexPath.row == 0{
             cell.textLabel?.text = "Home"
@@ -74,7 +75,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else{
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
-            
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }
         

@@ -161,12 +161,12 @@
 		FCFA85C21CC86FAE000F9B3B /* JodohApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC85504A1CCF9EC50054DD4A /* JodohApp */,
 				FCC838FE1CD1DE3E008D1653 /* MyProfile */,
 				FC8550431CCF72BC0054DD4A /* Register */,
 				FCDC31411CCF59D700F5E041 /* LeftMenu */,
 				FCDC31401CCF599700F5E041 /* Profile */,
 				FCA16AAE1CCF56A500FFC839 /* Login */,
-				FC85504A1CCF9EC50054DD4A /* JodohApp */,
 				FCFA85E61CC88637000F9B3B /* SupportFile */,
 			);
 			path = JodohApp;
