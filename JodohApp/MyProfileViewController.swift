@@ -41,7 +41,10 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
     func initializeForm() {
         
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
-
+        let star = [NSForegroundColorAttributeName : UIColor.redColor()]
+        //let text = [NSForegroundColorAttributeName : UIColor.blackColor()]
+        var attrString = NSMutableAttributedString()
+        //var attrText = NSMutableAttributedString()
         let form : XLFormDescriptor
         var section : XLFormSectionDescriptor
         var row : XLFormRowDescriptor
@@ -55,9 +58,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         
         // First Name/Given Name-------------------
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Name *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Name *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        attrString = NSMutableAttributedString(string: "Name")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         section.addFormRow(row)
         
@@ -87,14 +95,24 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypePhone, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Mobile *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Mobile *"
         row.required = true
+        attrString = NSMutableAttributedString(string: "Mobile")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         section.addFormRow(row)
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypePhone, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Height *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Height *"
         row.required = true
+        attrString = NSMutableAttributedString(string: "Height")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         section.addFormRow(row)
         
         // Height
@@ -109,8 +127,14 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypePhone, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Weight *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Weight *"
+        attrString = NSMutableAttributedString(string: "Weight")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
+        
         section.addFormRow(row)
         
         // Weight
@@ -178,7 +202,12 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Town *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Town *"
+        attrString = NSMutableAttributedString(string: "Town")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         section.addFormRow(row)
         
@@ -189,13 +218,23 @@ class MyProfileViewController: XLFormViewController, SlideMenuControllerDelegate
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
+        attrString = NSMutableAttributedString(string: "High Education")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         section.addFormRow(row)
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Occupation *"
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Occupation *"
+        attrString = NSMutableAttributedString(string: "Occupation")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         section.addFormRow(row)
         
