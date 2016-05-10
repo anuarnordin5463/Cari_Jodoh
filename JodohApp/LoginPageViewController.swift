@@ -9,12 +9,14 @@
 import UIKit
 import SCLAlertView
 import SlideMenuControllerSwift
+import XLForm
 
-class LoginPageViewController: UIViewController,SlideMenuControllerDelegate {
+class LoginPageViewController: XLFormViewController,SlideMenuControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
+        initializeForm()
         // Do any additional setup after loading the view.
     }
     
@@ -52,5 +54,54 @@ class LoginPageViewController: UIViewController,SlideMenuControllerDelegate {
         let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
         self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
+    
+    func initializeForm() {
+        
+        let star = [NSForegroundColorAttributeName : UIColor.redColor()]
+        //let text = [NSForegroundColorAttributeName : UIColor.lightGrayColor()]
+        var attrString = NSMutableAttributedString()
+        //var attrText = NSMutableAttributedString()
 
+        //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
+        
+        let form : XLFormDescriptor
+        var section : XLFormSectionDescriptor
+        var row : XLFormRowDescriptor
+        
+        form = XLFormDescriptor(title: "")
+        
+        // Basic Information - Section
+        section = XLFormSectionDescriptor()
+        section = XLFormSectionDescriptor.formSectionWithTitle("")
+        form.addFormSection(section)
+        
+        // First Name/Given Name-------------------
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        //row.cellConfigAtConfigure["textField.placeholder"] = "User ID (Email) *"
+        //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        row.required = true
+        attrString = NSMutableAttributedString(string: "User ID (Email)")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        //row.cellConfigAtConfigure["textField.placeholder"] = "*Email"
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
+        //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        row.required = true
+        attrString = NSMutableAttributedString(string: "Password")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        section.addFormRow(row)
+        
+        self.form = form
+        
+    }
 }
