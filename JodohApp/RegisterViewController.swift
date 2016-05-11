@@ -10,11 +10,12 @@ import UIKit
 import SlideMenuControllerSwift
 import XLForm
 
-class RegisterViewController: XLFormViewController, SlideMenuControllerDelegate {
+class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+        //self.setNavigationBarItem()
+        setupLeftButton()
         initializeForm()
         // Do any additional setup after loading the view.
     }

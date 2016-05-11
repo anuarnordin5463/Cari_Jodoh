@@ -10,7 +10,7 @@ import UIKit
 import SlideMenuControllerSwift
 
 
-class ProfileViewController: UIViewController, SlideMenuControllerDelegate {
+class ProfileViewController: BaseViewController, SlideMenuControllerDelegate {
     
     @IBOutlet weak var registerButtonPressed: UIButton!
     @IBOutlet weak var loginButtonPressed: UIButton!
@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController, SlideMenuControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLeftButton()
         //registerButtonPressed.hidden = true
         //loginButtonPressed.hidden = true
         //registerButtonPressed.enabled = false

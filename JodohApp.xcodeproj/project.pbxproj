@@ -12,6 +12,9 @@
 		FC063FF01CCDEBC70097B4C5 /* ExSlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC063FEF1CCDEBC70097B4C5 /* ExSlideMenuController.swift */; };
 		FC063FF21CCDED260097B4C5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC063FF11CCDED260097B4C5 /* LeftMenuViewController.swift */; };
 		FC07F8CC1CD19FC1001EC8EB /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07F8CB1CD19FC1001EC8EB /* LoginPageViewController.swift */; };
+		FC1CFEF61CE2C9FF006B508C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */; };
+		FC1CFEF81CE2D37E006B508C /* BaseXLFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */; };
+		FC1CFEFA1CE2DCE5006B508C /* PasswordExpiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */; };
 		FC8550451CCF72D80054DD4A /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550441CCF72D80054DD4A /* Register.storyboard */; };
 		FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */; };
 		FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550481CCF9A280054DD4A /* Login.storyboard */; };
@@ -37,6 +40,9 @@
 		FC063FEF1CCDEBC70097B4C5 /* ExSlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSlideMenuController.swift; sourceTree = "<group>"; };
 		FC063FF11CCDED260097B4C5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		FC07F8CB1CD19FC1001EC8EB /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseXLFormViewController.swift; sourceTree = "<group>"; };
+		FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordExpiredViewController.swift; sourceTree = "<group>"; };
 		FC8550441CCF72D80054DD4A /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FC8550481CCF9A280054DD4A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -85,6 +91,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FC1CFEF41CE2C978006B508C /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */,
+				FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */,
+			);
+			name = BaseView;
+			sourceTree = "<group>";
+		};
 		FC8550431CCF72BC0054DD4A /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +128,7 @@
 				FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */,
 				FC8550481CCF9A280054DD4A /* Login.storyboard */,
 				FC07F8CB1CD19FC1001EC8EB /* LoginPageViewController.swift */,
+				FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -177,6 +193,7 @@
 				FC8550431CCF72BC0054DD4A /* Register */,
 				FCDC31411CCF59D700F5E041 /* LeftMenu */,
 				FCDC31401CCF599700F5E041 /* Profile */,
+				FC1CFEF41CE2C978006B508C /* BaseView */,
 				FCA16AAE1CCF56A500FFC839 /* Login */,
 				FCFA85E61CC88637000F9B3B /* SupportFile */,
 			);
@@ -320,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC1CFEF61CE2C9FF006B508C /* BaseViewController.swift in Sources */,
 				FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,
@@ -327,9 +345,11 @@
 				FC07F8CC1CD19FC1001EC8EB /* LoginPageViewController.swift in Sources */,
 				FCC839001CD1DED6008D1653 /* MyProfileViewController.swift in Sources */,
 				FC063FF01CCDEBC70097B4C5 /* ExSlideMenuController.swift in Sources */,
+				FC1CFEFA1CE2DCE5006B508C /* PasswordExpiredViewController.swift in Sources */,
 				FCFA85EC1CC88F76000F9B3B /* ProfileViewController.swift in Sources */,
 				FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */,
 				FC063FEE1CCDEA2E0097B4C5 /* ExtensionFile.swift in Sources */,
+				FC1CFEF81CE2D37E006B508C /* BaseXLFormViewController.swift in Sources */,
 				FC063FF21CCDED260097B4C5 /* LeftMenuViewController.swift in Sources */,
 				FCFA85E51CC878BC000F9B3B /* MyCollectionViewCell.swift in Sources */,
 			);

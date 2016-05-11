@@ -12,7 +12,7 @@ import SlideMenuControllerSwift
 extension UIViewController {
     
     func setNavigationBarItem() {
-        self.addLeftBarButtonWithImage(UIImage(named: "menuIcon")!)
+        self.addLeftBarButtonWithImage(UIImage(named: "MenuIconWhite")!)
         self.slideMenuController()?.removeLeftGestures()
         self.slideMenuController()?.addLeftGestures()
     }

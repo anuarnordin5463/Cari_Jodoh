@@ -15,7 +15,7 @@ class LoginPageViewController: XLFormViewController,SlideMenuControllerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+        //self.setNavigationBarItem()
         initializeForm()
         // Do any additional setup after loading the view.
     }
