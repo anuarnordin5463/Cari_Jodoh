@@ -16,6 +16,7 @@
 		FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */; };
 		FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550481CCF9A280054DD4A /* Login.storyboard */; };
 		FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */; };
+		FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */; };
 		FCC839001CD1DED6008D1653 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */; };
 		FCC839021CD1DEEB008D1653 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */; };
 		FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FC8550481CCF9A280054DD4A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
 		FCFA85C01CC86FAE000F9B3B /* JodohApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JodohApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,14 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		FCA4D95C1CE1C12600324FBF /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
 		FCC838FE1CD1DE3E008D1653 /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 		FCFA85C21CC86FAE000F9B3B /* JodohApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCA4D95C1CE1C12600324FBF /* CustomCell */,
 				FC85504A1CCF9EC50054DD4A /* JodohApp */,
 				FCC838FE1CD1DE3E008D1653 /* MyProfile */,
 				FC8550431CCF72BC0054DD4A /* Register */,
@@ -312,6 +323,7 @@
 				FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,
+				FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */,
 				FC07F8CC1CD19FC1001EC8EB /* LoginPageViewController.swift in Sources */,
 				FCC839001CD1DED6008D1653 /* MyProfileViewController.swift in Sources */,
 				FC063FF01CCDEBC70097B4C5 /* ExSlideMenuController.swift in Sources */,

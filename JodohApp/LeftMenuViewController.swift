@@ -10,12 +10,23 @@ import UIKit
 
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
     @IBOutlet weak var leftTableView: UITableView!
+    
     var mainViewController: UIViewController!
+    var menuSections:[String] = ["Home", "Login", "Register", "Search", "About Us", "T&C", "FAQ"]
+    var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
+    var hideRow : Bool = false
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
+        let headerImageView = UIImageView(frame: frame)
+        let image: UIImage = UIImage(named: "nora")!
+        headerImageView.image = image
+        leftTableView.tableHeaderView = headerImageView
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -25,34 +36,51 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return menuSections.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = leftTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = leftTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SideMenuTableViewCell
         
-        //wrong
-        if indexPath.row == 0{
-            cell.textLabel?.text = "Home"
-        }else if indexPath.row == 1{
-            cell.textLabel?.text = "Login"
-        }else if indexPath.row == 2{
-            cell.textLabel?.text = "Register"
-        }else if indexPath.row == 3{
-            cell.textLabel?.text = "Search"
-        }else if indexPath.row == 4{
-            cell.textLabel?.text = "About Us"
-        }else if indexPath.row == 5{
-            cell.textLabel?.text = "T&C"
-        }else if indexPath.row == 6{
-            cell.textLabel?.text = "FAQ"
-        }else{
-            //cell.textLabel?.text = "Page \(indexPath.row)"
-        }
-        
+        cell.menuLbl.text = menuSections[indexPath.row]
+        cell.menuIcon.image = UIImage(named: menuIcon[indexPath.row])
+                
         return cell
     }
+    
+    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 35
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
+        let label = UILabel.init(frame:CGRectMake(15, 0, tableView.frame.size.width, 50))
+        label.font = UIFont(name: "System", size: 28.0)
+        label.tintColor = UIColor.whiteColor()
+        label.textColor = UIColor.whiteColor()
+        label.backgroundColor = UIColor.clearColor()
+        
+
+        if hideRow == true{
+            let userInfo = defaults.objectForKey("userInfo") as! NSMutableDictionary
+            let greetMsg = String(format: "Hi, %@", userInfo["first_name"] as! String)
+            
+            label.text = greetMsg
+        }else{
+            label.text = "Nur Ain, 24"
+            label.textAlignment = NSTextAlignment.Center;
+        }
+        
+        view.addSubview(label)
+        //view.backgroundColor = UIColor(red: 111.0/255.0, green: 113.0/255.0, blue: 121.0/255.0, alpha: 1.0)
+        
+        return view
+    }
+
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
