@@ -4,7 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Moya.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JodohApp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -15,6 +30,11 @@
 			<false/>
 		</dict>
 		<key>SlideMenuControllerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>41D958190D66E51DBBC656430A18B681</key>
+		<key>0764B37EF1C14C391E1C786B2809087D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67C1691B16DEA9CF6AE77EE7CC2861AC</key>
+		<key>400C34F892D507BEAB07C604A3C44B0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F77358C658AC030D863ACBD580B8269</key>
+		<key>5ED29251200CC37E9B87E0FB901D3F7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C72EC9DA1897B34041EBC62B122822F</key>
+		<key>625CA37D24DB1BCD6E4536DBE4E2F718</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE84638E0600912B20D7EC67B8C928AB</key>
+		<key>7535F3629E129CD8858E2D2B8630A5DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>78C33D52F7E2D591E77871DBB03E8468</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C85D935AECB05C9449D48CD52074006C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D58CAD74411F3EA5D73A48FFB3DC29A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

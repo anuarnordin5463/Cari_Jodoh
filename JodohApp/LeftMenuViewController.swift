@@ -13,19 +13,13 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var leftTableView: UITableView!
     
     var mainViewController: UIViewController!
-    var menuSections:[String] = ["Home", "Login", "Register", "Search", "About Us", "T&C", "FAQ"]
-    var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
+    var menuSections:[String] = ["Home", "Update Profile", "Favourite", "Chat", "Search", "About Us", "T&C", "FAQ", "Setting", "Logout"]
+    var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
     var hideRow : Bool = false
     let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
-        let headerImageView = UIImageView(frame: frame)
-        let image: UIImage = UIImage(named: "nora")!
-        headerImageView.image = image
-        leftTableView.tableHeaderView = headerImageView
-        
         
         // Do any additional setup after loading the view.
     }
@@ -49,10 +43,10 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+    /*func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         
         return 35
-    }
+    }*/
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -63,14 +57,18 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         label.textColor = UIColor.whiteColor()
         label.backgroundColor = UIColor.clearColor()
         
+        let frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
+        let headerImageView = UIImageView(frame: frame)
+        let image: UIImage = UIImage(named: "nora")!
+        headerImageView.image = image
+        leftTableView.tableHeaderView = headerImageView
 
         if hideRow == true{
-            let userInfo = defaults.objectForKey("userInfo") as! NSMutableDictionary
-            let greetMsg = String(format: "Hi, %@", userInfo["first_name"] as! String)
-            
-            label.text = greetMsg
+            //let userInfo = defaults.objectForKey("userInfo") as! NSMutableDictionary
+            //let greetMsg = String(format: "Hi, %@", userInfo["first_name"] as! String)
+            //label.text = greetMsg
         }else{
-            label.text = "Nur Ain, 24"
+            label.text = "6571, 25"
             label.textAlignment = NSTextAlignment.Center;
         }
         

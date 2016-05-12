@@ -10,13 +10,15 @@ import UIKit
 import XLForm
 
 class BaseXLFormViewController: XLFormViewController {
-
+    
+    var isValidate = Bool()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +54,38 @@ class BaseXLFormViewController: XLFormViewController {
     
     func backButtonPressed(sender: UIBarButtonItem){
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func validateForm() {
+        let array = formValidationErrors()
+        
+        if array.count != 0 {
+            isValidate = false
+            for errorItem in array {
+                let error = errorItem as! NSError
+                let validationStatus : XLFormValidationStatus = error.userInfo[XLValidationStatusErrorKey] as! XLFormValidationStatus
+                
+                if validationStatus.rowDescriptor!.tag == Tags.ValidationFirstName || validationStatus.rowDescriptor!.tag == Tags.ValidationUsername || validationStatus.rowDescriptor!.tag == Tags.ValidationPassword || validationStatus.rowDescriptor!.tag == Tags.ValidationConfirmPassword {
+                    
+                    if let rowDescriptor = validationStatus.rowDescriptor, let indexPath = form.indexPathOfFormRow(rowDescriptor), let cell = tableView.cellForRowAtIndexPath(indexPath) {
+                        
+                        let textFieldAttrib = NSAttributedString.init(string: validationStatus.msg, attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
+                        
+                        cell.textLabel?.attributedText = textFieldAttrib
+                        
+                        //cell.backgroundColor = .orangeColor()
+                        //UIView.animateWithDuration(0.3, animations: { () -> Void in
+                        //    cell.backgroundColor = .whiteColor()
+                        //})
+                    }
+                }
+            }
+            
+        }else{
+            isValidate = true
+            
+        }
+        
     }
     
 }

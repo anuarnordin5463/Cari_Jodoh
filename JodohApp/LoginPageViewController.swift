@@ -10,12 +10,14 @@ import UIKit
 import SCLAlertView
 import SlideMenuControllerSwift
 import XLForm
+import SwiftyJSON
 
-class LoginPageViewController: XLFormViewController,SlideMenuControllerDelegate {
+class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setNavigationBarItem()
+        self.setNavigationBarItem()
+        //setupLeftButton()
         initializeForm()
         // Do any additional setup after loading the view.
     }
@@ -26,10 +28,54 @@ class LoginPageViewController: XLFormViewController,SlideMenuControllerDelegate 
     }
     
     @IBAction func LoginButtonPressedPass(sender: AnyObject) {
-        print("LoginButtonPressed")
-        let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
-        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
-        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+        
+        validateForm()
+        
+        if isValidate{
+            //print("correct")
+            //print(formValues())
+            let name = formValues()["Email"] as! String
+            let pass = formValues()["Password"] as! String
+            
+            JodohAppProvider.request(.Login(name,pass), completion: { (result) in
+                switch result {
+                case .Success(let successResult):
+                    do {
+                        let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                        
+                        if  json["status"].string == "success"{
+                            
+                            let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
+                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+                            self.navigationController!.pushViewController(manageFlightVC, animated: true)
+                            
+                        }else{
+                            showErrorMessage(json["error"].string!)
+                        }
+                        
+                        print(json)
+                    }
+                    catch {
+                        
+                    }
+                    
+                case .Failure(let failureResult):
+                    //print(failureResult)
+                    showErrorMessage(failureResult.nsError.localizedDescription)
+                }
+            })
+            
+        }else{
+            print("false,value can't be empty")
+        }
+        
+        //
+        
+        //JodohAppProvider.request(.Login(, completion: <#T##Completion##Completion##(result: Result<Response, Error>) -> ()#>)
+        //print(name)
+        //let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
+        //let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+        //self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
     
     @IBAction func ForgotPasswordButtonPressed(sender: AnyObject) {
@@ -76,7 +122,7 @@ class LoginPageViewController: XLFormViewController,SlideMenuControllerDelegate 
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "User ID (Email) *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
@@ -84,12 +130,11 @@ class LoginPageViewController: XLFormViewController,SlideMenuControllerDelegate 
         attrString = NSMutableAttributedString(string: "User ID (Email)")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
-        //row.cellConfigAtConfigure["textField.placeholder"] = "*Email"
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")

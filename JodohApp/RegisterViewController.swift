@@ -14,8 +14,8 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setNavigationBarItem()
-        setupLeftButton()
+        self.setNavigationBarItem()
+        //setupLeftButton()
         initializeForm()
         // Do any additional setup after loading the view.
     }
@@ -26,11 +26,26 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
     }
     
     @IBAction func registerButtonPressed(sender: AnyObject) {
-        print("RegisterButtonPressed")
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        validateForm()
+        
+        if isValidate{
+            print("correct")
+            print(formValues())
+            //let name = formValues()["Email"] as! String
+            //let pass = formValues()["Password"] as! String
+            
+            
+            
+        }else{
+            print("false,value can't be empty")
+        }
+        //print(formValues()["Name"])
+        
+        
+        //let storyboard = UIStoryboard(name: "Login", bundle: nil)
      //rename
-        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
-        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+        //let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+        //self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
     
     func initializeForm() {
@@ -50,7 +65,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationFirstName, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Username")
@@ -62,7 +77,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "E-mail")
@@ -74,7 +89,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Password")
@@ -86,7 +101,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationConfirmPassword, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Confirm Password")

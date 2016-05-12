@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-pE-w9H">
-                                            <rect key="frame" x="20" y="18" width="560" height="24"/>
+                                            <rect key="frame" x="0.0" y="18" width="570" height="24"/>
                                             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="g60-hY-Btz"/>
@@ -35,21 +35,35 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="g60-hY-Btz"/>
+                                                    <exclude reference="hW3-Gl-1Ub"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="mLy-pE-w9H" firstAttribute="leading" secondItem="KzX-k1-9G8" secondAttribute="leadingMargin" constant="12" id="5Ot-EU-yTm"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="mLy-pE-w9H" secondAttribute="trailing" constant="12" id="Rdi-BG-Uud"/>
+                                        <constraint firstAttribute="trailing" secondItem="mLy-pE-w9H" secondAttribute="trailing" id="17P-GV-Dte"/>
+                                        <constraint firstItem="mLy-pE-w9H" firstAttribute="leading" secondItem="KzX-k1-9G8" secondAttribute="leadingMargin" id="5Ot-EU-yTm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mLy-pE-w9H" secondAttribute="trailing" id="Rdi-BG-Uud"/>
+                                        <constraint firstItem="mLy-pE-w9H" firstAttribute="leading" secondItem="KzX-k1-9G8" secondAttribute="leading" id="ehZ-qz-uvs"/>
                                         <constraint firstItem="mLy-pE-w9H" firstAttribute="top" secondItem="KzX-k1-9G8" secondAttribute="topMargin" constant="10" id="smh-pN-Pro"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="5Ot-EU-yTm"/>
+                                            <exclude reference="Rdi-BG-Uud"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="p0X-KF-5qe">
                                     <rect key="frame" x="0.0" y="70" width="570" height="76"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-y6-MuA">
-                                            <rect key="frame" x="30" y="35" width="540" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-y6-MuA">
+                                            <rect key="frame" x="0.0" y="35" width="570" height="30"/>
                                             <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="LS7-yz-syz"/>
@@ -65,8 +79,8 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="BG9-y6-MuA" secondAttribute="trailing" constant="30" id="WXe-nZ-rl9"/>
-                                        <constraint firstItem="BG9-y6-MuA" firstAttribute="leading" secondItem="p0X-KF-5qe" secondAttribute="leading" constant="30" id="beu-6M-N2w"/>
+                                        <constraint firstAttribute="trailing" secondItem="BG9-y6-MuA" secondAttribute="trailing" id="WXe-nZ-rl9"/>
+                                        <constraint firstItem="BG9-y6-MuA" firstAttribute="leading" secondItem="p0X-KF-5qe" secondAttribute="leading" id="beu-6M-N2w"/>
                                         <constraint firstItem="BG9-y6-MuA" firstAttribute="top" secondItem="p0X-KF-5qe" secondAttribute="top" constant="35" id="ryJ-Id-0Wa"/>
                                     </constraints>
                                 </view>
