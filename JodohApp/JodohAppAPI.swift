@@ -25,9 +25,8 @@ private extension String {
 
 public enum JodohAppAPI {
     case Login(String, String)
+    case Register(String, String)
 }
-
-
 
 extension JodohAppAPI : TargetType {
     
@@ -50,11 +49,14 @@ extension JodohAppAPI : TargetType {
         switch self {
         case Login:
             return "api/login"
+        case Register:
+            return "api/register"
+            
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .Login:
+        case .Login, .Register:
             return .POST
         }
     }
@@ -63,8 +65,11 @@ extension JodohAppAPI : TargetType {
         switch self {
         case .Login(let username, let password):
             return ["email": username, "password" : password]
+        case .Register(let username, let password):
+            return ["email": username, "password" : password]
+            
         default:
-            return nil
+        return nil
         }
     }
     public var sampleData: NSData {

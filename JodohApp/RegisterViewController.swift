@@ -9,6 +9,8 @@
 import UIKit
 import SlideMenuControllerSwift
 import XLForm
+import SwiftyJSON
+import SCLAlertView
 
 class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
 
@@ -26,21 +28,66 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
     }
     
     @IBAction func registerButtonPressed(sender: AnyObject) {
+        
         validateForm()
         
+        if isValidate{
+            //print("correct")
+            //print(formValues())
+            
+            if formValues()[Tags.ValidationPassword]! as! String != formValues()[Tags.ValidationConfirmPassword]! as! String {
+                showErrorMessage("Confirm password incorrect")
+            }else{
+            }
+            
+            let name = formValues()["Email"] as! String
+            let pass = formValues()["Password"] as! String
+            
+            JodohAppProvider.request(.Login(name,pass), completion: { (result) in
+                switch result {
+                case .Success(let successResult):
+                    do {
+                        let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                        
+                        if  json["status"].string == "success"{
+                            
+                            let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
+                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+                            self.navigationController!.pushViewController(manageFlightVC, animated: true)
+                            
+                        }else{
+                            showErrorMessage(json["error"].string!)
+                        }
+                        
+                        print(json)
+                    }
+                    catch {
+                        
+                    }
+                    
+                case .Failure(let failureResult):
+                    //print(failureResult)
+                    showErrorMessage(failureResult.nsError.localizedDescription)
+                }
+            })
+            
+        }else{
+            print("false,value can't be empty")
+        }
+    
+        /*sblum
         if isValidate{
             print("correct")
             print(formValues())
             //let name = formValues()["Email"] as! String
             //let pass = formValues()["Password"] as! String
-            
-            
+            //let title = (formValues()[Tags.ValidationTitle]! as! XLFormOptionsObject).valueData() as! String
             
         }else{
             print("false,value can't be empty")
         }
         //print(formValues()["Name"])
-        
+        sblum*/
         
         //let storyboard = UIStoryboard(name: "Login", bundle: nil)
      //rename
@@ -64,6 +111,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         section = XLFormSectionDescriptor.formSectionWithTitle("")
         form.addFormSection(section)
         
+        /*
         // First Name/Given Name-------------------
         row = XLFormRowDescriptor(tag: Tags.ValidationFirstName, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
@@ -76,6 +124,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         section.addFormRow(row)
+        */
         
         row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"

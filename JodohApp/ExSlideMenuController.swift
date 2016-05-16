@@ -18,14 +18,9 @@ class ExSlideMenuController: SlideMenuController {
             if vc is ViewController || vc is ProfileViewController{
                 return true
             }
-            
         }
-        
         return false
     }
-    
-    
-    
 }
     
 

@@ -35,5 +35,4 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
         self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
-
 }

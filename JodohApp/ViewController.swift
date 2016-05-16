@@ -67,12 +67,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         manageFlightVC.userName = (items[indexPath.row])
         self.navigationController!.pushViewController(manageFlightVC, animated: true)
         
-        
-        
     }
-    
-    
-
 
 }
-
