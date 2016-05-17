@@ -45,9 +45,9 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                         
                         if  json["status"].string == "success"{
                             
-                            let defaults = NSUserDefaults.standardUserDefaults()
-                            defaults.setObject(json["signature"].string , forKey: "signature")
-                            defaults.setObject(json["auth_token"].string , forKey: "auth_token")
+                            let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
+                            defaults.setObject(json["signature"].string , forKey: "signature")//simpan data
+                            defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
                             
                             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
