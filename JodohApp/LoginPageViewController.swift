@@ -34,8 +34,8 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         if isValidate{
             //print("correct")
             //print(formValues())
-            let name = formValues()["Email"] as! String
-            let pass = formValues()["Password"] as! String
+            let name = formValues()[Tags.ValidationUsername] as! String
+            let pass = formValues()[Tags.ValidationPassword] as! String
             
             JodohAppProvider.request(.Login(name,pass), completion: { (result) in
                 switch result {
@@ -50,7 +50,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
                             
                         }else{
-                            showErrorMessage(json["error"].string!)
+                            showErrorMessage(json["message"].string!)
                         }
                         
                         print(json)

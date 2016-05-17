@@ -37,13 +37,13 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
             
             if formValues()[Tags.ValidationPassword]! as! String != formValues()[Tags.ValidationConfirmPassword]! as! String {
                 showErrorMessage("Confirm password incorrect")
-            }else{
             }
+            else{
+            let name = formValues()[Tags.ValidationUsername] as! String
+            let pass = formValues()[Tags.ValidationPassword] as! String
+            let confirmPass = formValues()[Tags.ValidationConfirmPassword] as! String
             
-            let name = formValues()["Email"] as! String
-            let pass = formValues()["Password"] as! String
-            
-            JodohAppProvider.request(.Login(name,pass), completion: { (result) in
+            JodohAppProvider.request(.Register(name,pass,confirmPass), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
                     do {
@@ -56,7 +56,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
                             
                         }else{
-                            showErrorMessage(json["error"].string!)
+                            showErrorMessage(json["message"].string!)
                         }
                         
                         print(json)
@@ -70,10 +70,12 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
                     showErrorMessage(failureResult.nsError.localizedDescription)
                 }
             })
+        }
             
         }else{
             print("false,value can't be empty")
         }
+            
     
         /*sblum
         if isValidate{

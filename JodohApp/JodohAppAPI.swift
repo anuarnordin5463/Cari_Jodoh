@@ -25,7 +25,7 @@ private extension String {
 
 public enum JodohAppAPI {
     case Login(String, String)
-    case Register(String, String)
+    case Register(String, String, String)
 }
 
 extension JodohAppAPI : TargetType {
@@ -65,8 +65,8 @@ extension JodohAppAPI : TargetType {
         switch self {
         case .Login(let username, let password):
             return ["email": username, "password" : password]
-        case .Register(let username, let password):
-            return ["email": username, "password" : password]
+        case .Register(let username, let password, let confirm_password):
+            return ["email": username, "password" : password, "password_confirmation" : confirm_password]
             
         default:
         return nil
