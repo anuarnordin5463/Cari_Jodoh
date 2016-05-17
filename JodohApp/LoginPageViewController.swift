@@ -45,6 +45,11 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                         
                         if  json["status"].string == "success"{
                             
+                            let defaults = NSUserDefaults.standardUserDefaults()
+                            defaults.setObject(json["signature"].string , forKey: "signature")
+                            defaults.setObject(json["auth_token"].string , forKey: "auth_token")
+                            defaults.synchronize()
+                            
                             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)

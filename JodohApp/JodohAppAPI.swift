@@ -12,7 +12,7 @@ import Moya
 let JodohAppProvider = MoyaProvider<JodohAppAPI>(endpointClosure: {
     (target: JodohAppAPI) -> Endpoint<JodohAppAPI> in
     
-    return Endpoint(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters, parameterEncoding: target.parameterEncoding)
+    return Endpoint(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters, parameterEncoding: target.parameterEncoding, httpHeaderFields: target.httpHeaderFields)
 })
 
 // MARK: - Provider support
@@ -26,6 +26,7 @@ private extension String {
 public enum JodohAppAPI {
     case Login(String, String)
     case Register(String, String, String)
+    case Update(String, String, String, String, String, String, String, String, String,String)
 }
 
 extension JodohAppAPI : TargetType {
@@ -51,22 +52,43 @@ extension JodohAppAPI : TargetType {
             return "api/login"
         case Register:
             return "api/register"
+        case Update:
+            return "api/update"
             
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .Login, .Register:
+        case .Login, .Register, .Update:
             return .POST
         }
     }
     
+    public var httpHeaderFields: [String:String]?{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let auth_token = defaults.objectForKey("auth_token"){
+            return ["Authorization" : "Bearer \(auth_token as! String)"]
+        }else{
+            return ["Authorization" : "Bearer"]
+        }
+        
+        
+    }
+    
     public var parameters: [String: AnyObject]? {
         switch self {
+            
         case .Login(let username, let password):
-            return ["email": username, "password" : password]
+        return ["email": username, "password" : password]
+            
         case .Register(let username, let password, let confirm_password):
-            return ["email": username, "password" : password, "password_confirmation" : confirm_password]
+        return ["email": username, "password" : password, "password_confirmation" : confirm_password]
+    
+        //case .Update(let signature, let userMobile, let userWeight, let userDOB, let userHeight, let userSmoke, let userState, let userTown, let userEducation, let userOccupation):
+        case .Update(let userDOB,let userMobile,let userHeight,let userWeight,let userSmoke,let userState,let userTown,let userEducation,let userOccupation,let signature):
+        //return ["signature" : signature, "userMobile" : userMobile, "userWeight" : userWeight, "userDOB" : userDOB, "userHeight" : userHeight, "userSmoke" : userSmoke, "userState" : userState, "userTown" : userTown, "userEducation" : userEducation, "userOccupation" : userOccupation]
+        //DOB,mobile,height,weight,smoker,state,town,education,occupation,signature
+        return ["userDOB" : userDOB,"userMobile" : userMobile,"userHeight" : userHeight,"userWeight" : userWeight,"userSmoke" : userSmoke,"userState" : userState,"userTown" : userTown,"userEducation" : userEducation,"userOccupation" : userOccupation,"signature" : signature]
             
         default:
         return nil
@@ -83,5 +105,5 @@ public func url(route: TargetType) -> String {
 
 
 let endpointClosure = { (target: JodohAppAPI, method: Moya.Method, parameters: [String: AnyObject]) -> Endpoint<JodohAppAPI> in
-    return Endpoint(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters, parameterEncoding: target.parameterEncoding)
+    return Endpoint(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters, parameterEncoding: target.parameterEncoding, httpHeaderFields: target.httpHeaderFields)
 }

@@ -9,6 +9,8 @@
 import UIKit
 import XLForm
 import SlideMenuControllerSwift
+import SwiftyJSON
+import SCLAlertView
 
 class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
     
@@ -36,17 +38,51 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         validateForm()
         
         if isValidate{
-            //print("correct")
-            //print(formValues())
-            //let name = formValues()["Email"] as! String
-            //let pass = formValues()["Password"] as! String
-            //let title = (formValues()[Tags.ValidationSmokerVapes]! as! XLFormOptionsObject).valueData() as! String
+            let defaults = NSUserDefaults.standardUserDefaults()
+            let signature = defaults.objectForKey("signature") as! String
+            //let name = formValues()[Tags.ValidationUsername] as! String//x gune skrng,xde dlm list,hidden blik nti masokkn autho
+            //let pass = formValues()[Tags.ValidationPassword] as! String
+            let mobile = formValues()[Tags.ValidationMobile] as! String
+            let height = formValues()[Tags.ValidationHeight] as! String
+            let weight = formValues()[Tags.ValidationWeight] as! String
+            let smoker = (formValues()[Tags.ValidationSmokerVapes] as! XLFormOptionsObject).valueData() as! String
+            let state = (formValues()[Tags.ValidationState] as! XLFormOptionsObject).valueData() as! String
+            let town = formValues()[Tags.ValidationTown] as! String
+            let education = formValues()[Tags.ValidationHighEducation] as! String
+            let occupation = formValues()[Tags.ValidationOccupation] as! String
+            let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"
             
+            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature), completion: { (result) in
+                switch result {
+                case .Success(let successResult):
+                    do {
+                        let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                        
+                        if  json["status"].string == "success"{
+                            
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+                            self.navigationController!.pushViewController(manageFlightVC, animated: true)
+                            
+                        }else{
+                            showErrorMessage(json["message"].string!)
+                        }
+                        
+                        print(json)
+                    }
+                    catch {
+                        
+                    }
+                    
+                case .Failure(let failureResult):
+                    //print(failureResult)
+                    showErrorMessage(failureResult.nsError.localizedDescription)
+                }
+            })
             
         }else{
             print("false,value can't be empty")
         }
-        
         
         //let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
@@ -99,6 +135,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationDOB, rowType: XLFormRowDescriptorTypeDate , title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Date of Birth *"
+        row.cellConfigAtConfigure["maximumDate"] = NSDate()
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Date of Birth", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
