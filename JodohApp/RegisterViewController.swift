@@ -51,8 +51,10 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
                         
                         if  json["status"].string == "success"{
                             
-                            let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
-                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+                            showInfoRegister(json["message"].string!)
+                            
+                            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
                             
                         }else{

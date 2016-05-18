@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -94,7 +93,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GBk-zj-3AX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GBk-zj-3AX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,7 +101,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emma" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-Mc-pjv">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-Mc-pjv">
                                             <rect key="frame" x="100" y="8" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="3x9-Mc-pjv" secondAttribute="height" multiplier="1:1" id="0Cj-hC-zUN"/>
@@ -125,7 +124,7 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MBT 6571, 25 TAHUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo6-G9-OpX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MBT 6571, 28 TAHUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo6-G9-OpX">
                                             <rect key="frame" x="50" y="95" width="173" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="173" id="amW-bV-Vq7"/>
@@ -358,21 +357,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Register" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaD-EM-UXF">
-                                <rect key="frame" x="20" y="255" width="115" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Register"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="26h-I9-b4f"/>
-                                    <constraint firstAttribute="width" constant="115" id="IW1-W4-4sJ"/>
-                                </constraints>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="registerButtonPressed:" destination="Ukf-0q-8Da" eventType="touchUpInside" id="dRm-iP-Nt4"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6XY-6c-TOA">
                                 <rect key="frame" x="210" y="60" width="180" height="180"/>
                                 <constraints>
@@ -380,38 +364,16 @@
                                     <constraint firstAttribute="height" constant="180" id="po0-Vg-W1N"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Log In" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiY-Yi-Uwo">
-                                <rect key="frame" x="465" y="255" width="115" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5VG-vp-KIg"/>
-                                    <constraint firstAttribute="width" constant="115" id="ubc-4W-UDR"/>
-                                </constraints>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="Ukf-0q-8Da" eventType="touchUpInside" id="38q-bg-Hw4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="HaD-EM-UXF" firstAttribute="leading" secondItem="i8O-To-q32" secondAttribute="leadingMargin" id="7CY-sx-wHk"/>
-                            <constraint firstItem="HaD-EM-UXF" firstAttribute="top" secondItem="jWb-oj-D7j" secondAttribute="bottom" constant="235" id="Nz1-KU-Yy5"/>
                             <constraint firstItem="6XY-6c-TOA" firstAttribute="top" secondItem="jWb-oj-D7j" secondAttribute="bottom" constant="40" id="exx-SM-mOg"/>
                             <constraint firstItem="6XY-6c-TOA" firstAttribute="centerX" secondItem="i8O-To-q32" secondAttribute="centerX" id="gq2-k5-fzP"/>
-                            <constraint firstAttribute="trailing" secondItem="YiY-Yi-Uwo" secondAttribute="trailing" constant="20" id="jGY-79-Ntx"/>
-                            <constraint firstItem="YiY-Yi-Uwo" firstAttribute="top" secondItem="jWb-oj-D7j" secondAttribute="bottom" constant="235" id="x4n-WY-acV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Zm8-jD-ZCd" colorLabel="IBBuiltInLabel-Red"/>
                     <connections>
                         <outlet property="img" destination="6XY-6c-TOA" id="JIf-Gt-d78"/>
-                        <outlet property="loginButton" destination="YiY-Yi-Uwo" id="Q6k-93-U5x"/>
-                        <outlet property="loginButtonPressed" destination="YiY-Yi-Uwo" id="soL-2I-QCG"/>
-                        <outlet property="registerButton" destination="HaD-EM-UXF" id="BeF-4Q-Y3u"/>
-                        <outlet property="registerButtonPressed" destination="HaD-EM-UXF" id="sZ7-b0-6wZ"/>
                         <outlet property="user2" destination="Zm8-jD-ZCd" id="uPP-wA-p9s"/>
                     </connections>
                 </viewController>
@@ -436,7 +398,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="emma" width="435" height="577"/>
         <image name="greenBubble.png" width="600" height="600"/>
         <image name="homePic" width="187" height="165"/>
     </resources>

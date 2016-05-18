@@ -17,8 +17,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var mainViewController: UIViewController!
     var menuSections:[String] = ["Home", "Update Profile", "Favourite", "Chat", "Search", "About Us", "T&C", "FAQ", "Setting", "Logout"]
     var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
+    
     var hideRow : Bool = false
-    //let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,13 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
+        userId.text = String("MBT 6571, 28 TAHUN")
+        userImage.image = UIImage(named:"mus")
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
         userImage.layer.cornerRadius = userImage.frame.height/2
         userImage.clipsToBounds = true
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

@@ -51,10 +51,12 @@ class ProfileViewController: BaseViewController, SlideMenuControllerDelegate {
         user2.title = userName
         //self.setNavigationBarItem()
         // Do any additional setup after loading the view.
-        registerButton.layer.borderWidth = 1.0
-        registerButton.layer.borderColor = UIColor.blackColor().CGColor
-        loginButton.layer.borderWidth = 1.0
-        loginButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        //registerButton.layer.borderWidth = 1.0
+        //registerButton.layer.borderColor = UIColor.blackColor().CGColor
+        //loginButton.layer.borderWidth = 1.0
+        //loginButton.layer.borderColor = UIColor.blackColor().CGColor
+        
         //img = UIImageView(frame: CGRectMake(0, 0, 100, 100))
         img.layer.borderWidth = 1
         img.layer.masksToBounds = false

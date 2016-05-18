@@ -46,4 +46,17 @@ func showErrorMessage(message : String){
     
 }
 
+func showInfoRegister(message:String){
+    
+    let infoView = SCLAlertView()
+    infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
+    
+}
+
+func showInfoLogin(message:String){
+    
+    let infoView = SCLAlertView()
+    infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
+    
+}
 
