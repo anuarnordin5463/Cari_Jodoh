@@ -11,16 +11,26 @@ import UIKit
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var leftTableView: UITableView!
+    @IBOutlet weak var userId: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
     
     var mainViewController: UIViewController!
     var menuSections:[String] = ["Home", "Update Profile", "Favourite", "Chat", "Search", "About Us", "T&C", "FAQ", "Setting", "Logout"]
     var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
     var hideRow : Bool = false
-    let defaults = NSUserDefaults.standardUserDefaults()
+    //let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //userId.text = self.items[indexPath.item]
+        //userImage.image = self.pics[indexPath.item]
+        //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
+        userImage.layer.borderWidth = 1
+        userImage.layer.masksToBounds = false
+        userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
+        userImage.layer.cornerRadius = userImage.frame.height/2
+        userImage.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     
@@ -42,43 +52,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 
         return cell
     }
-    
-    /*func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        
-        return 35
-    }*/
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let view = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
-        let label = UILabel.init(frame:CGRectMake(15, 0, tableView.frame.size.width, 50))
-        label.font = UIFont(name: "System", size: 28.0)
-        label.tintColor = UIColor.whiteColor()
-        label.textColor = UIColor.whiteColor()
-        label.backgroundColor = UIColor.clearColor()
-        
-        let frame = CGRectMake(0, 0, self.view.frame.size.width, 200)
-        let headerImageView = UIImageView(frame: frame)
-        let image: UIImage = UIImage(named: "nora")!
-        headerImageView.image = image
-        leftTableView.tableHeaderView = headerImageView
-
-        if hideRow == true{
-            //let userInfo = defaults.objectForKey("userInfo") as! NSMutableDictionary
-            //let greetMsg = String(format: "Hi, %@", userInfo["first_name"] as! String)
-            //label.text = greetMsg
-        }else{
-            label.text = "6571, 25"
-            label.textAlignment = NSTextAlignment.Center;
-        }
-        
-        view.addSubview(label)
-        //view.backgroundColor = UIColor(red: 111.0/255.0, green: 113.0/255.0, blue: 121.0/255.0, alpha: 1.0)
-        
-        return view
-    }
-
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

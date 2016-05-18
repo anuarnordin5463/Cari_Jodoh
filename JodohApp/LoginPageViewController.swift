@@ -16,6 +16,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //.layer.cornerRadius = 5
         self.setNavigationBarItem()
         //setupLeftButton()
         initializeForm()

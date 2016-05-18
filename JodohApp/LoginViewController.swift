@@ -11,8 +11,12 @@ import SlideMenuControllerSwift
 
 class LoginViewController: UIViewController, SlideMenuControllerDelegate{
 
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = 5
         self.setNavigationBarItem()
         // Do any additional setup after loading the view.
     }
