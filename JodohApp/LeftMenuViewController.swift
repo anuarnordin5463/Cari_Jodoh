@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,11 +24,12 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
         userId.text = String("MBT 6571, 28 TAHUN")
-        userImage.image = UIImage(named:"mus")
+        userImage.image = UIImage(named:"mawi")
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -73,11 +75,33 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 4{
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 5{
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 6{
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 7{
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        }else if indexPath.row == 8{
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else{
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+            SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x82EBFF)
+            defaults.setObject("", forKey: "userInfo")
+            defaults.synchronize()
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }
-        
         self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
     }
 }

@@ -240,7 +240,7 @@
             </objects>
             <point key="canvasLocation" x="1010" y="1119"/>
         </scene>
-        <!--Welcome-->
+        <!--Cari Jodoh-->
         <scene sceneID="gs5-QZ-pYL">
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="qFT-fc-Tuv" customClass="LoginViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -335,7 +335,7 @@
                             <constraint firstItem="Yp2-Rn-Eld" firstAttribute="top" secondItem="rBF-Zl-4MZ" secondAttribute="bottom" id="bTh-sJ-Szg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome" id="a6k-5x-a2P"/>
+                    <navigationItem key="navigationItem" title="Cari Jodoh" id="a6k-5x-a2P"/>
                     <connections>
                         <outlet property="loginButton" destination="jFr-YT-TiD" id="Pc9-aD-Ijo"/>
                         <outlet property="registerButton" destination="kMD-v1-fd1" id="LH0-dO-JlC"/>

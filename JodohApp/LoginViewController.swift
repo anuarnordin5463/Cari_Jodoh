@@ -18,9 +18,17 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         registerButton.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
         self.setNavigationBarItem()
+        //self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "CaviarDreams", size: 20)!]
+        //self.navigationController?.navigationBarHidden =  false
+        self.title = "Cari Jodoh"
+        //Set Color
+        //let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        //self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        //Set Font Size
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ALHAMBRA", size: 15.0)!];
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

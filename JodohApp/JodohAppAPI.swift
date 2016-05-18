@@ -65,7 +65,7 @@ extension JodohAppAPI : TargetType {
     }
     
     public var httpHeaderFields: [String:String]?{
-        let defaults = NSUserDefaults.standardUserDefaults()
+        
         if let auth_token = defaults.objectForKey("auth_token"){
             return ["Authorization" : "Bearer \(auth_token as! String)"]
         }else{

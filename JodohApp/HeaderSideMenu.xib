@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderSideMenu" customModule="JodohApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rj-kr-24P" customClass="HeaderSideMenu" customModule="JodohApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zis-RE-6s2">
+                            <rect key="frame" x="8" y="8" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="K9R-al-joX"/>
+                                <constraint firstAttribute="width" constant="42" id="m2S-o9-JlM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Zis-RE-6s2" firstAttribute="top" secondItem="1rj-kr-24P" secondAttribute="top" constant="8" id="DAf-3f-A8t"/>
+                        <constraint firstItem="Zis-RE-6s2" firstAttribute="leading" secondItem="1rj-kr-24P" secondAttribute="leading" constant="8" id="VmV-wF-5YP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1rj-kr-24P" secondAttribute="trailing" id="GRc-wn-k1Z"/>
+                <constraint firstItem="1rj-kr-24P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HSb-Nh-b1H"/>
+                <constraint firstAttribute="bottom" secondItem="1rj-kr-24P" secondAttribute="bottom" id="mVK-eb-K9i"/>
+                <constraint firstItem="1rj-kr-24P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pEB-en-q5I"/>
+            </constraints>
+            <connections>
+                <outlet property="labelTest" destination="Zis-RE-6s2" id="a3o-eh-k3d"/>
+                <outlet property="testLabel" destination="1rj-kr-24P" id="gNR-8H-nPp"/>
+            </connections>
+            <point key="canvasLocation" x="415" y="264"/>
+        </view>
+    </objects>
+</document>

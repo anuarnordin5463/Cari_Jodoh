@@ -9,9 +9,8 @@
 import UIKit
 import SCLAlertView
 
-class Constant: NSObject {
+let defaults = NSUserDefaults.standardUserDefaults()
 
-}
 internal struct Tags {
     static let ValidationUsername = "Email"
     static let ValidationPassword = "Password"
@@ -59,4 +58,5 @@ func showInfoLogin(message:String){
     infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
     
 }
+
 
