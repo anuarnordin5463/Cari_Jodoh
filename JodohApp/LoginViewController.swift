@@ -22,10 +22,8 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         //self.navigationController?.navigationBarHidden =  false
         self.title = "Cari Jodoh"
         //Set Color
-        //let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
-        //self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
         //Set Font Size
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ALHAMBRA", size: 15.0)!];
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ALHAMBRA", size: 25.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
         // Do any additional setup after loading the view.
     }
     
