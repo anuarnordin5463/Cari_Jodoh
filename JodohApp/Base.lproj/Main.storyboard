@@ -286,7 +286,7 @@
                                         </variation>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMD-v1-fd1">
-                                        <rect key="frame" x="20" y="393" width="548" height="40"/>
+                                        <rect key="frame" x="20" y="393" width="560" height="40"/>
                                         <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="My3-cI-wA9"/>
@@ -310,7 +310,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-YT-TiD">
-                                        <rect key="frame" x="20" y="338" width="548" height="40"/>
+                                        <rect key="frame" x="20" y="338" width="560" height="40"/>
                                         <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="P1x-aN-7nJ"/>
@@ -350,8 +350,8 @@
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="top" secondItem="jFr-YT-TiD" secondAttribute="bottom" constant="15" id="bfE-gi-Ap4"/>
                                     <constraint firstAttribute="trailing" secondItem="kMD-v1-fd1" secondAttribute="trailing" constant="20" id="csm-K6-cpJ"/>
                                     <constraint firstItem="77J-pu-6af" firstAttribute="top" secondItem="nAo-cE-vKm" secondAttribute="bottom" constant="30" id="f1C-Xi-65y"/>
-                                    <constraint firstAttribute="trailing" secondItem="jFr-YT-TiD" secondAttribute="trailing" constant="32" id="hhX-zF-MOw"/>
-                                    <constraint firstAttribute="trailing" secondItem="kMD-v1-fd1" secondAttribute="trailing" constant="32" id="idQ-a8-B4P"/>
+                                    <constraint firstAttribute="trailing" secondItem="jFr-YT-TiD" secondAttribute="trailing" constant="20" id="hhX-zF-MOw"/>
+                                    <constraint firstAttribute="trailing" secondItem="kMD-v1-fd1" secondAttribute="trailing" constant="20" id="idQ-a8-B4P"/>
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="leading" secondItem="rBF-Zl-4MZ" secondAttribute="leading" constant="20" id="jqF-6A-v3R"/>
                                     <constraint firstItem="jFr-YT-TiD" firstAttribute="top" secondItem="77J-pu-6af" secondAttribute="bottom" constant="30" id="ule-x8-ilU"/>
                                     <constraint firstAttribute="trailing" secondItem="nAo-cE-vKm" secondAttribute="trailing" constant="20" id="xpB-wy-OW8"/>
