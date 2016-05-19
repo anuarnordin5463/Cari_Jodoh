@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  JodohApp
-//  test2
+//  test
 //  Created by Nazri Hussein on 4/21/16.
 //  Copyright © 2016 intern. All rights reserved.
 //
