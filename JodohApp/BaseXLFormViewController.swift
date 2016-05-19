@@ -13,6 +13,7 @@ class BaseXLFormViewController: XLFormViewController {
     
     var isValidate = Bool()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +42,6 @@ class BaseXLFormViewController: XLFormViewController {
         let backButton = UIBarButtonItem(image: image2, style: .Plain, target: self, action: #selector(BaseXLFormViewController.backButtonPressed(_:)))
         backButton.imageInsets = UIEdgeInsetsMake(0, -35, 0, 0)
         
-        
         let buttons:[UIBarButtonItem] = [menuButton, backButton];
         tools.setItems(buttons, animated: false)
         
@@ -54,6 +54,7 @@ class BaseXLFormViewController: XLFormViewController {
     
     func backButtonPressed(sender: UIBarButtonItem){
         self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     func validateForm() {

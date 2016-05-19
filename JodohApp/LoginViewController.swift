@@ -10,13 +10,18 @@ import UIKit
 import SlideMenuControllerSwift
 
 class LoginViewController: UIViewController, SlideMenuControllerDelegate{
-
+    
+    @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         registerButton.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
+        greetingLabel.layer.cornerRadius = 5
+        greetingLabel.layer.masksToBounds = true
+        //greetingLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        //greetingLabel.numberOfLines = 2
         self.setNavigationBarItem()
         //self.navigationController?.navigationBarHidden =  false
         self.title = "Cari Jodoh"

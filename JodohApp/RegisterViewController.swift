@@ -17,8 +17,12 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
-        //setupLeftButton()
+        setupLeftButton()
         initializeForm()
+        self.title = "DAFTAR BARU"
+        //Set Color
+        //Set Font Size
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 25.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
         // Do any additional setup after loading the view.
     }
     
