@@ -18,7 +18,6 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         registerButton.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
         self.setNavigationBarItem()
-        //self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "CaviarDreams", size: 20)!]
         //self.navigationController?.navigationBarHidden =  false
         self.title = "Cari Jodoh"
         //Set Color

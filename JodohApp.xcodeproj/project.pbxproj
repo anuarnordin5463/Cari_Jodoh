@@ -22,6 +22,7 @@
 		FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550481CCF9A280054DD4A /* Login.storyboard */; };
 		FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */; };
 		FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */; };
+		FCAAA9F11CED3C4B000FE3F3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */; };
 		FCB26C071CEC46C70006F23D /* HeaderSideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB26C061CEC46C70006F23D /* HeaderSideMenu.xib */; };
 		FCB26C091CEC48D10006F23D /* HeaderSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB26C081CEC48D10006F23D /* HeaderSideMenu.swift */; };
 		FCB26C0B1CEC6EB70006F23D /* ALHAMBRA.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FCB26C0A1CEC6EB70006F23D /* ALHAMBRA.TTF */; };
@@ -55,6 +56,7 @@
 		FC8550481CCF9A280054DD4A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		FCB26C061CEC46C70006F23D /* HeaderSideMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderSideMenu.xib; sourceTree = "<group>"; };
 		FCB26C081CEC48D10006F23D /* HeaderSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderSideMenu.swift; sourceTree = "<group>"; };
 		FCB26C0A1CEC6EB70006F23D /* ALHAMBRA.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ALHAMBRA.TTF; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB26C0A1CEC6EB70006F23D /* ALHAMBRA.TTF */,
+				FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */,
 				FCFA85CF1CC86FAF000F9B3B /* Info.plist */,
 				FCFA85CA1CC86FAF000F9B3B /* Assets.xcassets */,
 				FCFA85CC1CC86FAF000F9B3B /* LaunchScreen.storyboard */,
@@ -305,6 +308,7 @@
 			files = (
 				FCFA85CE1CC86FAF000F9B3B /* LaunchScreen.storyboard in Resources */,
 				FCB26C0B1CEC6EB70006F23D /* ALHAMBRA.TTF in Resources */,
+				FCAAA9F11CED3C4B000FE3F3 /* Roboto-Regular.ttf in Resources */,
 				FCFA85CB1CC86FAF000F9B3B /* Assets.xcassets in Resources */,
 				FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */,
 				FCFA85C91CC86FAF000F9B3B /* Main.storyboard in Resources */,
