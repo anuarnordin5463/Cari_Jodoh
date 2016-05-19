@@ -1,6 +1,6 @@
 //
 //  LeftMenuViewController.swift
-//  JodohApp
+//  JodohApps
 //
 //  Created by Nazri Hussein on 4/25/16.
 //  Copyright © 2016 intern. All rights reserved.
