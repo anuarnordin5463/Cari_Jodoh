@@ -14,12 +14,15 @@ import SwiftyJSON
 
 class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDelegate {
 
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //.layer.cornerRadius = 5
         self.setNavigationBarItem()
         setupLeftButton()
         initializeForm()
+        registerButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = 5
         self.title = "LOG MASUK"
         //Set Color
         //Set Font Size
@@ -139,7 +142,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
-        attrString = NSMutableAttributedString(string: "User ID (Email)")
+        attrString = NSMutableAttributedString(string: "Emel")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -151,7 +154,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
-        attrString = NSMutableAttributedString(string: "Password")
+        attrString = NSMutableAttributedString(string: "Kata Laluan")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)

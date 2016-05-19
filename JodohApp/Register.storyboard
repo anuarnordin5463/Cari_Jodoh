@@ -3,8 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Register View Controller-->
         <scene sceneID="aAh-Pl-ewx">
@@ -19,58 +23,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EF8-ta-dS4">
-                                <rect key="frame" x="15" y="0.0" width="570" height="600"/>
+                                <rect key="frame" x="15" y="40" width="570" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="KzX-k1-9G8">
-                                    <rect key="frame" x="0.0" y="0.0" width="570" height="70"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-pE-w9H">
-                                            <rect key="frame" x="0.0" y="18" width="570" height="24"/>
-                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="g60-hY-Btz"/>
-                                                <constraint firstAttribute="width" constant="560" id="hW3-Gl-1Ub"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="g60-hY-Btz"/>
-                                                    <exclude reference="hW3-Gl-1Ub"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="mLy-pE-w9H" secondAttribute="trailing" id="17P-GV-Dte"/>
-                                        <constraint firstItem="mLy-pE-w9H" firstAttribute="leading" secondItem="KzX-k1-9G8" secondAttribute="leadingMargin" id="5Ot-EU-yTm"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="mLy-pE-w9H" secondAttribute="trailing" id="Rdi-BG-Uud"/>
-                                        <constraint firstItem="mLy-pE-w9H" firstAttribute="leading" secondItem="KzX-k1-9G8" secondAttribute="leading" id="ehZ-qz-uvs"/>
-                                        <constraint firstItem="mLy-pE-w9H" firstAttribute="top" secondItem="KzX-k1-9G8" secondAttribute="topMargin" constant="10" id="smh-pN-Pro"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="5Ot-EU-yTm"/>
-                                            <exclude reference="Rdi-BG-Uud"/>
-                                        </mask>
-                                    </variation>
-                                </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="p0X-KF-5qe">
-                                    <rect key="frame" x="0.0" y="70" width="570" height="76"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="570" height="76"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-y6-MuA">
-                                            <rect key="frame" x="0.0" y="35" width="570" height="30"/>
+                                            <rect key="frame" x="0.0" y="35" width="570" height="40"/>
                                             <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="LS7-yz-syz"/>
+                                                <constraint firstAttribute="height" constant="40" id="LS7-yz-syz"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" title="REGISTER">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                            <state key="normal" title="DAFTAR BARU">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="registerButtonPressed:" destination="ciC-3U-Ruh" eventType="touchUpInside" id="TuQ-f4-YMK"/>
@@ -88,12 +55,13 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EF8-ta-dS4" secondAttribute="trailing" constant="15" id="J1I-xb-ZXu"/>
-                            <constraint firstItem="EF8-ta-dS4" firstAttribute="top" secondItem="5bL-XT-AZT" secondAttribute="top" id="R8H-RN-KE7"/>
+                            <constraint firstItem="EF8-ta-dS4" firstAttribute="top" secondItem="5bL-XT-AZT" secondAttribute="top" constant="40" id="R8H-RN-KE7"/>
                             <constraint firstItem="EF8-ta-dS4" firstAttribute="leading" secondItem="5bL-XT-AZT" secondAttribute="leading" constant="15" id="hJa-7g-hJh"/>
                             <constraint firstItem="woh-Tv-X4W" firstAttribute="top" secondItem="EF8-ta-dS4" secondAttribute="bottom" id="nQx-OJ-6sH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="registerButton" destination="BG9-y6-MuA" id="LoF-BG-aOz"/>
                         <outlet property="tableView" destination="EF8-ta-dS4" id="UhY-6o-eJe"/>
                     </connections>
                 </viewController>

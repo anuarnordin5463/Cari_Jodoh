@@ -14,12 +14,14 @@ import SCLAlertView
 
 class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
 
+    @IBOutlet weak var registerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
         setupLeftButton()
         initializeForm()
-        self.title = "DAFTAR BARU"
+        registerButton.layer.cornerRadius = 5
+        self.title = "DAFTAR AKAUN"
         //Set Color
         //Set Font Size
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 25.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
@@ -137,7 +139,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "E-mail")
+        attrString = NSMutableAttributedString(string: "Emel")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -149,7 +151,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "Password")
+        attrString = NSMutableAttributedString(string: "Kata Laluan")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -161,7 +163,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row = XLFormRowDescriptor(tag: Tags.ValidationConfirmPassword, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "Confirm Password")
+        attrString = NSMutableAttributedString(string: "Sah Kata Laluan")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
