@@ -54,15 +54,22 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                         if  json["status"].string == "success"{
                             
                             showInfoLogin(json["message"].string!)
-                            
-                            let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
+                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                            //let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
                             defaults.setObject(json["signature"].string , forKey: "signature")//simpan data
                             defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
+                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             
                             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
+                            
+                            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
+                            //manageFlightVC.imgName = UIImage()
+                            manageFlightVC.userName = "test"
+                            self.navigationController!.pushViewController(manageFlightVC, animated: true)*/
                             
                         }else{
                             showErrorMessage(json["message"].string!)

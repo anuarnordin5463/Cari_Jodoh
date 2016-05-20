@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
         
+        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
         // Override point for customization after application launch.
         return true
     }

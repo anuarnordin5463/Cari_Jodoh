@@ -16,24 +16,30 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var userImage: UIImageView!
     
     var mainViewController: UIViewController!
-    var menuSections:[String] = ["Home", "Update Profile", "Favourite", "Chat", "Search", "About Us", "T&C", "FAQ", "Setting", "Logout"]
-    var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
-    
+    var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
+    var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
+    //var imgName = UIImage()---
+    //var userName = String()---
     var hideRow : Bool = false
-    
+    let signature = defaults.objectForKey("signature")
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
-        userId.text = String("MBT 6571, 28 TAHUN")
-        userImage.image = UIImage(named:"mawi")
+        userId.text = signature as? String
+        //defaults.objectForKey("auth_token")
+        //userId.text = userName---
+        userImage.image = UIImage(named:"homePic")
+        //userImage.image = imgName---
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
         userImage.layer.cornerRadius = userImage.frame.height/2
         userImage.clipsToBounds = true
+        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,10 +54,9 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = leftTableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SideMenuTableViewCell
-        
         cell.menuLbl.text = menuSections[indexPath.row]
         cell.menuIcon.image = UIImage(named: menuIcon[indexPath.row])
-                
+        //self.leftTableView.reloadData()
         return cell
     }
     
@@ -90,14 +95,12 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-        }else if indexPath.row == 8{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else{
             SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x82EBFF)
-            defaults.setObject("", forKey: "userInfo")
+            defaults.setObject("", forKey: "signature")
+            defaults.setObject("", forKey: "auth_token")
             defaults.synchronize()
+            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }

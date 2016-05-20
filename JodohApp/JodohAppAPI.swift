@@ -71,24 +71,32 @@ extension JodohAppAPI : TargetType {
         }else{
             return ["Authorization" : "Bearer"]
         }
-        
-        
     }
     
     public var parameters: [String: AnyObject]? {
         switch self {
             
         case .Login(let username, let password):
-        return ["email": username, "password" : password]
+        return ["email": username,
+                "password" : password]
             
         case .Register(let username, let password, let confirm_password):
-        return ["email": username, "password" : password, "password_confirmation" : confirm_password]
+        return ["email": username,
+                "password" : password,
+                "password_confirmation" : confirm_password]
     
-        //case .Update(let signature, let userMobile, let userWeight, let userDOB, let userHeight, let userSmoke, let userState, let userTown, let userEducation, let userOccupation):
         case .Update(let userDOB,let userMobile,let userHeight,let userWeight,let userSmoke,let userState,let userTown,let userEducation,let userOccupation,let signature):
-        //return ["signature" : signature, "userMobile" : userMobile, "userWeight" : userWeight, "userDOB" : userDOB, "userHeight" : userHeight, "userSmoke" : userSmoke, "userState" : userState, "userTown" : userTown, "userEducation" : userEducation, "userOccupation" : userOccupation]
-        //DOB,mobile,height,weight,smoker,state,town,education,occupation,signature
-        return ["userDOB" : userDOB,"userMobile" : userMobile,"userHeight" : userHeight,"userWeight" : userWeight,"userSmoke" : userSmoke,"userState" : userState,"userTown" : userTown,"userEducation" : userEducation,"userOccupation" : userOccupation,"signature" : signature]
+
+        return ["userDOB" : userDOB,
+                "userMobile" : userMobile,
+                "userHeight" : userHeight,
+                "userWeight" : userWeight,
+                "userSmoke" : userSmoke,
+                "userState" : userState,
+                "userTown" : userTown,
+                "userEducation" : userEducation,
+                "userOccupation" : userOccupation,
+                "signature" : signature]
             
         default:
         return nil

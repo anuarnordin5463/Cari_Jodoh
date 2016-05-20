@@ -11,6 +11,7 @@ pod 'TPKeyboardAvoiding', '~> 1.2.3'
 pod 'Alamofire', '~> 3.0'
 pod 'SwiftyJSON', '~> 2.3'
 pod 'Moya', '~> 5.0'
+pod 'Eureka', '~> 1.5'
 
 end
 
