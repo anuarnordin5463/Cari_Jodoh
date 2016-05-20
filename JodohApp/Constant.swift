@@ -42,21 +42,20 @@ func showErrorMessage(message : String){
     
     let errorView = SCLAlertView()
     errorView.showError("Error!", subTitle:message, colorStyle: 0x82EBFF, closeButtonTitle : "Close")
-    
 }
 
 func showInfoRegister(message:String){
     
     let infoView = SCLAlertView()
     infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
-    
 }
 
 func showInfoLogin(message:String){
     
     let infoView = SCLAlertView()
     infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
-    
 }
+
+
 
 

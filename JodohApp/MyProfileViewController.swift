@@ -12,20 +12,60 @@ import SlideMenuControllerSwift
 import SwiftyJSON
 import SCLAlertView
 
-class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
+class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        submitButton.layer.cornerRadius = 5
-        //submitButton.frame = CGRectMake(0, 0, 0, 45) // (x, y, width, height)
-        
         self.setNavigationBarItem()
         initializeForm()
-        //continueBtn.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
+        submitButton.layer.cornerRadius = 5
+        userImage.image = UIImage(named:"homePic")
+        //userImage.image = imgName---
+        userImage.layer.borderWidth = 1
+        userImage.layer.masksToBounds = false
+        userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
+        userImage.layer.cornerRadius = userImage.frame.height/2
+        userImage.clipsToBounds = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(MyProfileViewController.imageTapped(_:)))
+        userImage.userInteractionEnabled = true
+        userImage.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func imageTapped(img: AnyObject)
+    {
+        print("image tapped")
+        showSelection()
+    }
+    func showSelection(){
+        
+        let infoView = SCLAlertView()
+        infoView.addButton("Camera") {
+            self.camera()
+        }
+        infoView.addButton("Photo Library") {
+            self.photoLibrary()
+        }
+        infoView.showInfo("Info", subTitle: "Choose picture using:", closeButtonTitle: "Cancel", colorStyle: 0x82EBFF)
+    }
+    
+    func photoLibrary()
+    {
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(myPickerController, animated: true, completion: nil)
+    }
+    
+    func camera()
+    {
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(myPickerController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

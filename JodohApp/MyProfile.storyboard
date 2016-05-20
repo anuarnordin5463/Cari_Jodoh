@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--My Profile View Controller-->
         <scene sceneID="oVz-it-3wX">
@@ -22,32 +27,51 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDk-bg-trC">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="980"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1030"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKq-bZ-9nu">
-                                                <rect key="frame" x="266" y="10" width="67" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KEMASKINI PROFIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKq-bZ-9nu">
+                                                <rect key="frame" x="220" y="10" width="160" height="21"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="67" id="xHT-ok-fa0"/>
+                                                    <constraint firstAttribute="width" constant="160" id="xHT-ok-fa0"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-Dd-bof">
-                                                <rect key="frame" x="15" y="56" width="570" height="924"/>
+                                                <rect key="frame" x="15" y="56" width="570" height="974"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3000" id="IEB-LA-vOA"/>
                                                 </constraints>
                                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
+                                                <view key="tableHeaderView" contentMode="scaleToFill" id="HZg-Ht-K1c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="130"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-Kb-xoB">
+                                                            <rect key="frame" x="235" y="0.0" width="100" height="100"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="LeH-DT-tDp"/>
+                                                                <constraint firstAttribute="height" constant="100" id="gJV-Ml-X8I"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="b2X-Kb-xoB" firstAttribute="centerX" secondItem="HZg-Ht-K1c" secondAttribute="centerX" id="GFM-YZ-EDx"/>
+                                                        <constraint firstItem="b2X-Kb-xoB" firstAttribute="top" secondItem="HZg-Ht-K1c" secondAttribute="top" id="K8y-h4-Qln"/>
+                                                    </constraints>
+                                                </view>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="Za3-OM-V2T">
-                                                    <rect key="frame" x="0.0" y="0.0" width="570" height="45"/>
+                                                    <rect key="frame" x="0.0" y="130" width="570" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvT-hM-tqH">
-                                                            <rect key="frame" x="10" y="16" width="550" height="30"/>
+                                                            <rect key="frame" x="10" y="15" width="550" height="31"/>
                                                             <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <state key="normal" title="SUBMIT">
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                                            <state key="normal" title="HANTAR">
                                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
@@ -75,7 +99,7 @@
                                             <constraint firstItem="FKq-bZ-9nu" firstAttribute="centerX" secondItem="wDk-bg-trC" secondAttribute="centerX" id="C0M-ig-Ban"/>
                                             <constraint firstItem="tJY-Dd-bof" firstAttribute="top" secondItem="FKq-bZ-9nu" secondAttribute="bottom" constant="25" id="Cg3-79-b9E"/>
                                             <constraint firstAttribute="trailing" secondItem="tJY-Dd-bof" secondAttribute="trailing" constant="15" id="ME9-zm-Mvx"/>
-                                            <constraint firstAttribute="height" constant="980" id="PNR-dW-Kbr"/>
+                                            <constraint firstAttribute="height" constant="1030" id="PNR-dW-Kbr"/>
                                             <constraint firstItem="tJY-Dd-bof" firstAttribute="top" secondItem="wDk-bg-trC" secondAttribute="top" id="Ya3-0p-cq1"/>
                                             <constraint firstAttribute="bottom" secondItem="tJY-Dd-bof" secondAttribute="bottom" id="fSv-x0-OEY"/>
                                             <constraint firstItem="tJY-Dd-bof" firstAttribute="leading" secondItem="wDk-bg-trC" secondAttribute="leading" constant="15" id="fjH-QJ-hEE"/>
@@ -107,6 +131,7 @@
                     <connections>
                         <outlet property="submitButton" destination="TvT-hM-tqH" id="U85-O1-8J2"/>
                         <outlet property="tableView" destination="tJY-Dd-bof" id="UxS-Cv-Tq8"/>
+                        <outlet property="userImage" destination="b2X-Kb-xoB" id="WsI-Yf-vVo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtG-Bt-SUu" userLabel="First Responder" sceneMemberID="firstResponder"/>

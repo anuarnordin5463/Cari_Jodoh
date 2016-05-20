@@ -68,12 +68,12 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 1{
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+            let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 2{
-            let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
+            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 3{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
