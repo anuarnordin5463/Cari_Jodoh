@@ -17,14 +17,16 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     
+    let myPickerController = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setNavigationBarItem()
         initializeForm()
         submitButton.layer.cornerRadius = 5
-        userImage.image = UIImage(named:"homePic")
-        //userImage.image = imgName---
+        //userImage.image = UIImage(named:"homePic")
+        userImage.image = myPickerController.delegate as? UIImage
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -37,7 +39,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     
     func imageTapped(img: AnyObject)
     {
-        print("image tapped")
+        //print("image tapped")
         showSelection()
     }
     func showSelection(){
@@ -54,7 +56,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     
     func photoLibrary()
     {
-        let myPickerController = UIImagePickerController()
+        
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(myPickerController, animated: true, completion: nil)
@@ -62,10 +64,24 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     
     func camera()
     {
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self;
-        myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(myPickerController, animated: true, completion: nil)
+        //myPickerController.delegate = self;
+        //myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        //self.presentViewController(myPickerController, animated: true, completion: nil)
+        
+            if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
+                myPickerController.delegate = self;
+                myPickerController.sourceType = UIImagePickerControllerSourceType.Camera
+                self.presentViewController(myPickerController, animated: true, completion: nil)
+            } else {
+                self.noCamera()
+            }
+        }
+
+    func noCamera(){
+        let alertVC = UIAlertController(title: "No Camera",message: "Sorry, this device has no camera",preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK",style:.Default,handler: nil)
+        alertVC.addAction(okAction)
+        presentViewController(alertVC,animated: true,completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
