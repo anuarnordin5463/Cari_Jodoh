@@ -41,7 +41,7 @@ extension JodohAppAPI : TargetType {
     
     var base: String {
         //return kStageURL
-        return "http://192.168.0.124/fly/public/"
+        return "http://192.168.0.139:8012/fly/public/"
     }
     
     public var baseURL: NSURL { return NSURL(string: base)! }

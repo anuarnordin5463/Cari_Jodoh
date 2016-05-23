@@ -29,8 +29,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDk-bg-trC">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="1030"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KEMASKINI PROFIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKq-bZ-9nu">
-                                                <rect key="frame" x="220" y="10" width="160" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKq-bZ-9nu">
+                                                <rect key="frame" x="220" y="10" width="160" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="xHT-ok-fa0"/>
                                                 </constraints>
@@ -39,7 +39,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-Dd-bof">
-                                                <rect key="frame" x="15" y="56" width="570" height="974"/>
+                                                <rect key="frame" x="15" y="35" width="570" height="995"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3000" id="IEB-LA-vOA"/>
@@ -49,7 +49,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="570" height="130"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-Kb-xoB">
+                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePic" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-Kb-xoB">
                                                             <rect key="frame" x="235" y="0.0" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="LeH-DT-tDp"/>
@@ -180,4 +180,7 @@
             <point key="canvasLocation" x="1657" y="209"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homePic" width="187" height="165"/>
+    </resources>
 </document>

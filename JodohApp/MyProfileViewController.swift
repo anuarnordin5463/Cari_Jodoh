@@ -30,8 +30,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
-        
-        self.setNavigationBarItem()
+        setupLeftButton()
+        //self.setNavigationBarItem()
         initializeForm()
         submitButton.layer.cornerRadius = 5
         //userImage.image = UIImage(named:"homePic")
@@ -44,6 +44,13 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(MyProfileViewController.imageTapped(_:)))
         userImage.userInteractionEnabled = true
         userImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        self.title = "KEMASKINI PROFIL"
+        //Set Color
+        //Set Font Size
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
+        
+        // Do any additional setup after loading the view.
     }
     
     func refreshSideMenu(notif:NSNotificationCenter){

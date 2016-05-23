@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D733018AA20F852236A9713D'
+               BlueprintIdentifier = 'B80E347C1E6DE3715AC2D7B1'
                BlueprintName = 'Pods-JodohApp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_JodohApp.framework'>

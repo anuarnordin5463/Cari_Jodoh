@@ -249,7 +249,7 @@
             </objects>
             <point key="canvasLocation" x="1010" y="1119"/>
         </scene>
-        <!--Cari Jodoh-->
+        <!--Login View Controller-->
         <scene sceneID="gs5-QZ-pYL">
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="qFT-fc-Tuv" customClass="LoginViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -274,7 +274,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLuv" translatesAutoresizingMaskIntoConstraints="NO" id="77J-pu-6af">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cariJodoh" translatesAutoresizingMaskIntoConstraints="NO" id="77J-pu-6af">
                                         <rect key="frame" x="207" y="140" width="187" height="168"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="77J-pu-6af" secondAttribute="height" multiplier="68:61" id="DgD-Ta-bNI"/>
@@ -382,7 +382,7 @@
                             <constraint firstItem="Yp2-Rn-Eld" firstAttribute="top" secondItem="rBF-Zl-4MZ" secondAttribute="bottom" id="bTh-sJ-Szg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cari Jodoh" id="a6k-5x-a2P"/>
+                    <navigationItem key="navigationItem" id="a6k-5x-a2P"/>
                     <connections>
                         <outlet property="greetingLabel" destination="nAo-cE-vKm" id="7Q8-QY-bP8"/>
                         <outlet property="loginButton" destination="jFr-YT-TiD" id="Pc9-aD-Ijo"/>
@@ -446,8 +446,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cariJodoh" width="262" height="174"/>
         <image name="greenBubble.png" width="600" height="600"/>
         <image name="homePic" width="187" height="165"/>
-        <image name="logoLuv" width="116" height="97"/>
     </resources>
 </document>
