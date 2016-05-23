@@ -21,17 +21,19 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     //var imgName = UIImage()---
     //var userName = String()---
     var hideRow : Bool = false
+    var image: UIImage!
     let signature = defaults.objectForKey("signature")
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
         userId.text = signature as? String
         //defaults.objectForKey("auth_token")
         //userId.text = userName---
-        userImage.image = UIImage(named:"homePic")
+        userImage.image = image
         //userImage.image = imgName---
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
@@ -45,6 +47,19 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refreshSideMenu(notif:NSNotificationCenter){
+        hideRow = true
+        self.leftTableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if (indexPath.row == 1 && hideRow == false) || (indexPath.row == 6 && hideRow == true) || (indexPath.row == 2 && hideRow == true) || (indexPath.row == 3 && hideRow == true){
+            return 0.0
+        }else {
+            return 48
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

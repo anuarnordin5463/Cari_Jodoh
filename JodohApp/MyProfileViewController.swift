@@ -16,17 +16,26 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
-    
+    var image: UIImage!
     let myPickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (image != nil) {
+            userImage.image = image
+            
+        } else {
+            print("image was null")
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
+        
         self.setNavigationBarItem()
         initializeForm()
         submitButton.layer.cornerRadius = 5
         //userImage.image = UIImage(named:"homePic")
-        userImage.image = myPickerController.delegate as? UIImage
+        //userImage.image = myPickerController.delegate as? UIImage
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -35,6 +44,12 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(MyProfileViewController.imageTapped(_:)))
         userImage.userInteractionEnabled = true
         userImage.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func refreshSideMenu(notif:NSNotificationCenter){
+        //hideRow = true
+        //self.leftMenuTableView.reloadData()
+        print("lol")
     }
     
     func imageTapped(img: AnyObject)
@@ -60,6 +75,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(myPickerController, animated: true, completion: nil)
+        //NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
     }
     
     func camera()
@@ -82,6 +98,18 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let okAction = UIAlertAction(title: "OK",style:.Default,handler: nil)
         alertVC.addAction(okAction)
         presentViewController(alertVC,animated: true,completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
+        let saveImageViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+        saveImageViewController.image = image
+        self.navigationController!.pushViewController(saveImageViewController, animated: true)
+        dismissViewControllerAnimated(true, completion: nil)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -175,6 +203,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
+        //row.value = "test"
         section.addFormRow(row)
         
         // Selector Push

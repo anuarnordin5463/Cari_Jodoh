@@ -14,6 +14,7 @@
 		FC07F8CC1CD19FC1001EC8EB /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC07F8CB1CD19FC1001EC8EB /* LoginPageViewController.swift */; };
 		FC087DE51CE4126400236694 /* JodohAppAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC087DE41CE4126400236694 /* JodohAppAPI.swift */; };
 		FC087DE71CE42AE100236694 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC087DE61CE42AE100236694 /* Constant.swift */; };
+		FC0B190D1CF2BB5700449FEE /* SaveImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B190C1CF2BB5700449FEE /* SaveImageViewController.swift */; };
 		FC1CFEF61CE2C9FF006B508C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */; };
 		FC1CFEF81CE2D37E006B508C /* BaseXLFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */; };
 		FC1CFEFA1CE2DCE5006B508C /* PasswordExpiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */; };
@@ -48,6 +49,7 @@
 		FC07F8CB1CD19FC1001EC8EB /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		FC087DE41CE4126400236694 /* JodohAppAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodohAppAPI.swift; sourceTree = "<group>"; };
 		FC087DE61CE42AE100236694 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		FC0B190C1CF2BB5700449FEE /* SaveImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveImageViewController.swift; sourceTree = "<group>"; };
 		FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseXLFormViewController.swift; sourceTree = "<group>"; };
 		FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordExpiredViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */,
 				FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */,
+				FC0B190C1CF2BB5700449FEE /* SaveImageViewController.swift */,
 			);
 			name = MyProfile;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				FCB26C091CEC48D10006F23D /* HeaderSideMenu.swift in Sources */,
 				FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
+				FC0B190D1CF2BB5700449FEE /* SaveImageViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,
 				FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */,
 				FC07F8CC1CD19FC1001EC8EB /* LoginPageViewController.swift in Sources */,

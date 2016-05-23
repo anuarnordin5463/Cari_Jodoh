@@ -138,5 +138,46 @@
             </objects>
             <point key="canvasLocation" x="1019" y="216"/>
         </scene>
+        <!--Save Image View Controller-->
+        <scene sceneID="H3k-M6-zIe">
+            <objects>
+                <viewController storyboardIdentifier="SaveImageVC" id="f2L-cY-yqC" customClass="SaveImageViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b2W-sC-p82"/>
+                        <viewControllerLayoutGuide type="bottom" id="Si5-lS-v3I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yQd-Vs-uy1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wrD-oi-rwl">
+                                <rect key="frame" x="0.0" y="52" width="600" height="548"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgX-Ya-vco">
+                                <rect key="frame" x="540" y="20" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="HAD-WH-smT"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Si5-lS-v3I" firstAttribute="top" secondItem="wrD-oi-rwl" secondAttribute="bottom" id="ISx-Su-gsN"/>
+                            <constraint firstItem="IgX-Ya-vco" firstAttribute="top" secondItem="b2W-sC-p82" secondAttribute="bottom" id="NmV-Zc-n9K"/>
+                            <constraint firstItem="wrD-oi-rwl" firstAttribute="leading" secondItem="yQd-Vs-uy1" secondAttribute="leading" id="boS-Qa-INo"/>
+                            <constraint firstItem="wrD-oi-rwl" firstAttribute="top" secondItem="b2W-sC-p82" secondAttribute="bottom" constant="32" id="hyf-05-vry"/>
+                            <constraint firstAttribute="trailing" secondItem="wrD-oi-rwl" secondAttribute="trailing" id="tUI-Zm-thG"/>
+                            <constraint firstAttribute="trailing" secondItem="IgX-Ya-vco" secondAttribute="trailing" constant="26" id="vKv-an-3Gw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="wrD-oi-rwl" id="eMa-7X-xQg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCJ-S9-ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="209"/>
+        </scene>
     </scenes>
 </document>
