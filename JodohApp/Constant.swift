@@ -10,6 +10,7 @@ import UIKit
 import SCLAlertView
 
 let defaults = NSUserDefaults.standardUserDefaults()
+let url = NSURL(string: "http://s63.podbean.com/pb/c5c63ffddb3998f99fa4cfdc87f040c3/5743cc3a/data1/blogs32/609334/uploads/mawi.jpg")
 
 internal struct Tags {
     static let ValidationUsername = "Email"

@@ -14,26 +14,42 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var leftTableView: UITableView!
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var userImage: UIImageView!
-    
     var mainViewController: UIViewController!
     var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
     var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
     //var imgName = UIImage()---
     //var userName = String()---
     var hideRow : Bool = false
-    var image: UIImage!
-    let signature = defaults.objectForKey("signature")
+    //var image: UIImage!
+    var signature = defaults.objectForKey("signature")
+    var signature2 = defaults.objectForKey("signature") as! String
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)---fromlogin
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
+        //userImage.image = image
+        //userImage.image = UIImage(named:"mawi")
         userId.text = signature as? String
-        //defaults.objectForKey("auth_token")
         //userId.text = userName---
-        userImage.image = image
+        //var x : [String : AnyObject?] = ["test" : nil]
+        //x["test"] = nil
+        
+        if (signature2 == "") {
+            userImage.image = UIImage(named:"homePic")
+        } else {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.userImage.image = UIImage(data: data!)
+                });
+            }
+        }
+        //userImage.image = image
         //userImage.image = imgName---
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
@@ -41,6 +57,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         userImage.layer.cornerRadius = userImage.frame.height/2
         userImage.clipsToBounds = true
         //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+        
     
     }
     
@@ -55,7 +72,16 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (indexPath.row == 1 && hideRow == false) || (indexPath.row == 6 && hideRow == true) || (indexPath.row == 2 && hideRow == true) || (indexPath.row == 3 && hideRow == true){
+        if (indexPath.row == 0 && hideRow == true) ||
+            (indexPath.row == 1 && hideRow == true) ||
+            (indexPath.row == 2 && hideRow == true) ||
+            (indexPath.row == 3 && hideRow == true) ||
+            (indexPath.row == 4 && hideRow == true) ||
+            (indexPath.row == 5 && hideRow == true) ||
+            (indexPath.row == 6 && hideRow == true) ||
+            (indexPath.row == 7 && hideRow == true) ||
+            (indexPath.row == 8 && hideRow == true)
+        {
             return 0.0
         }else {
             return 48
@@ -115,7 +141,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             defaults.setObject("", forKey: "signature")
             defaults.setObject("", forKey: "auth_token")
             defaults.synchronize()
-            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+            print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }

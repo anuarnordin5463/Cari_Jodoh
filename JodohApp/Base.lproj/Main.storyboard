@@ -16,7 +16,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xRL-Hq-Phm"/>
                         <viewControllerLayoutGuide type="bottom" id="giB-mx-lHo"/>
@@ -36,7 +36,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="v3W-AG-qd9" customClass="MyCollectionViewCell" customModule="JodohApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="v3W-AG-qd9" customClass="MyCollectionViewCell" customModule="Cari_Jodoh" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="151" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -91,7 +91,7 @@
         <!--Left Menu View Controller-->
         <scene sceneID="sK7-wv-JWs">
             <objects>
-                <viewController storyboardIdentifier="LeftVC" id="MAa-eo-p1c" customClass="LeftMenuViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftVC" id="MAa-eo-p1c" customClass="LeftMenuViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RUz-oz-je5"/>
                         <viewControllerLayoutGuide type="bottom" id="B1w-jt-85M"/>
@@ -109,7 +109,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePic" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-Mc-pjv">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-Mc-pjv">
                                             <rect key="frame" x="100" y="8" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="3x9-Mc-pjv" secondAttribute="height" multiplier="1:1" id="0Cj-hC-zUN"/>
@@ -132,8 +132,8 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CJ******, ** TAHUN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo6-G9-OpX">
-                                            <rect key="frame" x="50" y="95" width="173" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CJ***********" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo6-G9-OpX">
+                                            <rect key="frame" x="75" y="95" width="173" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="173" id="amW-bV-Vq7"/>
                                                 <constraint firstAttribute="width" constant="42" id="dCi-0O-aQC"/>
@@ -164,7 +164,7 @@
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="8" id="qWG-Jg-jVr"/>
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="top" secondItem="YHk-To-z0z" secondAttribute="top" constant="8" id="sL0-6B-m4f"/>
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="279" id="sbr-p6-T86"/>
-                                        <constraint firstItem="oo6-G9-OpX" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="50" id="y41-lz-hQd"/>
+                                        <constraint firstItem="oo6-G9-OpX" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="75" id="y41-lz-hQd"/>
                                         <constraint firstAttribute="trailing" secondItem="oo6-G9-OpX" secondAttribute="trailing" constant="279" id="yQ9-pq-PKO"/>
                                         <constraint firstItem="3x9-Mc-pjv" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="8" id="z21-zu-wPP"/>
                                     </constraints>
@@ -184,21 +184,21 @@
                                     </variation>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="FI3-Vn-8yl" customClass="SideMenuTableViewCell" customModule="JodohApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="FI3-Vn-8yl" customClass="SideMenuTableViewCell" customModule="Cari_Jodoh" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="176" width="600" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FI3-Vn-8yl" id="8or-RR-0Ny">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-ZM-oLF">
-                                                    <rect key="frame" x="0.0" y="5" width="30" height="34"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-ZM-oLF">
+                                                    <rect key="frame" x="0.0" y="5" width="30" height="38"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="2AK-2i-bma"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teG-jJ-rrl">
-                                                    <rect key="frame" x="38" y="11" width="546" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teG-jJ-rrl">
+                                                    <rect key="frame" x="38" y="11" width="546" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="546" id="TLf-ib-zXc"/>
                                                     </constraints>
@@ -252,7 +252,7 @@
         <!--Login View Controller-->
         <scene sceneID="gs5-QZ-pYL">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="qFT-fc-Tuv" customClass="LoginViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="qFT-fc-Tuv" customClass="LoginViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ubb-a1-V6z"/>
                         <viewControllerLayoutGuide type="bottom" id="Yp2-Rn-Eld"/>
@@ -396,7 +396,7 @@
         <!--Profile-->
         <scene sceneID="FVt-8v-yhk">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="Ukf-0q-8Da" customClass="ProfileViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="Ukf-0q-8Da" customClass="ProfileViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jWb-oj-D7j"/>
                         <viewControllerLayoutGuide type="bottom" id="VQn-SK-6aE"/>
@@ -448,6 +448,5 @@
     <resources>
         <image name="cariJodoh" width="262" height="174"/>
         <image name="greenBubble.png" width="600" height="600"/>
-        <image name="homePic" width="187" height="165"/>
     </resources>
 </document>

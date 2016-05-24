@@ -60,7 +60,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             defaults.setObject(json["signature"].string , forKey: "signature")//simpan data
                             defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
-                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                            print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
                             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController

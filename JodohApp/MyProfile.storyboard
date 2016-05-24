@@ -14,7 +14,7 @@
         <!--My Profile View Controller-->
         <scene sceneID="oVz-it-3wX">
             <objects>
-                <viewController storyboardIdentifier="MyProfileVC" id="ucT-TN-qix" customClass="MyProfileViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfileVC" id="ucT-TN-qix" customClass="MyProfileViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ATW-qN-AYl"/>
                         <viewControllerLayoutGuide type="bottom" id="UJc-9M-R27"/>
@@ -141,7 +141,7 @@
         <!--Save Image View Controller-->
         <scene sceneID="H3k-M6-zIe">
             <objects>
-                <viewController storyboardIdentifier="SaveImageVC" id="f2L-cY-yqC" customClass="SaveImageViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SaveImageVC" id="f2L-cY-yqC" customClass="SaveImageViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b2W-sC-p82"/>
                         <viewControllerLayoutGuide type="bottom" id="Si5-lS-v3I"/>

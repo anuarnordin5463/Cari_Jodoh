@@ -29,6 +29,7 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         //Set Font Size
         //self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ALHAMBRA", size: 25.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
         // Do any additional setup after loading the view.
+        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
     }
     
     override func didReceiveMemoryWarning() {
