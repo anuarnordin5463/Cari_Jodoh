@@ -7,7 +7,7 @@ PODS:
     - Alamofire (~> 3.0)
     - Result (~> 1.0)
   - Result (1.0.2)
-  - SCLAlertView (0.5.6)
+  - SCLAlertView (0.5.8)
   - SlideMenuControllerSwift (2.1.1)
   - SwiftyJSON (2.3.2)
   - TPKeyboardAvoiding (1.2.11)
@@ -28,7 +28,7 @@ SPEC CHECKSUMS:
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   Moya: dfd9310f3dfb198927976dad445ead477ca6c2a3
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
-  SCLAlertView: c2b916952520d96cf5e886a38053f1b8c3da502e
+  SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
   SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7

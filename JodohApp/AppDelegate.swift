@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let storyboard4 = UIStoryboard(name: "MyProfile", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController //unhide ni
+        //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("CustomCellsVC") as! CustomCellsController //unhide ni
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
         //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("PasswordExpiredVC") as! PasswordExpiredViewController //hide ni
         //let mainViewController = storyboard4.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController

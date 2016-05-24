@@ -11,6 +11,7 @@ import SCLAlertView
 import SlideMenuControllerSwift
 import XLForm
 import SwiftyJSON
+import Eureka
 
 class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDelegate {
 

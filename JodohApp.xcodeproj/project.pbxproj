@@ -29,6 +29,7 @@
 		FCB26C0B1CEC6EB70006F23D /* ALHAMBRA.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FCB26C0A1CEC6EB70006F23D /* ALHAMBRA.TTF */; };
 		FCC839001CD1DED6008D1653 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */; };
 		FCC839021CD1DEEB008D1653 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */; };
+		FCCA889D1CF302D9007CB0C9 /* CustomCellsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA889C1CF302D9007CB0C9 /* CustomCellsController.swift */; };
 		FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */; };
 		FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C51CC86FAE000F9B3B /* ViewController.swift */; };
 		FCFA85C91CC86FAF000F9B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFA85C71CC86FAF000F9B3B /* Main.storyboard */; };
@@ -64,7 +65,8 @@
 		FCB26C0A1CEC6EB70006F23D /* ALHAMBRA.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ALHAMBRA.TTF; sourceTree = "<group>"; };
 		FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
-		FCFA85C01CC86FAE000F9B3B /* JodohApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JodohApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCCA889C1CF302D9007CB0C9 /* CustomCellsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellsController.swift; sourceTree = "<group>"; };
+		FCFA85C01CC86FAE000F9B3B /* Cari Jodoh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cari Jodoh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCFA85C51CC86FAE000F9B3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FCFA85C81CC86FAF000F9B3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				FC07F8CB1CD19FC1001EC8EB /* LoginPageViewController.swift */,
 				FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */,
 				FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */,
+				FCCA889C1CF302D9007CB0C9 /* CustomCellsController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -211,7 +214,7 @@
 		FCFA85C11CC86FAE000F9B3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCFA85C01CC86FAE000F9B3B /* JodohApp.app */,
+				FCFA85C01CC86FAE000F9B3B /* Cari Jodoh.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,7 +271,7 @@
 			);
 			name = JodohApp;
 			productName = JodohApp;
-			productReference = FCFA85C01CC86FAE000F9B3B /* JodohApp.app */;
+			productReference = FCFA85C01CC86FAE000F9B3B /* Cari Jodoh.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -393,6 +396,7 @@
 				FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */,
 				FC087DE51CE4126400236694 /* JodohAppAPI.swift in Sources */,
 				FC063FEE1CCDEA2E0097B4C5 /* ExtensionFile.swift in Sources */,
+				FCCA889D1CF302D9007CB0C9 /* CustomCellsController.swift in Sources */,
 				FC1CFEF81CE2D37E006B508C /* BaseXLFormViewController.swift in Sources */,
 				FC063FF21CCDED260097B4C5 /* LeftMenuViewController.swift in Sources */,
 				FCFA85E51CC878BC000F9B3B /* MyCollectionViewCell.swift in Sources */,
@@ -515,14 +519,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE0677F1FF237FAC415BA127 /* Pods-JodohApp.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Nazri Hussein (X2BJKVNYHB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = JodohApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.me-tech.JodohApp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me-tech.JodohApps";
+				PRODUCT_NAME = "Cari Jodoh";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -532,14 +536,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 784655437F1DB91D4B0EA235 /* Pods-JodohApp.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Nazri Hussein (X2BJKVNYHB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = JodohApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.me-tech.JodohApp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me-tech.JodohApps";
+				PRODUCT_NAME = "Cari Jodoh";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
