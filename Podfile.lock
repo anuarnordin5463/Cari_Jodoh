@@ -11,7 +11,7 @@ PODS:
   - SlideMenuControllerSwift (2.1.1)
   - SwiftyJSON (2.3.2)
   - TPKeyboardAvoiding (1.2.11)
-  - XLForm (3.1.1)
+  - XLForm (3.1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
@@ -32,6 +32,6 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
-  XLForm: c9ee7e0f859341279bfd894f9589a9d25c23e4df
+  XLForm: 6bb3c20857e2983cf494cb8b4d666c2a24673d5e
 
 COCOAPODS: 0.39.0

@@ -151,6 +151,21 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                         
                         if  json["status"].string == "success"{
                             
+                            showInfoSuccessUpdate(json["message"].string!)
+                            //defaults.setObject(json["signature"].string , forKey: "signature")//simpan data
+                            //defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
+                            defaults.setObject(json["userDOB"].string , forKey: "userDOB")//simpan data
+                            defaults.setObject(json["userMobile"].string , forKey: "userMobile")//simpan data
+                            defaults.setObject(json["userHeight"].string , forKey: "userHeight")//simpan data
+                            defaults.setObject(json["userWeight"].string , forKey: "userWeight")//simpan data
+                            defaults.setObject(json["userSmoke"].string , forKey: "userSmoke")//simpan data
+                            defaults.setObject(json["userState"].string , forKey: "userState")//simpan data
+                            defaults.setObject(json["userTown"].string , forKey: "userTown")//simpan data
+                            defaults.setObject(json["userEducation"].string , forKey: "userEducation")//simpan data
+                            defaults.setObject(json["userOccupation"].string , forKey: "userOccupation")//simpan data
+                            defaults.synchronize()
+                            print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                            
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)

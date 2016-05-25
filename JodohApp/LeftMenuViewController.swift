@@ -16,7 +16,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var userImage: UIImageView!
     var mainViewController: UIViewController!
     var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
-    var menuIcon:[String] = ["homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon", "homeIcon"]
+    var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
     //var imgName = UIImage()---
     //var userName = String()---
     var hideRow : Bool = false
@@ -28,6 +28,34 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //view.backgroundColor = UIColor.redColor()
+        /*if canOpenURL("http://s63.podbean.com/pb/c5c63ffddb3998f99fa4cfdc87f040c3/5743cc3a/data1/blogs32/609334/uploads/mawi.jpg") {
+            print("valid url")
+            if (signature2 == "") {
+                userImage.image = UIImage(named:"homePic")
+            } else {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.userImage.image = UIImage(data: data!)
+                    })
+                }
+            }
+        } else {
+            print("invalid url")
+        }*/
+        
+        if (signature2 == "") {
+            userImage.image = UIImage(named:"homePic")
+        } else {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.userImage.image = UIImage(data: data!)
+                })
+            }
+        }
+
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)---fromlogin
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
@@ -38,17 +66,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         //userId.text = userName---
         //var x : [String : AnyObject?] = ["test" : nil]
         //x["test"] = nil
-        
-        if (signature2 == "") {
-            userImage.image = UIImage(named:"homePic")
-        } else {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.userImage.image = UIImage(data: data!)
-                });
-            }
-        }
         //userImage.image = image
         //userImage.image = imgName---
         userImage.layer.borderWidth = 1

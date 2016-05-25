@@ -9,8 +9,9 @@
 import UIKit
 import SCLAlertView
 
+
 let defaults = NSUserDefaults.standardUserDefaults()
-let url = NSURL(string: "http://s63.podbean.com/pb/c5c63ffddb3998f99fa4cfdc87f040c3/5743cc3a/data1/blogs32/609334/uploads/mawi.jpg")
+let url = NSURL(string: "http://s63.podbean.com/pb/2f89fe8b8ae87fa63fcbf938884c7ff1/57452df3/data1/blogs32/609334/uploads/mawi.jpg")
 
 internal struct Tags {
     static let ValidationUsername = "Email"
@@ -57,6 +58,20 @@ func showInfoLogin(message:String){
     infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
 }
 
+func showInfoSuccessUpdate(message:String){
+    
+    let infoView = SCLAlertView()
+    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
+}
 
-
+func canOpenURL(string: String?) -> Bool {
+    guard let urlString = string else {return false}
+    guard let url = NSURL(string: urlString) else {return false}
+    if !UIApplication.sharedApplication().canOpenURL(url) {return false}
+    
+    //
+    let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+    let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[regEx])
+    return predicate.evaluateWithObject(string)
+}
 

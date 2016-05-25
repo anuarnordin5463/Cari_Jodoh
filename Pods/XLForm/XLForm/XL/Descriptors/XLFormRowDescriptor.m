@@ -203,6 +203,7 @@
     rowDescriptorCopy.required = self.isRequired;
     rowDescriptorCopy.isDirtyDisablePredicateCache = YES;
     rowDescriptorCopy.isDirtyHidePredicateCache = YES;
+    rowDescriptorCopy.validators = [self.validators copy];
 
     // =====================
     // properties for Button
@@ -442,7 +443,7 @@
                 msg = self.requireMsg;
             } else {
                 // default message for required msg
-                msg = NSLocalizedString(@"%@ sila isi ruangan ini", nil);
+                msg = NSLocalizedString(@"%@ can't be empty", nil);
             }
 
             if (self.title != nil) {
