@@ -57,8 +57,8 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             showInfoLogin(json["message"].string!)
                             //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             //let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
-                            defaults.setObject(json["signature"].string , forKey: "signature")//simpan data
-                            defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
+                            defaults.setValue(json["signature"].string , forKey: "signature")//simpan data
+                            defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
                             print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)

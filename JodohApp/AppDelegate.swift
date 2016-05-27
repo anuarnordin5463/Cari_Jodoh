@@ -18,7 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // create viewController code...
-        
+        if(defaults.objectForKey("signature") == nil){
+            defaults.setObject("", forKey: "signature")//simpan data
+            defaults.synchronize()
+        }else{
+            print("App is running")
+        }
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 182.0/255.0, blue: 211.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)

@@ -17,34 +17,17 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var mainViewController: UIViewController!
     var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
-    //var imgName = UIImage()---
-    //var userName = String()---
     var hideRow : Bool = false
-    //var image: UIImage!
-    var signature = defaults.objectForKey("signature")
+
+    //var signature = defaults.objectForKey("signature")
     var signature2 = defaults.objectForKey("signature") as! String
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //view.backgroundColor = UIColor.redColor()
-        /*if canOpenURL("http://s63.podbean.com/pb/c5c63ffddb3998f99fa4cfdc87f040c3/5743cc3a/data1/blogs32/609334/uploads/mawi.jpg") {
-            print("valid url")
-            if (signature2 == "") {
-                userImage.image = UIImage(named:"homePic")
-            } else {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.userImage.image = UIImage(data: data!)
-                    })
-                }
-            }
-        } else {
-            print("invalid url")
-        }*/
-        
+        //defaults.setObject("", forKey: "signature")//simpan data
+        //defaults.synchronize()
+
         if (signature2 == "") {
             userImage.image = UIImage(named:"homePic")
         } else {
@@ -56,13 +39,14 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
 
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)---fromlogin
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenuLogOut(_:)), name: "reloadSideMenuLogOut", object: nil)
         //userId.text = self.items[indexPath.item]
         //userImage.image = self.pics[indexPath.item]
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
         //userImage.image = image
         //userImage.image = UIImage(named:"mawi")
-        userId.text = signature as? String
+        userId.text = signature2
         //userId.text = userName---
         //var x : [String : AnyObject?] = ["test" : nil]
         //x["test"] = nil
@@ -84,8 +68,32 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func refreshSideMenu(notif:NSNotificationCenter){
-        hideRow = true
-        self.leftTableView.reloadData()
+        userId.text = defaults.objectForKey("signature") as? String
+        //hideRow = true
+        //self.leftTableView.reloadData()
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.userImage.image = UIImage(data: data!)
+                })
+            }
+        userImage.layer.borderWidth = 1
+        userImage.layer.masksToBounds = false
+        userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
+        userImage.layer.cornerRadius = userImage.frame.height/2
+        userImage.clipsToBounds = true
+    }
+    
+    func refreshSideMenuLogOut(notif:NSNotificationCenter){
+        userId.text = defaults.objectForKey("signature") as? String
+        //hideRow = true
+        //self.leftTableView.reloadData()
+        userImage.image = UIImage(named:"homePic")
+        userImage.layer.borderWidth = 1
+        userImage.layer.masksToBounds = false
+        userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
+        userImage.layer.cornerRadius = userImage.frame.height/2
+        userImage.clipsToBounds = true
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -158,6 +166,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             defaults.setObject("", forKey: "signature")
             defaults.setObject("", forKey: "auth_token")
             defaults.synchronize()
+            NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
             print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)

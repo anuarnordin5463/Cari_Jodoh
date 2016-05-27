@@ -27,6 +27,7 @@ public enum JodohAppAPI {
     case Login(String, String)
     case Register(String, String, String)
     case Update(String, String, String, String, String, String, String, String, String,String)
+    case GetUpdate(String)
 }
 
 extension JodohAppAPI : TargetType {
@@ -41,8 +42,8 @@ extension JodohAppAPI : TargetType {
     
     var base: String {
         //return kStageURL
-        return "http://192.168.0.139:8012/fly/public/"
-        //return "http://192.168.0.110/fly/public/"
+        return "http://192.168.0.111:8012/fly/public/"
+        //return "http://192.168.0.151/fly/public/"
     }
     
     public var baseURL: NSURL { return NSURL(string: base)! }
@@ -55,12 +56,14 @@ extension JodohAppAPI : TargetType {
             return "api/register"
         case Update:
             return "api/update"
+        case GetUpdate:
+            return "api/getProfile"
             
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .Login, .Register, .Update:
+        case .Login, .Register, .Update, .GetUpdate:
             return .POST
         }
     }
@@ -87,7 +90,6 @@ extension JodohAppAPI : TargetType {
                 "password_confirmation" : confirm_password]
     
         case .Update(let userDOB,let userMobile,let userHeight,let userWeight,let userSmoke,let userState,let userTown,let userEducation,let userOccupation,let signature):
-
         return ["userDOB" : userDOB,
                 "userMobile" : userMobile,
                 "userHeight" : userHeight,
@@ -98,6 +100,10 @@ extension JodohAppAPI : TargetType {
                 "userEducation" : userEducation,
                 "userOccupation" : userOccupation,
                 "signature" : signature]
+            
+        case .GetUpdate(let signature):
+            
+            return ["signature" : signature]
             
         default:
         return nil

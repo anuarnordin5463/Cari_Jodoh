@@ -8,19 +8,13 @@
 
 import UIKit
 
+
 class SaveImageViewController: UIViewController {
 var image: UIImage!
     @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (image != nil) {
-            imageView.image = image
-            
-        } else {
-            print("image was null")
-        }
         // Do any additional setup after loading the view.
     }
 

@@ -9,9 +9,14 @@
 import UIKit
 import SCLAlertView
 
-
 let defaults = NSUserDefaults.standardUserDefaults()
-let url = NSURL(string: "http://s63.podbean.com/pb/2f89fe8b8ae87fa63fcbf938884c7ff1/57452df3/data1/blogs32/609334/uploads/mawi.jpg")
+
+//let dataSave = defaults.objectForKey("user_profile") as! NSData
+//let tempData = NSKeyedUnarchiver.unarchiveObjectWithData(dataSave)
+//print(tempData)
+//print(tempData!["user_image"] as! String)
+//let url = NSURL(string: tempData!["user_image"] as! String)
+let url = NSURL(string: "http://4.bp.blogspot.com/_gZgKQFgDKrI/S_uJudJlvzI/AAAAAAAAEkU/OT5pjZXafKU/s320/mawi+af3.jpg")
 
 internal struct Tags {
     static let ValidationUsername = "Email"
