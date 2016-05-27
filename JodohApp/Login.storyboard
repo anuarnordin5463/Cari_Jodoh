@@ -16,7 +16,7 @@
         <!--Custom Cells Controller-->
         <scene sceneID="O4g-sf-gye">
             <objects>
-                <viewController storyboardIdentifier="CustomCellsVC" id="319-l6-VYA" customClass="CustomCellsController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomCellsVC" id="319-l6-VYA" customClass="CustomCellsController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q3h-0e-uXl"/>
                         <viewControllerLayoutGuide type="bottom" id="3r1-Yx-gwB"/>
@@ -34,7 +34,7 @@
         <!--Login Page View Controller-->
         <scene sceneID="p8C-cz-FkH">
             <objects>
-                <viewController storyboardIdentifier="LoginPageVC" id="Klg-N5-WKa" customClass="LoginPageViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPageVC" id="Klg-N5-WKa" customClass="LoginPageViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XvI-21-bzi"/>
                         <viewControllerLayoutGuide type="bottom" id="mqU-5H-Pfk"/>
@@ -160,7 +160,7 @@
         <!--Password Expired View Controller-->
         <scene sceneID="9qR-h3-3d9">
             <objects>
-                <viewController storyboardIdentifier="PasswordExpiredVC" id="A0r-yJ-98o" customClass="PasswordExpiredViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PasswordExpiredVC" id="A0r-yJ-98o" customClass="PasswordExpiredViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LnR-JR-aVf"/>
                         <viewControllerLayoutGuide type="bottom" id="csR-vq-VnJ"/>

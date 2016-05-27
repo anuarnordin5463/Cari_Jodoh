@@ -102,8 +102,7 @@ extension JodohAppAPI : TargetType {
                 "signature" : signature]
             
         case .GetUpdate(let signature):
-            
-            return ["signature" : signature]
+        return ["signature" : signature]
             
         default:
         return nil

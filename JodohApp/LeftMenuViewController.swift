@@ -8,6 +8,7 @@
 
 import UIKit
 import SCLAlertView
+import SwiftyJSON
 
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,14 +20,11 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
     var hideRow : Bool = false
 
-    //var signature = defaults.objectForKey("signature")
     var signature2 = defaults.objectForKey("signature") as! String
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //defaults.setObject("", forKey: "signature")//simpan data
-        //defaults.synchronize()
 
         if (signature2 == "") {
             userImage.image = UIImage(named:"homePic")
@@ -134,6 +132,46 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 1{
+            
+            JodohAppProvider.request(.GetUpdate(signature2), completion: { (result) in
+                switch result {
+                case .Success(let successResult):
+                    do {
+                        let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                        
+                        if  json["status"].string == "success"{
+                            
+                            let data = NSKeyedArchiver.archivedDataWithRootObject(json["user_profile"].dictionaryObject!)
+                            defaults.setValue(data, forKey: "user_profile")//simpan data
+                            defaults.synchronize()
+                            
+                            let userInfo = defaults.objectForKey("user_profile") as! NSData
+                            let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
+                            print(tempdata!["user_image"] as! String)
+                            showInfoSuccessUpdate(json["message"].string!)
+                            //defaults.objectForKey("signature") as! String
+                            //defaults.setValue(json["signature"].string , forKey: "signature")//simpan data
+                            //defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
+                            //defaults.synchronize()
+                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                            //NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
+                            
+                        }else{
+                            showErrorMessage(json["error"].string!)
+                        }
+                        
+                        print(json)
+                    }
+                    catch {
+                        
+                    }
+                    
+                case .Failure(let failureResult):
+                    //print(failureResult)
+                    showErrorMessage(failureResult.nsError.localizedDescription)
+                }
+            })
+            
             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
@@ -165,6 +203,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x82EBFF)
             defaults.setObject("", forKey: "signature")
             defaults.setObject("", forKey: "auth_token")
+            defaults.setObject("", forKey: "user_profile")
             defaults.synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
             print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());

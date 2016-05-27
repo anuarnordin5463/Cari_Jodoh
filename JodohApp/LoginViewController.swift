@@ -38,14 +38,14 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
     }
 
     @IBAction func registerButtonPressed(sender: AnyObject) {
-        print("RegisterButtonPressed")
+        //print("RegisterButtonPressed")
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
         self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        print("LoginButtonPressed")
+        //print("LoginButtonPressed")
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
         self.navigationController!.pushViewController(manageFlightVC, animated: true)
