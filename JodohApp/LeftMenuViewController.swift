@@ -19,13 +19,16 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
     var hideRow : Bool = false
-
     var signature2 = defaults.objectForKey("signature") as! String
+    
+    //let userInfo = defaults.objectForKey("user_profile") as! NSData
+    //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
+    //print(tempdata!["user_image"] as! String)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if (signature2 == "") {
             userImage.image = UIImage(named:"homePic")
         } else {

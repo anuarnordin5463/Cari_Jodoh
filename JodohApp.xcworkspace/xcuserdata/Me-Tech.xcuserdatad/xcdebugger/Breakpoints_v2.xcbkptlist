@@ -6,80 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JodohApp/LeftMenuViewController.swift"
-            timestampString = "486029442.173217"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JodohApp/LeftMenuViewController.swift"
-            timestampString = "486027542.33938"
+            timestampString = "486033414.155079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cari_Jodoh.LeftMenuViewController.tableView (__ObjC.UITableView, didSelectRowAtIndexPath : __ObjC.NSIndexPath) -&gt; ()"
-                  moduleName = "Cari Jodoh"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Me-Tech/Cari_Jodoh/JodohApp/LeftMenuViewController.swift"
-                  timestampString = "486030088.743048"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "528">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cari_Jodoh.LeftMenuViewController.(tableView (__ObjC.UITableView, didSelectRowAtIndexPath : __ObjC.NSIndexPath) -&gt; ()).(closure #1)"
-                  moduleName = "Cari Jodoh"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Me-Tech/Cari_Jodoh/JodohApp/LeftMenuViewController.swift"
-                  timestampString = "486030088.743255"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "JodohApp/LeftMenuViewController.swift"
-            timestampString = "486029469.741142"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

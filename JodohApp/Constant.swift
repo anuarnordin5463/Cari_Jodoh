@@ -10,12 +10,13 @@ import UIKit
 import SCLAlertView
 
 let defaults = NSUserDefaults.standardUserDefaults()
+//defaults.setValue("", forKey: "signature")//simpan data
+//defaults.synchronize()
 
 //let dataSave = defaults.objectForKey("user_profile") as! NSData
 //let tempData = NSKeyedUnarchiver.unarchiveObjectWithData(dataSave)
-//print(tempData)
-//print(tempData!["user_image"] as! String)
 //let url = NSURL(string: tempData!["user_image"] as! String)
+
 let url = NSURL(string: "http://4.bp.blogspot.com/_gZgKQFgDKrI/S_uJudJlvzI/AAAAAAAAEkU/OT5pjZXafKU/s320/mawi+af3.jpg")
 
 internal struct Tags {
