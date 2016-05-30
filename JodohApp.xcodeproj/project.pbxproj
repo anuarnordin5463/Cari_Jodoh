@@ -286,7 +286,6 @@
 				TargetAttributes = {
 					FCFA85BF1CC86FAE000F9B3B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 6S847MQDY3;
 					};
 				};
 			};
@@ -467,7 +466,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2f9bb198-1817-43fd-833c-aa3ff9e2b0e3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,8 +491,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: ME-Tech Solution Sdn Bhd (6S847MQDY3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ME-Tech Solution Sdn Bhd (6S847MQDY3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nazri Hussein (X2BJKVNYHB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nazri Hussein (X2BJKVNYHB)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -509,7 +508,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "aca06ce3-93a1-45f1-84ca-25e0e80a2876";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -521,7 +520,7 @@
 			baseConfigurationReference = DE0677F1FF237FAC415BA127 /* Pods-JodohApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nazri Hussein (X2BJKVNYHB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = JodohApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -538,7 +537,7 @@
 			baseConfigurationReference = 784655437F1DB91D4B0EA235 /* Pods-JodohApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nazri Hussein (X2BJKVNYHB)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = JodohApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

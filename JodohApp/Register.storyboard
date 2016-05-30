@@ -13,7 +13,7 @@
         <!--Register View Controller-->
         <scene sceneID="aAh-Pl-ewx">
             <objects>
-                <viewController storyboardIdentifier="RegisterVC" id="ciC-3U-Ruh" customClass="RegisterViewController" customModule="JodohApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" id="ciC-3U-Ruh" customClass="RegisterViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jMp-4b-M5n"/>
                         <viewControllerLayoutGuide type="bottom" id="woh-Tv-X4W"/>
@@ -26,16 +26,16 @@
                                 <rect key="frame" x="15" y="40" width="570" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="p0X-KF-5qe">
-                                    <rect key="frame" x="0.0" y="0.0" width="570" height="76"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="570" height="85"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-y6-MuA">
-                                            <rect key="frame" x="0.0" y="35" width="570" height="40"/>
-                                            <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="0.0" y="35" width="570" height="50"/>
+                                            <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="LS7-yz-syz"/>
+                                                <constraint firstAttribute="height" constant="50" id="LS7-yz-syz"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                             <state key="normal" title="DAFTAR BARU">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>

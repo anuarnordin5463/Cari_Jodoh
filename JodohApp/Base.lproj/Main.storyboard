@@ -271,12 +271,12 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aplikasi Cari Jodoh Untuk Muslim          Sudah Mendaftar? Daftar Sekarang" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAo-cE-vKm">
                                         <rect key="frame" x="20" y="40" width="560" height="70"/>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90980392156862744" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="nnT-4m-BO2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cariJodoh" translatesAutoresizingMaskIntoConstraints="NO" id="77J-pu-6af">
@@ -293,15 +293,15 @@
                                         </variation>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMD-v1-fd1">
-                                        <rect key="frame" x="20" y="393" width="560" height="40"/>
-                                        <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="20" y="403" width="560" height="50"/>
+                                        <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="My3-cI-wA9"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="gmT-g8-9HF"/>
-                                            <constraint firstAttribute="height" constant="40" id="mcb-Zp-Jks"/>
+                                            <constraint firstAttribute="height" constant="50" id="mcb-Zp-Jks"/>
                                             <constraint firstAttribute="width" constant="120" id="otb-w4-ksy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <state key="normal" title="DAFTAR BARU">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -317,15 +317,15 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-YT-TiD">
-                                        <rect key="frame" x="20" y="338" width="560" height="40"/>
-                                        <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="20" y="338" width="560" height="50"/>
+                                        <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="P1x-aN-7nJ"/>
+                                            <constraint firstAttribute="height" constant="50" id="P1x-aN-7nJ"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Qgn-dl-Qs9"/>
                                             <constraint firstAttribute="width" constant="120" id="RJ0-Xd-mVt"/>
                                             <constraint firstAttribute="height" constant="40" id="V0Q-lT-ejC"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                         <state key="normal" title="LOG MASUK">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>

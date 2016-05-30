@@ -151,7 +151,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         attrString = NSMutableAttributedString(string: "Emel")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString.appendAttributedString(NSAttributedString(string: "*", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
@@ -163,7 +163,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         attrString = NSMutableAttributedString(string: "Kata Laluan")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString.appendAttributedString(NSAttributedString(string: "*", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
