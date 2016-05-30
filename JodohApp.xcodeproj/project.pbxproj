@@ -18,6 +18,7 @@
 		FC1CFEF61CE2C9FF006B508C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */; };
 		FC1CFEF81CE2D37E006B508C /* BaseXLFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */; };
 		FC1CFEFA1CE2DCE5006B508C /* PasswordExpiredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */; };
+		FC7DC7BE1CFBE3B80069767D /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DC7BD1CFBE3B80069767D /* ForgetPasswordViewController.swift */; };
 		FC8550451CCF72D80054DD4A /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550441CCF72D80054DD4A /* Register.storyboard */; };
 		FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */; };
 		FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550481CCF9A280054DD4A /* Login.storyboard */; };
@@ -54,6 +55,7 @@
 		FC1CFEF51CE2C9FF006B508C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FC1CFEF71CE2D37E006B508C /* BaseXLFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseXLFormViewController.swift; sourceTree = "<group>"; };
 		FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordExpiredViewController.swift; sourceTree = "<group>"; };
+		FC7DC7BD1CFBE3B80069767D /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		FC8550441CCF72D80054DD4A /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FC8550481CCF9A280054DD4A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */,
 				FC1CFEF91CE2DCE5006B508C /* PasswordExpiredViewController.swift */,
 				FCCA889C1CF302D9007CB0C9 /* CustomCellsController.swift */,
+				FC7DC7BD1CFBE3B80069767D /* ForgetPasswordViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				FC087DE71CE42AE100236694 /* Constant.swift in Sources */,
 				FCB26C091CEC48D10006F23D /* HeaderSideMenu.swift in Sources */,
 				FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */,
+				FC7DC7BE1CFBE3B80069767D /* ForgetPasswordViewController.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
 				FC0B190D1CF2BB5700449FEE /* SaveImageViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,

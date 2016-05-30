@@ -102,7 +102,10 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
     }
     
     @IBAction func ForgotPasswordButtonPressed(sender: AnyObject) {
-        reloadAlertView("USER ID (Email):*")
+        //reloadAlertView("USER ID (Email):*")
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("ForgotPasswordVC") as! ForgetPasswordViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
     
     var email = UITextField()

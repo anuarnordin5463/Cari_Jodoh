@@ -443,7 +443,7 @@
                 msg = self.requireMsg;
             } else {
                 // default message for required msg
-                msg = NSLocalizedString(@"%@ can't be empty", nil);
+                msg = NSLocalizedString(@"%@ Sila penuhkan", nil);
             }
 
             if (self.title != nil) {

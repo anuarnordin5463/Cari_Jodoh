@@ -17,16 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="0Gd-k2-5gA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cariJodoh" translatesAutoresizingMaskIntoConstraints="NO" id="Crz-tj-KIq">
+                                <rect key="frame" x="20" y="40" width="560" height="540"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="0Gd-k2-5gA" secondAttribute="bottom" id="0nz-GB-7LL"/>
-                            <constraint firstAttribute="trailing" secondItem="0Gd-k2-5gA" secondAttribute="trailing" id="TVZ-Yl-57Z"/>
-                            <constraint firstItem="0Gd-k2-5gA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="m9q-56-4KC"/>
-                            <constraint firstItem="0Gd-k2-5gA" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="mHq-uR-Kts"/>
+                            <constraint firstItem="Crz-tj-KIq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="20" id="XvY-DG-O05"/>
+                            <constraint firstAttribute="trailing" secondItem="Crz-tj-KIq" secondAttribute="trailing" constant="20" id="dhK-yP-VeC"/>
+                            <constraint firstItem="Crz-tj-KIq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="jMX-ma-626"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Crz-tj-KIq" secondAttribute="bottom" constant="20" id="tcf-KG-Ag9"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="welcome" width="182" height="333"/>
+        <image name="cariJodoh" width="262" height="174"/>
     </resources>
 </document>

@@ -10,6 +10,7 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -255,6 +256,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ob-Oo-nJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1760" y="-739"/>
+        </scene>
+        <!--Forget Password View Controller-->
+        <scene sceneID="XJJ-hJ-Lmg">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordVC" id="UcT-Rf-8MV" customClass="ForgetPasswordViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N21-Hr-Wap"/>
+                        <viewControllerLayoutGuide type="bottom" id="EOd-5f-mjp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x5s-FY-Un0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0US-dt-tQE">
+                                <rect key="frame" x="25" y="40" width="550" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="XU4-8k-SpJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="550" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTY-AM-4Ti">
+                                            <rect key="frame" x="0.0" y="40" width="550" height="50"/>
+                                            <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="88D-zY-6Km"/>
+                                                <constraint firstAttribute="height" constant="50" id="W1H-bu-s4n"/>
+                                                <constraint firstAttribute="height" constant="50" id="hca-OU-b5I"/>
+                                                <constraint firstAttribute="width" constant="550" id="mxQ-j8-TJl"/>
+                                                <constraint firstAttribute="height" constant="30" id="uQA-dx-VFQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                            <state key="normal" title="HANTAR">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="88D-zY-6Km"/>
+                                                    <exclude reference="W1H-bu-s4n"/>
+                                                    <exclude reference="mxQ-j8-TJl"/>
+                                                    <exclude reference="uQA-dx-VFQ"/>
+                                                </mask>
+                                            </variation>
+                                            <connections>
+                                                <action selector="forgotPasswordButton:" destination="UcT-Rf-8MV" eventType="touchUpInside" id="lJe-gb-baq"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="KTY-AM-4Ti" firstAttribute="centerY" secondItem="XU4-8k-SpJ" secondAttribute="centerY" id="KKO-gt-Qaf"/>
+                                        <constraint firstItem="KTY-AM-4Ti" firstAttribute="leading" secondItem="XU4-8k-SpJ" secondAttribute="leading" id="bei-Ba-knz"/>
+                                        <constraint firstAttribute="trailing" secondItem="KTY-AM-4Ti" secondAttribute="trailing" id="eCb-Nv-rO3"/>
+                                        <constraint firstItem="KTY-AM-4Ti" firstAttribute="top" secondItem="XU4-8k-SpJ" secondAttribute="top" constant="40" id="hya-dI-frq"/>
+                                        <constraint firstItem="KTY-AM-4Ti" firstAttribute="leading" secondItem="XU4-8k-SpJ" secondAttribute="leading" id="nlf-wC-HMf"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="KKO-gt-Qaf"/>
+                                            <exclude reference="nlf-wC-HMf"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0US-dt-tQE" firstAttribute="top" secondItem="x5s-FY-Un0" secondAttribute="top" constant="40" id="71w-wu-y41"/>
+                            <constraint firstItem="0US-dt-tQE" firstAttribute="top" secondItem="x5s-FY-Un0" secondAttribute="top" id="MoP-bT-yCY"/>
+                            <constraint firstItem="0US-dt-tQE" firstAttribute="bottom" secondItem="EOd-5f-mjp" secondAttribute="top" id="a4j-A1-mKf"/>
+                            <constraint firstAttribute="trailing" secondItem="0US-dt-tQE" secondAttribute="trailing" constant="25" id="doL-yq-n2s"/>
+                            <constraint firstItem="0US-dt-tQE" firstAttribute="top" secondItem="x5s-FY-Un0" secondAttribute="top" id="hml-52-fRK"/>
+                            <constraint firstItem="0US-dt-tQE" firstAttribute="leading" secondItem="x5s-FY-Un0" secondAttribute="leading" constant="25" id="sgt-1X-Bmi"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MoP-bT-yCY"/>
+                                <exclude reference="hml-52-fRK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="forgotPasswordButton" destination="KTY-AM-4Ti" id="gyT-FD-Ybq"/>
+                        <outlet property="tableView" destination="0US-dt-tQE" id="TQv-ae-YjA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEV-af-6YW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2413" y="-739"/>
         </scene>
     </scenes>
 </document>
