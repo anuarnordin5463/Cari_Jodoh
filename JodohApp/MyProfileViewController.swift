@@ -196,6 +196,47 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Basic Information - Section
         section = XLFormSectionDescriptor()
+        section = XLFormSectionDescriptor.formSectionWithTitle("")
+        form.addFormSection(section)
+        
+        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
+        //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
+        //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "Emel")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        row.required = true
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
+        //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "Kata Laluan")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        row.required = true
+        section.addFormRow(row)
+        
+        row = XLFormRowDescriptor(tag: Tags.ValidationConfirmPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
+        //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
+        attrString = NSMutableAttributedString(string: "Sah Kata Laluan")
+        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        row.required = true
+        section.addFormRow(row)
+        
+        // Basic Information - Section
+        section = XLFormSectionDescriptor()
         section = XLFormSectionDescriptor.formSectionWithTitle("PERSONAL INFORMATION")
         form.addFormSection(section)
         
