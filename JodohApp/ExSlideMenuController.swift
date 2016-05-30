@@ -15,7 +15,7 @@ class ExSlideMenuController: SlideMenuController {
         
         if let vc = UIApplication.topViewController() {
             
-            if vc is ViewController || vc is ProfileViewController{
+            if vc is ViewController || vc is ProfileDetailViewController{
                 return true
             }
         }

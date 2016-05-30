@@ -44,30 +44,34 @@ internal struct Tags {
     static var ValidationRelationshipStatus = "Relationship Status"
     static var ValidationPolygamy = "Polygamy"
     static var ValidationFinancialLevel = "Financial Level"
+    
+    static var ValidationKataLaluanLama = "Kata Laluan Lama"
+    static var ValidationKataLaluanBaru = "Kata Laluan Baru"
+    static var ValidationSahKataLaluan = "Sah Kata Laluan"
 }
 
 func showErrorMessage(message : String){
     
     let errorView = SCLAlertView()
-    errorView.showError("Error!", subTitle:message, colorStyle: 0x82EBFF, closeButtonTitle : "Close")
+    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "Close")
 }
 
 func showInfoRegister(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
+    infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Okay", colorStyle: 0x0679AD)
 }
 
 func showInfoLogin(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
+    infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x0679AD)
 }
 
 func showInfoSuccessUpdate(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Okay", colorStyle: 0x82EBFF)
+    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Okay", colorStyle: 0x0679AD)
 }
 
 func canOpenURL(string: String?) -> Bool {

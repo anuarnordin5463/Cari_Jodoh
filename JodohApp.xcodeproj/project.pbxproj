@@ -22,6 +22,7 @@
 		FC8550451CCF72D80054DD4A /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550441CCF72D80054DD4A /* Register.storyboard */; };
 		FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */; };
 		FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550481CCF9A280054DD4A /* Login.storyboard */; };
+		FC8A8B801CFC294600617088 /* UIImageView+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8A8B7F1CFC294600617088 /* UIImageView+Round.swift */; };
 		FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */; };
 		FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */; };
 		FCAAA9F11CED3C4B000FE3F3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */; };
@@ -38,7 +39,7 @@
 		FCFA85CE1CC86FAF000F9B3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFA85CC1CC86FAF000F9B3B /* LaunchScreen.storyboard */; };
 		FCFA85E51CC878BC000F9B3B /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85E41CC878BC000F9B3B /* MyCollectionViewCell.swift */; };
 		FCFA85EA1CC88BA3000F9B3B /* greenBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = FCFA85E91CC88BA3000F9B3B /* greenBubble.png */; };
-		FCFA85EC1CC88F76000F9B3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85EB1CC88F76000F9B3B /* ProfileViewController.swift */; };
+		FCFA85EC1CC88F76000F9B3B /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85EB1CC88F76000F9B3B /* ProfileDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		FC8550441CCF72D80054DD4A /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FC8550481CCF9A280054DD4A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FC8A8B7F1CFC294600617088 /* UIImageView+Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Round.swift"; sourceTree = "<group>"; };
 		FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -77,7 +79,7 @@
 		FCFA85CF1CC86FAF000F9B3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCFA85E41CC878BC000F9B3B /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		FCFA85E91CC88BA3000F9B3B /* greenBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenBubble.png; sourceTree = "<group>"; };
-		FCFA85EB1CC88F76000F9B3B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FCFA85EB1CC88F76000F9B3B /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				FC087DE41CE4126400236694 /* JodohAppAPI.swift */,
+				FC8A8B7F1CFC294600617088 /* UIImageView+Round.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -191,7 +194,7 @@
 		FCDC31401CCF599700F5E041 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				FCFA85EB1CC88F76000F9B3B /* ProfileViewController.swift */,
+				FCFA85EB1CC88F76000F9B3B /* ProfileDetailViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -396,7 +399,8 @@
 				FCC839001CD1DED6008D1653 /* MyProfileViewController.swift in Sources */,
 				FC063FF01CCDEBC70097B4C5 /* ExSlideMenuController.swift in Sources */,
 				FC1CFEFA1CE2DCE5006B508C /* PasswordExpiredViewController.swift in Sources */,
-				FCFA85EC1CC88F76000F9B3B /* ProfileViewController.swift in Sources */,
+				FC8A8B801CFC294600617088 /* UIImageView+Round.swift in Sources */,
+				FCFA85EC1CC88F76000F9B3B /* ProfileDetailViewController.swift in Sources */,
 				FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */,
 				FC087DE51CE4126400236694 /* JodohAppAPI.swift in Sources */,
 				FC063FEE1CCDEA2E0097B4C5 /* ExtensionFile.swift in Sources */,

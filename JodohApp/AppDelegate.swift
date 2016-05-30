@@ -32,11 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //let storyboard2 = UIStoryboard(name: "Register", bundle: nil)
-        let storyboard3 = UIStoryboard(name: "Login", bundle: nil) //hide ni
+        //let storyboard3 = UIStoryboard(name: "Login", bundle: nil) //hide ni
         //let storyboard4 = UIStoryboard(name: "MyProfile", bundle: nil)
         
-        //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController //unhide ni
-        let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("ForgotPasswordVC") as! ForgetPasswordViewController
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController //unhide ni
+        //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("PasswordExpiredVC") as! PasswordExpiredViewController
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
         //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("PasswordExpiredVC") as! PasswordExpiredViewController //hide ni
         //let mainViewController = storyboard4.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController

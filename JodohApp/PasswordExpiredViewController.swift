@@ -8,14 +8,22 @@
 
 import UIKit
 import XLForm
+import SCLAlertView
 import SlideMenuControllerSwift
 
-class PasswordExpiredViewController: XLFormViewController, SlideMenuControllerDelegate {
+class PasswordExpiredViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
 
+    @IBOutlet weak var sahkanButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeForm()
-        self.setNavigationBarItem()
+        setupLeftButton()
+        //self.setNavigationBarItem()
+        sahkanButton.layer.cornerRadius = 5
+        self.title = "SET KATA LALUAN"
+        //Set Color
+        //Set Font Size
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
 
         // Do any additional setup after loading the view.
     }
@@ -25,6 +33,23 @@ class PasswordExpiredViewController: XLFormViewController, SlideMenuControllerDe
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func sahkanButton(sender: AnyObject) {
+        
+        validateForm()
+        
+        if isValidate{
+            
+            let name = formValues()[Tags.ValidationUsername] as! String
+            let kataLaluanLama = formValues()[Tags.ValidationUsername] as! String
+            let kataLaluanBaru = formValues()[Tags.ValidationKataLaluanBaru] as! String
+            let sahKataLaluan = formValues()[Tags.ValidationSahKataLaluan] as! String
+        }
+        if (isValidate == true){
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+        }
+    }
     func initializeForm() {
         
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
@@ -42,11 +67,11 @@ class PasswordExpiredViewController: XLFormViewController, SlideMenuControllerDe
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "User ID (Email)")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString = NSMutableAttributedString(string: "Emel")
+        attrString.appendAttributedString(NSAttributedString(string: "*", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
@@ -54,11 +79,11 @@ class PasswordExpiredViewController: XLFormViewController, SlideMenuControllerDe
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationKataLaluanLama, rowType: XLFormRowDescriptorTypePassword, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "Current Password")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString = NSMutableAttributedString(string: "Kata Laluan Lama")
+        attrString.appendAttributedString(NSAttributedString(string: "*", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
@@ -66,11 +91,11 @@ class PasswordExpiredViewController: XLFormViewController, SlideMenuControllerDe
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationKataLaluanBaru, rowType: XLFormRowDescriptorTypePassword, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "New Password")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString = NSMutableAttributedString(string: "Kata Laluan Baru")
+        attrString.appendAttributedString(NSAttributedString(string: "*", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
@@ -78,17 +103,18 @@ class PasswordExpiredViewController: XLFormViewController, SlideMenuControllerDe
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: Tags.ValidationSahKataLaluan, rowType: XLFormRowDescriptorTypePassword, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "Confirm Password")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString = NSMutableAttributedString(string: "Sah Kata Laluan")
+        attrString.appendAttributedString(NSAttributedString(string: "*", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.required = true
         section.addFormRow(row)
+        
         self.form = form
         
     }

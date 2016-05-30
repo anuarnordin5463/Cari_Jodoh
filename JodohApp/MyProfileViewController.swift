@@ -61,11 +61,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     
     func imageTapped(img: AnyObject)
     {
-        //print("image tapped")
-        showSelection()
-    }
-    func showSelection(){
-        
         let infoView = SCLAlertView()
         infoView.addButton("Camera") {
             self.camera()
@@ -75,6 +70,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         }
         infoView.showInfo("Info", subTitle: "Choose picture using:", closeButtonTitle: "Cancel", colorStyle: 0x82EBFF)
     }
+
     
     func photoLibrary()
     {
@@ -548,7 +544,4 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         self.form = form
         
     }
-    
-    
-    
 }

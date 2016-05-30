@@ -10,6 +10,7 @@ import UIKit
 import SlideMenuControllerSwift
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SlideMenuControllerDelegate {
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
     override func viewDidLoad() {
@@ -32,10 +33,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return self.items.count
         
     }
-    func collectionView(collectionView: UICollectionView, numberOfPicsInSection section: Int) -> Int {
-        return self.pics.count
-        
-    }
     
     // make a cell for each cell index path
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -45,28 +42,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.myLabel.text = self.items[indexPath.item]
-        cell.imgPic.image = self.pics[indexPath.item]
-        cell.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
-        cell.imgPic.layer.borderWidth = 1
-        cell.imgPic.layer.masksToBounds = false
-        cell.imgPic.layer.borderColor = UIColor.whiteColor().CGColor
-        cell.imgPic.layer.cornerRadius = cell.imgPic.frame.height/2
-        cell.imgPic.clipsToBounds = true
+        cell.picImageView.image = self.pics[indexPath.item]
+        cell.backgroundColor = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1)
+        
+        cell.picImageView.createBorder()
         
         return cell
     }
     
-    // MARK: - UICollectionViewDelegate protocol
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // handle tap events
-        print("\(items[indexPath.row])")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("ProfileVC") as! ProfileViewController
-        manageFlightVC.imgName = (pics[indexPath.row])
-        manageFlightVC.userName = (items[indexPath.row])
-        self.navigationController!.pushViewController(manageFlightVC, animated: true)
-        
-    }
 
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toDetail"){
+            let destVC =  segue.destinationViewController as! ProfileDetailViewController
+            let selectedIndexPath = self.collectionView.indexPathsForSelectedItems()!.last
+            destVC.imgName = (pics[selectedIndexPath!.item])
+            destVC.userName = (items[selectedIndexPath!.item])
+        }
+    }
 }

@@ -3,10 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -51,7 +51,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="550" height="213"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRm-Nb-Fug">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRm-Nb-Fug">
                                             <rect key="frame" x="0.0" y="116" width="550" height="50"/>
                                             <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -95,7 +95,7 @@
                                                 <action selector="LoginButtonPressedPass:" destination="Klg-N5-WKa" eventType="touchUpInside" id="84D-zZ-GCL"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNm-Fh-jue">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNm-Fh-jue">
                                             <rect key="frame" x="155" y="76" width="112" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="142" id="40v-xx-Dtb"/>
@@ -176,54 +176,40 @@
                                 <rect key="frame" x="15" y="0.0" width="570" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="w3i-Ub-iLt">
-                                    <rect key="frame" x="0.0" y="0.0" width="570" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="570" height="92"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD EXPIRED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcZ-es-Pwf">
-                                            <rect key="frame" x="0.0" y="15" width="570" height="21"/>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kata Laluan hendaklah mempunyai minimum 8 aksara" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogx-QX-g7O">
+                                            <rect key="frame" x="0.0" y="25" width="570" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogx-QX-g7O">
-                                            <rect key="frame" x="0.0" y="51" width="570" height="32"/>
-                                            <string key="text">The password must consist of at least 8 characters, must include one uppercase letter, one lowercase letter, one numeric digit, and one symbol. Example : syuKri-123</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="FcZ-es-Pwf" firstAttribute="leading" secondItem="w3i-Ub-iLt" secondAttribute="leadingMargin" constant="271" id="4Pg-Cz-HRq"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="FcZ-es-Pwf" secondAttribute="trailing" constant="271" id="E92-Ud-bid"/>
-                                        <constraint firstItem="ogx-QX-g7O" firstAttribute="top" secondItem="FcZ-es-Pwf" secondAttribute="bottom" constant="15" id="IUh-HV-cb5"/>
+                                        <constraint firstItem="ogx-QX-g7O" firstAttribute="top" secondItem="w3i-Ub-iLt" secondAttribute="top" constant="25" id="M2e-zP-OyR"/>
                                         <constraint firstItem="ogx-QX-g7O" firstAttribute="leading" secondItem="w3i-Ub-iLt" secondAttribute="leading" id="PGX-RL-inm"/>
-                                        <constraint firstItem="FcZ-es-Pwf" firstAttribute="top" secondItem="w3i-Ub-iLt" secondAttribute="topMargin" constant="4" id="Qb5-QW-m5q"/>
                                         <constraint firstAttribute="trailing" secondItem="ogx-QX-g7O" secondAttribute="trailing" id="Ugc-q7-9CO"/>
-                                        <constraint firstAttribute="trailing" secondItem="FcZ-es-Pwf" secondAttribute="trailing" id="jqx-Tm-nss"/>
-                                        <constraint firstItem="FcZ-es-Pwf" firstAttribute="leading" secondItem="w3i-Ub-iLt" secondAttribute="leading" id="mHf-Qf-udx"/>
-                                        <constraint firstItem="FcZ-es-Pwf" firstAttribute="top" secondItem="w3i-Ub-iLt" secondAttribute="top" constant="15" id="mb3-dk-250"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="4Pg-Cz-HRq"/>
-                                            <exclude reference="E92-Ud-bid"/>
-                                            <exclude reference="Qb5-QW-m5q"/>
-                                        </mask>
-                                    </variation>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="szk-ZG-5t9">
-                                    <rect key="frame" x="0.0" y="124" width="570" height="85"/>
+                                    <rect key="frame" x="0.0" y="92" width="570" height="85"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boY-TA-Dfb">
-                                            <rect key="frame" x="0.0" y="35" width="570" height="30"/>
-                                            <color key="backgroundColor" red="0.50980392159999999" green="0.92156862750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="Continue">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="0.0" y="35" width="570" height="50"/>
+                                            <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="5UN-hL-9O7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                            <state key="normal" title="SAHKAN">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="sahkanButton:" destination="A0r-yJ-98o" eventType="touchUpInside" id="m7N-xj-YHA"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -250,6 +236,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="sahkanButton" destination="boY-TA-Dfb" id="Dlb-2J-aGD"/>
                         <outlet property="tableView" destination="a3h-Bf-sXw" id="ufU-Ho-dia"/>
                     </connections>
                 </viewController>
