@@ -26,7 +26,7 @@ private extension String {
 public enum JodohAppAPI {
     case Login(String, String)
     case Register(String, String, String)
-    case Update(String, String, String, String, String, String, String, String, String,String)
+    case Update(String, String, String, String, String, String, String, String, String,String,String)
     case GetUpdate(String)
 }
 
@@ -89,7 +89,7 @@ extension JodohAppAPI : TargetType {
                 "password" : password,
                 "password_confirmation" : confirm_password]
     
-        case .Update(let userDOB,let userMobile,let userHeight,let userWeight,let userSmoke,let userState,let userTown,let userEducation,let userOccupation,let signature):
+        case .Update(let userDOB,let userMobile,let userHeight,let userWeight,let userSmoke,let userState,let userTown,let userEducation,let userOccupation,let signature,let jantina):
         return ["userDOB" : userDOB,
                 "userMobile" : userMobile,
                 "userHeight" : userHeight,

@@ -88,7 +88,8 @@ class BaseXLFormViewController: XLFormViewController {
                     validationStatus.rowDescriptor!.tag == Tags.ValidationDOB ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationKataLaluanLama ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationKataLaluanBaru ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationSahKataLaluan
+                    validationStatus.rowDescriptor!.tag == Tags.ValidationSahKataLaluan ||
+                    validationStatus.rowDescriptor!.tag == Tags.ValidationJantina
                 {
                     
                     if let rowDescriptor = validationStatus.rowDescriptor, let indexPath = form.indexPathOfFormRow(rowDescriptor), let cell = tableView.cellForRowAtIndexPath(indexPath) as? XLFormTextFieldCell {

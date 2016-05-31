@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (3.4.0)
-  - Eureka (1.5.0)
+  - Eureka (1.6.0)
   - Moya (5.3.0):
     - Moya/Core (= 5.3.0)
   - Moya/Core (5.3.0):
@@ -25,7 +25,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
+  Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
   Moya: dfd9310f3dfb198927976dad445ead477ca6c2a3
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49

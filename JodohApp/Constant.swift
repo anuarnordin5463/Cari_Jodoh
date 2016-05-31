@@ -48,6 +48,8 @@ internal struct Tags {
     static var ValidationKataLaluanLama = "Kata Laluan Lama"
     static var ValidationKataLaluanBaru = "Kata Laluan Baru"
     static var ValidationSahKataLaluan = "Sah Kata Laluan"
+    static var ValidationJantina = "Validation Jantina"
+    
 }
 
 func showErrorMessage(message : String){

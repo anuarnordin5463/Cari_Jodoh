@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Regular.ttf">
@@ -104,8 +105,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="49" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="GBk-zj-3AX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="YHk-To-z0z">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
@@ -194,9 +195,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-ZM-oLF">
-                                                    <rect key="frame" x="20" y="5" width="30" height="38"/>
+                                                    <rect key="frame" x="20" y="9" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="2AK-2i-bma"/>
+                                                        <constraint firstAttribute="height" constant="30" id="UX4-eb-Gkh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teG-jJ-rrl">
@@ -205,13 +207,14 @@
                                                         <constraint firstAttribute="width" constant="546" id="TLf-ib-zXc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.56470588235294117" green="0.56862745098039214" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="5Ww-ZM-oLF" firstAttribute="centerY" secondItem="8or-RR-0Ny" secondAttribute="centerY" id="1jt-g6-yTP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5Ww-ZM-oLF" secondAttribute="bottom" constant="5" id="CV2-xF-glx"/>
                                                 <constraint firstItem="5Ww-ZM-oLF" firstAttribute="centerY" secondItem="teG-jJ-rrl" secondAttribute="centerY" id="MIM-vj-ewH"/>
                                                 <constraint firstItem="teG-jJ-rrl" firstAttribute="leading" secondItem="5Ww-ZM-oLF" secondAttribute="trailing" constant="8" symbolic="YES" id="Srd-HE-EW0"/>
                                                 <constraint firstItem="teG-jJ-rrl" firstAttribute="top" secondItem="8or-RR-0Ny" secondAttribute="top" constant="11" id="Y1C-nO-FYW"/>
@@ -221,11 +224,13 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="CV2-xF-glx"/>
+                                                    <exclude reference="cJD-7f-YAt"/>
                                                     <exclude reference="Srd-HE-EW0"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.91764705882352937" green="0.92941176470588238" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="menuIcon" destination="5Ww-ZM-oLF" id="6vR-7Z-5nM"/>

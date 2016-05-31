@@ -138,8 +138,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let education = formValues()[Tags.ValidationHighEducation] as! String
             let occupation = formValues()[Tags.ValidationOccupation] as! String
             let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"
+            let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
             
-            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature), completion: { (result) in
+            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
                     do {
@@ -237,7 +238,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Basic Information - Section
         section = XLFormSectionDescriptor()
-        section = XLFormSectionDescriptor.formSectionWithTitle("PERSONAL INFORMATION")
+        section = XLFormSectionDescriptor.formSectionWithTitle("MAKLUMAT PERIBADI")
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
@@ -245,7 +246,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //row.cellConfigAtConfigure["textField.placeholder"] = "Name *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
-        attrString = NSMutableAttributedString(string: "Name")
+        attrString = NSMutableAttributedString(string: "Nama")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -254,6 +255,20 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //row.value = "test"
         section.addFormRow(row)
         
+        // Smoker/Vapes
+        row = XLFormRowDescriptor(tag: Tags.ValidationJantina, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
+        var tempArrayJantina:[AnyObject] = [AnyObject]()
+        tempArrayJantina.append(XLFormOptionsObject(value: "Lelaki", displayText: "Lelaki"))
+        tempArrayJantina.append(XLFormOptionsObject(value: "Perempuan", displayText: "Perempuan"))
+        row.selectorOptions = tempArrayJantina
+        row.value = tempArrayJantina[0]
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Jantina", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
+        section.addFormRow(row)
+
         // Selector Push
         /*row = XLFormRowDescriptor(tag: "push", rowType:XLFormRowDescriptorTypeSelectorPickerView, title:"Push")
          var tempArray:[AnyObject] = [AnyObject]()
@@ -270,7 +285,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //row.cellConfigAtConfigure["textField.placeholder"] = "Date of Birth *"
         row.cellConfigAtConfigure["maximumDate"] = NSDate()
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        attrString = NSMutableAttributedString(string: "Date of Birth", attributes: text)
+        attrString = NSMutableAttributedString(string: "Tarikh Lahir", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -288,7 +303,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row = XLFormRowDescriptor(tag: Tags.ValidationMobile, rowType: XLFormRowDescriptorTypePhone, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Mobile *"
         row.required = true
-        attrString = NSMutableAttributedString(string: "Mobile")
+        attrString = NSMutableAttributedString(string: "Telefon Bimbit")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -299,7 +314,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row = XLFormRowDescriptor(tag: Tags.ValidationHeight, rowType: XLFormRowDescriptorTypePhone, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Height *"
         row.required = true
-        attrString = NSMutableAttributedString(string: "Height")
+        attrString = NSMutableAttributedString(string: "Tinggi")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -319,7 +334,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationWeight, rowType: XLFormRowDescriptorTypePhone, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Weight *"
-        attrString = NSMutableAttributedString(string: "Weight")
+        attrString = NSMutableAttributedString(string: "Berat")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -359,12 +374,12 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationSmokerVapes, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         var tempArraySmoker:[AnyObject] = [AnyObject]()
-        tempArraySmoker.append(XLFormOptionsObject(value: "Yes", displayText: "Yes"))
-        tempArraySmoker.append(XLFormOptionsObject(value: "No", displayText: "No"))
+        tempArraySmoker.append(XLFormOptionsObject(value: "Ya", displayText: "Ya"))
+        tempArraySmoker.append(XLFormOptionsObject(value: "Tidak", displayText: "Tidak"))
         row.selectorOptions = tempArraySmoker
         row.value = tempArraySmoker[0]
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        attrString = NSMutableAttributedString(string: "Smoker/Vapes", attributes: text)
+        attrString = NSMutableAttributedString(string: "Merokok/Vaper", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -372,7 +387,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Basic Information - Section----------------------
         section = XLFormSectionDescriptor()
-        section = XLFormSectionDescriptor.formSectionWithTitle("RESIDENCE INFORMATION")
+        section = XLFormSectionDescriptor.formSectionWithTitle("MAKLUMAT KEDIAMAN")
         form.addFormSection(section)
         
         // First Name/Given Name
@@ -397,6 +412,22 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row = XLFormRowDescriptor(tag: Tags.ValidationState, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
         //row.value = "Option 4"
+        var tempArrayNegara:[AnyObject] = [AnyObject]()
+        tempArrayNegara.append(XLFormOptionsObject(value: "Malaysia", displayText: "Malaysia"))//smpai sni,,,lain x buat
+        tempArrayNegara.append(XLFormOptionsObject(value: "Lain-lain", displayText: "Lain-lain"))
+        row.selectorOptions = tempArrayNegara
+        row.value = tempArrayNegara[0]
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Negara", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
+        section.addFormRow(row)
+        
+        // Smoker/Vapes
+        row = XLFormRowDescriptor(tag: Tags.ValidationState, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
+        //row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
+        //row.value = "Option 4"
         var tempArrayState:[AnyObject] = [AnyObject]()
         tempArrayState.append(XLFormOptionsObject(value: "Johor", displayText: "Johor"))
         tempArrayState.append(XLFormOptionsObject(value: "Kedah", displayText: "Kedah"))
@@ -415,7 +446,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.selectorOptions = tempArrayState
         row.value = tempArrayState[0]
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        attrString = NSMutableAttributedString(string: "State", attributes: text)
+        attrString = NSMutableAttributedString(string: "Negeri", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -424,7 +455,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationTown, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Town *"
-        attrString = NSMutableAttributedString(string: "Town")
+        attrString = NSMutableAttributedString(string: "Bandar")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -434,13 +465,13 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Basic Information - Section--------------------------
         section = XLFormSectionDescriptor()
-        section = XLFormSectionDescriptor.formSectionWithTitle("EDUCATION INFORMATION")
+        section = XLFormSectionDescriptor.formSectionWithTitle("MAKLUMAT PENDIDIKAN")
         form.addFormSection(section)
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationHighEducation, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
-        attrString = NSMutableAttributedString(string: "High Education")
+        attrString = NSMutableAttributedString(string: "Pendidikan Tertinggi")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -451,7 +482,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationOccupation, rowType: XLFormRowDescriptorTypeName, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Occupation *"
-        attrString = NSMutableAttributedString(string: "Occupation")
+        attrString = NSMutableAttributedString(string: "Pekerjaan")
         attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
@@ -461,7 +492,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Basic Information - Section------------------------------
         section = XLFormSectionDescriptor()
-        section = XLFormSectionDescriptor.formSectionWithTitle("STATUS INFORMATION")
+        section = XLFormSectionDescriptor.formSectionWithTitle("STATUS")
         form.addFormSection(section)
         
         // First Name/Given Name
@@ -474,14 +505,14 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row = XLFormRowDescriptor(tag: Tags.ValidationMaritalStatus, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Divorced", "Married", "Single", "Widowed"]
         var tempArrayMarital:[AnyObject] = [AnyObject]()
-        tempArrayMarital.append(XLFormOptionsObject(value: "Divorced", displayText: "Divorced"))
-        tempArrayMarital.append(XLFormOptionsObject(value: "Married", displayText: "Married"))
-        tempArrayMarital.append(XLFormOptionsObject(value: "Single", displayText: "Single"))
-        tempArrayMarital.append(XLFormOptionsObject(value: "Widowed", displayText: "Widowed"))
+        tempArrayMarital.append(XLFormOptionsObject(value: "Bercerai", displayText: "Bercerai"))
+        tempArrayMarital.append(XLFormOptionsObject(value: "Berkahwin", displayText: "Berkahwin"))
+        tempArrayMarital.append(XLFormOptionsObject(value: "Bujang", displayText: "Bujang"))
+        tempArrayMarital.append(XLFormOptionsObject(value: "Janda/Duda", displayText: "Janda/Duda"))
         row.selectorOptions = tempArrayMarital
         row.value = tempArrayMarital[0]
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        attrString = NSMutableAttributedString(string: "Marital status", attributes: text)
+        attrString = NSMutableAttributedString(string: "Status Perkahwinan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -499,12 +530,16 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //row.selectorOptions = ["Yes", "No"]
         //row.value = "Option 4"
         var tempArrayChildren:[AnyObject] = [AnyObject]()
-        tempArrayChildren.append(XLFormOptionsObject(value: "Yes", displayText: "Yes"))
-        tempArrayChildren.append(XLFormOptionsObject(value: "No", displayText: "No"))
+        tempArrayChildren.append(XLFormOptionsObject(value: "Tiada", displayText: "Tiada"))
+        tempArrayChildren.append(XLFormOptionsObject(value: "1", displayText: "1"))
+        tempArrayChildren.append(XLFormOptionsObject(value: "2", displayText: "2"))
+        tempArrayChildren.append(XLFormOptionsObject(value: "3", displayText: "3"))
+        tempArrayChildren.append(XLFormOptionsObject(value: "4", displayText: "4"))
+        tempArrayChildren.append(XLFormOptionsObject(value: "5 dan keatas", displayText: "5 dan keatas"))
         row.selectorOptions = tempArrayChildren
         row.value = tempArrayChildren[0]
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        attrString = NSMutableAttributedString(string: "Have a children", attributes: text)
+        attrString = NSMutableAttributedString(string: "Bilangan Anak", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -527,7 +562,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         tempArrayRS.append(XLFormOptionsObject(value: "Tidak pasti", displayText: "Tidak pasti"))
         row.selectorOptions = tempArrayRS
         row.value = tempArrayRS[0]
-        attrString = NSMutableAttributedString(string: "Relationship Status", attributes: text)
+        attrString = NSMutableAttributedString(string: "Status Perhubungan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -550,7 +585,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         tempArrayPolygamy.append(XLFormOptionsObject(value: "Haven\'t thought yet", displayText: "Haven\'t thought yet"))
         row.selectorOptions = tempArrayPolygamy
         row.value = tempArrayPolygamy[0]
-        attrString = NSMutableAttributedString(string: "Polygamy", attributes: text)
+        attrString = NSMutableAttributedString(string: "Poligami", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -574,7 +609,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         tempArrayFL.append(XLFormOptionsObject(value: "Haven\'t thought yet", displayText: "Haven\'t thought yet"))
         row.selectorOptions = tempArrayFL
         row.value = tempArrayFL[0]
-        attrString = NSMutableAttributedString(string: "Financial Level", attributes: text)
+        attrString = NSMutableAttributedString(string: "Kedudukan Kewangan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
@@ -582,6 +617,22 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
         
+        // Basic Information - Section--------------------------
+        section = XLFormSectionDescriptor()
+        section = XLFormSectionDescriptor.formSectionWithTitle("LANGGANAN")
+        form.addFormSection(section)
+        
+        // First Name/Given Name
+        row = XLFormRowDescriptor(tag: "", rowType: XLFormRowDescriptorTypeText, title:"")
+        //row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
+        attrString = NSMutableAttributedString(string: "Tiada Pakej")
+        attrString.appendAttributedString(NSAttributedString(string: "", attributes: star))
+        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        row.required = true
+        section.addFormRow(row)
+
         self.form = form
         
     }
