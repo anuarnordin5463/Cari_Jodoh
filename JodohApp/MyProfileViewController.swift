@@ -14,13 +14,21 @@ import SCLAlertView
 
 class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var MyProfileTableView: UITableView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     var image: UIImage!
     let myPickerController = UIImagePickerController()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //user_profile = ["user_height" : ""]
+        //defaults.setValue("", forKey: "user_height")//simpan data
+        //defaults.setValue("", forKey: "user_profile")//simpan data
+        //defaults.synchronize()
         
         if (image != nil) {
             userImage.image = image
@@ -44,7 +52,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(MyProfileViewController.imageTapped(_:)))
         userImage.userInteractionEnabled = true
         userImage.addGestureRecognizer(tapGestureRecognizer)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshTable(_:)), name: "reloadTable", object: nil)
         self.title = "KEMASKINI PROFIL"
         //Set Color
         //Set Font Size
@@ -53,10 +61,21 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         // Do any additional setup after loading the view.
     }
     
-    func refreshSideMenu(notif:NSNotificationCenter){
+    func refreshTable(notif:NSNotificationCenter){
         //hideRow = true
-        //self.leftMenuTableView.reloadData()
-        print("lol")
+        //self.MyProfileTableView.reloadData()
+        //defaults.objectForKey("user_height") as! String
+        //defaults.synchronize()
+        
+        //let userInfo = defaults.objectForKey("user_profile") as! NSData
+        //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
+        //print(tempdata)
+        //print(tempdata!["user_height"] as! String)
+        
+        
+        //print("lol")
+        //self.MyProfileTableView.reloadData()
+        
     }
     
     func imageTapped(img: AnyObject)
@@ -123,12 +142,18 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
         validateForm()
-        
+
         if isValidate{
-            //let defaults = NSUserDefaults.standardUserDefaults()
+            
+            /*if formValues()[Tags2.ValidationKataLaluan] == nil{
+                return
+                //showErrorMessage("Confirm password incorrect")
+            }else if formValues()[Tags2.ValidationKataLaluan]! as! String != formValues()[Tags2.ValidationSahKataLaluan]! as! String {
+                showErrorMessage("Confirm password incorrect")
+            }else{*/
+            
+            
             let signature = defaults.objectForKey("signature") as! String
-            //let name = formValues()[Tags.ValidationUsername] as! String//x gune skrng,xde dlm list,hidden blik nti masokkn autho
-            //let pass = formValues()[Tags.ValidationPassword] as! String
             let mobile = formValues()[Tags.ValidationMobile] as! String
             let height = formValues()[Tags.ValidationHeight] as! String
             let weight = formValues()[Tags.ValidationWeight] as! String
@@ -157,7 +182,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
                             
                         }else{
-                            showErrorMessage(json["message"].string!)
+                            showErrorMessage(json["error"].string!)
                         }
                         
                         print(json)
@@ -172,18 +197,17 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                 }
             })
             
-        }else{
+        //}
+        }
+        else{
             print("false,value can't be empty")
         }
-        
-        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
-        //self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
-    
     
     func initializeForm() {
         
+
+
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
         let star = [NSForegroundColorAttributeName : UIColor.redColor()]
         let text = [NSForegroundColorAttributeName : UIColor.lightGrayColor()]
@@ -200,40 +224,41 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         section = XLFormSectionDescriptor.formSectionWithTitle("")
         form.addFormSection(section)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
+        row = XLFormRowDescriptor(tag: Tags2.ValidationEmel, rowType: XLFormRowDescriptorTypeEmail, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Emel")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString.appendAttributedString(NSAttributedString(string: "", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
-        row.required = true
+        row.addValidator(XLFormValidator.emailValidator())
+        //row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: Tags2.ValidationKataLaluan, rowType: XLFormRowDescriptorTypePassword, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Kata Laluan")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString.appendAttributedString(NSAttributedString(string: "", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
-        row.required = true
+        //row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationConfirmPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: Tags2.ValidationSahKataLaluan, rowType: XLFormRowDescriptorTypePassword, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Sah Kata Laluan")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
+        attrString.appendAttributedString(NSAttributedString(string: "", attributes: star))
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
-        row.required = true
+        //row.required = true
         section.addFormRow(row)
         
         // Basic Information - Section
@@ -268,17 +293,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
-
-        // Selector Push
-        /*row = XLFormRowDescriptor(tag: "push", rowType:XLFormRowDescriptorTypeSelectorPickerView, title:"Push")
-         var tempArray:[AnyObject] = [AnyObject]()
-         for title in 100...200{
-         tempArray.append(XLFormOptionsObject(value: title, displayText: "\(title)"))
-         }
-         
-         row.selectorOptions = tempArray
-         //row.value = tempArray[0]
-         section.addFormRow(row)*/
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationDOB, rowType: XLFormRowDescriptorTypeDate , title:"")
@@ -292,12 +306,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.required = true
         row.value = NSDate()
         section.addFormRow(row)
-        
-        // Selector Picker View
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Select *")
-         row.selectorOptions = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"]
-         //row.value = "Option 4"
-         section.addFormRow(row)*/
         
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationMobile, rowType: XLFormRowDescriptorTypePhone, title:"")
@@ -319,6 +327,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        //row.value =
+        //contactData["mobile_phone"] as! String
         section.addFormRow(row)
         
         // Height
@@ -340,36 +350,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
-        
         section.addFormRow(row)
-        
-        // Weight
-        /*row = XLFormRowDescriptor(tag: "", rowType:XLFormRowDescriptorTypeSelectorPickerView, title:"Weight *")
-         var tempArray1:[AnyObject] = [AnyObject]()
-         for title in 100...200{
-         tempArray1.append(XLFormOptionsObject(value: title, displayText: "\(title) kg"))
-         }
-         row.selectorOptions = tempArray1
-         //row.value = tempArray[0]
-         section.addFormRow(row)*/
-        
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Religion *"
-         row.required = true
-         section.addFormRow(row)*/
-        
-        // Religion
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Religion *")
-         row.selectorOptions = ["Islam"]
-         row.value = "Islam"
-         section.addFormRow(row)*/
-        
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Smoker/Vapes *"
-         row.required = true
-         section.addFormRow(row)*/
         
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationSmokerVapes, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
@@ -390,24 +371,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         section = XLFormSectionDescriptor.formSectionWithTitle("MAKLUMAT KEDIAMAN")
         form.addFormSection(section)
         
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Country *"
-         row.required = true
-         section.addFormRow(row)*/
-        
-        // Smoker/Vapes
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"Country *")
-         row.selectorOptions = ["Malaysia"]
-         row.value = "Malaysia"
-         section.addFormRow(row)*/
-        
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "State *"
-         row.required = true
-         section.addFormRow(row)*/
-        
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationState, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
@@ -423,7 +386,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
-        
+ 
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationState, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
@@ -495,12 +458,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         section = XLFormSectionDescriptor.formSectionWithTitle("STATUS")
         form.addFormSection(section)
         
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Marital status *"
-         row.required = true
-         section.addFormRow(row)*/
-        
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationMaritalStatus, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Divorced", "Married", "Single", "Widowed"]
@@ -518,12 +475,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfig["textLabel.attributedText"] = attrString
         //row.value = "Option 4"
         section.addFormRow(row)
-        
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Have a children *"
-         row.required = true
-         section.addFormRow(row)*/
         
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationHaveAChildren, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
@@ -545,12 +496,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
         
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Relationship Status *"
-         row.required = true
-         section.addFormRow(row)*/
-        
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationRelationshipStatus, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Serius mencari", "Tidak serius mencari", "Sedang mengenali seseorang", "Tidak pasti"]
@@ -568,13 +513,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfig["textLabel.attributedText"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
-        
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Polygamy *"
-         row.required = true
-         section.addFormRow(row)*/
-        
+
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationPolygamy, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Agreed", "Can be discussed", "Do not agree", "Haven\'t thought yet"]
@@ -592,13 +531,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //row.value = "Option 4"
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
-        
-        // First Name/Given Name
-        /*row = XLFormRowDescriptor(tag: "Name", rowType: XLFormRowDescriptorTypeName, title:"")
-         row.cellConfigAtConfigure["textField.placeholder"] = "Financial level *"
-         row.required = true
-         section.addFormRow(row)*/
-        
+
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationFinancialLevel, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
         //row.selectorOptions = ["Unemployed", "Low income", "Middle income", "High income","Need more information"]
@@ -630,7 +563,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        row.required = true
+        //row.required = true
         section.addFormRow(row)
 
         self.form = form

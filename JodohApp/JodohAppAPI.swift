@@ -43,7 +43,7 @@ extension JodohAppAPI : TargetType {
     var base: String {
         //return kStageURL
         //return "http://192.168.0.113:8012/fly/public/"
-        return "http://192.168.0.119/fly/public/"
+        return "http://192.168.0.122/fly/public/"
     }
     
     public var baseURL: NSURL { return NSURL(string: base)! }
@@ -99,7 +99,8 @@ extension JodohAppAPI : TargetType {
                 "userTown" : userTown,
                 "userEducation" : userEducation,
                 "userOccupation" : userOccupation,
-                "signature" : signature]
+                "signature" : signature,
+                "jantina" : jantina]
             
         case .GetUpdate(let signature):
         return ["signature" : signature]

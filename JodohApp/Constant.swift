@@ -52,6 +52,12 @@ internal struct Tags {
     
 }
 
+internal struct Tags2 {
+    static let ValidationEmel = "Emel"
+    static let ValidationKataLaluan = "Kata Laluan"
+    static let ValidationSahKataLaluan = "SahKataLaluan"
+}
+
 func showErrorMessage(message : String){
     
     let errorView = SCLAlertView()

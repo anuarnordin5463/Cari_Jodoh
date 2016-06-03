@@ -38,9 +38,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         validateForm()
         
         if isValidate{
-            //print("correct")
-            //print(formValues())
-            
+  
             if formValues()[Tags.ValidationPassword]! as! String != formValues()[Tags.ValidationConfirmPassword]! as! String {
                 showErrorMessage("Confirm password incorrect")
             }
@@ -145,6 +143,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
+        row.addValidator(XLFormValidator.emailValidator())
         row.required = true
         section.addFormRow(row)
         

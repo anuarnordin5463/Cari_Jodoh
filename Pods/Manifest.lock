@@ -8,7 +8,7 @@ PODS:
     - Result (~> 1.0)
   - Result (1.0.2)
   - SCLAlertView (0.5.8)
-  - SlideMenuControllerSwift (2.1.1)
+  - SlideMenuControllerSwift (2.2.0)
   - SwiftyJSON (2.3.2)
   - TPKeyboardAvoiding (1.2.11)
   - XLForm (3.1.2)
@@ -29,7 +29,7 @@ SPEC CHECKSUMS:
   Moya: dfd9310f3dfb198927976dad445ead477ca6c2a3
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
-  SlideMenuControllerSwift: 82ada9b04e03538c84d034cf1c09e5849c0113f7
+  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPKeyboardAvoiding: e5ce146b313de063957bfa75a13f1e9b0ff18ab7
   XLForm: 6bb3c20857e2983cf494cb8b4d666c2a24673d5e

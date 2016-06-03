@@ -12,8 +12,7 @@ import XLForm
 class BaseXLFormViewController: XLFormViewController {
     
     var isValidate = Bool()
-    
-    
+    var user_profile = Dictionary<String,AnyObject>()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,25 +70,28 @@ class BaseXLFormViewController: XLFormViewController {
                     validationStatus.rowDescriptor!.tag == Tags.ValidationPassword ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationConfirmPassword ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationName ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationCountry ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationCountry ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationTown ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationState ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationState ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationMobile ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationHeight ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationWeight ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationSmokerVapes ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationSmokerVapes ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationHighEducation ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationOccupation ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationMaritalStatus ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationHaveAChildren ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationRelationshipStatus ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationPolygamy ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationFinancialLevel ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationDOB ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationMaritalStatus ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationHaveAChildren ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationRelationshipStatus ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationPolygamy ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationFinancialLevel ||
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationDOB ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationKataLaluanLama ||
                     validationStatus.rowDescriptor!.tag == Tags.ValidationKataLaluanBaru ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationSahKataLaluan ||
-                    validationStatus.rowDescriptor!.tag == Tags.ValidationJantina
+                    validationStatus.rowDescriptor!.tag == Tags.ValidationSahKataLaluan
+                    //validationStatus.rowDescriptor!.tag == Tags.ValidationJantina
+                    //validationStatus.rowDescriptor!.tag == Tags2.ValidationEmel ||
+                    //validationStatus.rowDescriptor!.tag == Tags2.ValidationKataLaluan ||
+                    //validationStatus.rowDescriptor!.tag == Tags2.ValidationSahKataLaluan
                 {
                     
                     if let rowDescriptor = validationStatus.rowDescriptor, let indexPath = form.indexPathOfFormRow(rowDescriptor), let cell = tableView.cellForRowAtIndexPath(indexPath) as? XLFormTextFieldCell {

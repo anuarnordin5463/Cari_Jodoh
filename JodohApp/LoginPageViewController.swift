@@ -176,4 +176,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         self.form = form
         
     }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
 }

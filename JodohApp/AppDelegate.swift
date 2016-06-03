@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // create viewController code...
         if(defaults.objectForKey("signature") == nil){
             defaults.setValue("", forKey: "signature")//simpan data
+            //defaults.setValue("", forKey: "user_height")//simpan data
             defaults.synchronize()
         }
         
@@ -33,13 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //let storyboard2 = UIStoryboard(name: "Register", bundle: nil)
         //let storyboard3 = UIStoryboard(name: "Login", bundle: nil) //hide ni
-        let storyboard4 = UIStoryboard(name: "MyProfile", bundle: nil)
+        //let storyboard4 = UIStoryboard(name: "MyProfile", bundle: nil)
         
-        //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController //unhide ni
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController //unhide ni
         //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("PasswordExpiredVC") as! PasswordExpiredViewController
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
         //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("PasswordExpiredVC") as! PasswordExpiredViewController //hide ni
-        let mainViewController = storyboard4.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+        //let mainViewController = storyboard4.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
         //let mainViewController = storyboard2.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
         //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
         
@@ -54,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
         
-        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
         // Override point for customization after application launch.
         return true
     }

@@ -19,16 +19,11 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
     var hideRow : Bool = false
-    var signature2 = defaults.objectForKey("signature") as! String
-    
-    //let userInfo = defaults.objectForKey("user_profile") as! NSData
-    //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-    //print(tempdata!["user_image"] as! String)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let signature2 = defaults.objectForKey("signature") as! String
         if (signature2 == "") {
             userImage.image = UIImage(named:"homePic")
         } else {
@@ -70,8 +65,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshSideMenu(notif:NSNotificationCenter){
         userId.text = defaults.objectForKey("signature") as? String
-        //hideRow = true
-        //self.leftTableView.reloadData()
+        hideRow = true
+        self.leftTableView.reloadData()
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
                 dispatch_async(dispatch_get_main_queue(), {
@@ -87,8 +82,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshSideMenuLogOut(notif:NSNotificationCenter){
         userId.text = defaults.objectForKey("signature") as? String
-        //hideRow = true
-        //self.leftTableView.reloadData()
+        hideRow = false
+        self.leftTableView.reloadData()
         userImage.image = UIImage(named:"homePic")
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
@@ -98,15 +93,14 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if (indexPath.row == 0 && hideRow == true) ||
-            (indexPath.row == 1 && hideRow == true) ||
-            (indexPath.row == 2 && hideRow == true) ||
-            (indexPath.row == 3 && hideRow == true) ||
-            (indexPath.row == 4 && hideRow == true) ||
-            (indexPath.row == 5 && hideRow == true) ||
-            (indexPath.row == 6 && hideRow == true) ||
-            (indexPath.row == 7 && hideRow == true) ||
-            (indexPath.row == 8 && hideRow == true)
+        if
+            (indexPath.row == 1 && hideRow == false) ||
+            (indexPath.row == 2 && hideRow == false) ||
+            (indexPath.row == 3 && hideRow == false) ||
+            (indexPath.row == 4 && hideRow == false) ||
+            (indexPath.row == 5 && hideRow == false) ||
+            (indexPath.row == 6 && hideRow == false) ||
+            (indexPath.row == 8 && hideRow == false)
         {
             return 0.0
         }else {
@@ -132,16 +126,15 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if indexPath.row == 0{
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 1{
-            
+            let signature2 = defaults.objectForKey("signature") as! String
             JodohAppProvider.request(.GetUpdate(signature2), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
                     do {
                         let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
-                        
                         if  json["status"].string == "success"{
                             
                             let data = NSKeyedArchiver.archivedDataWithRootObject(json["user_profile"].dictionaryObject!)
@@ -150,20 +143,19 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             
                             let userInfo = defaults.objectForKey("user_profile") as! NSData
                             let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-                            print(tempdata!["user_image"] as! String)
+                            print(tempdata)
+                            print(tempdata!["user_height"] as! String)
                             showInfoSuccessUpdate(json["message"].string!)
-                            //defaults.objectForKey("signature") as! String
-                            //defaults.setValue(json["signature"].string , forKey: "signature")//simpan data
-                            //defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
-                            //defaults.synchronize()
-                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
-                            //NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
                             
-                        }else{
+                        }else if (json["error"].string != nil){
                             showErrorMessage(json["error"].string!)
+                        }else {
+                            showErrorMessage(json["message"].string!)
                         }
-                        
-                        print(json)
+                   
+                        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                        //NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
+                        //print(json)
                     }
                     catch {
                         
@@ -203,10 +195,11 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else{
-            SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x82EBFF)
+            SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x0679AD)
             defaults.setObject("", forKey: "signature")
             defaults.setObject("", forKey: "auth_token")
             defaults.setObject("", forKey: "user_profile")
+            defaults.setObject("", forKey: "user_height")
             defaults.synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
             print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
