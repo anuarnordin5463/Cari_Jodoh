@@ -23,6 +23,11 @@
 		FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */; };
 		FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8550481CCF9A280054DD4A /* Login.storyboard */; };
 		FC8A8B801CFC294600617088 /* UIImageView+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8A8B7F1CFC294600617088 /* UIImageView+Round.swift */; };
+		FC99E0761D0174D80063A013 /* preloader.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC99E0751D0174D80063A013 /* preloader.gif */; };
+		FC99E0781D0175600063A013 /* cj_loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = FC99E0771D0175600063A013 /* cj_loading.gif */; };
+		FC99E07A1D0175CE0063A013 /* LoadingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC99E0791D0175CE0063A013 /* LoadingScreen.storyboard */; };
+		FC99E07C1D0176020063A013 /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99E07B1D0176020063A013 /* LoadingScreenViewController.swift */; };
+		FC99E07E1D017BA40063A013 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC99E07D1D017BA40063A013 /* LoadingScreen.swift */; };
 		FCA16AAD1CCF569800FFC839 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */; };
 		FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */; };
 		FCAAA9F11CED3C4B000FE3F3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */; };
@@ -61,6 +66,11 @@
 		FC8550461CCF72EC0054DD4A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FC8550481CCF9A280054DD4A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FC8A8B7F1CFC294600617088 /* UIImageView+Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Round.swift"; sourceTree = "<group>"; };
+		FC99E0751D0174D80063A013 /* preloader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = preloader.gif; sourceTree = "<group>"; };
+		FC99E0771D0175600063A013 /* cj_loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cj_loading.gif; sourceTree = "<group>"; };
+		FC99E0791D0175CE0063A013 /* LoadingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingScreen.storyboard; sourceTree = "<group>"; };
+		FC99E07B1D0176020063A013 /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
+		FC99E07D1D017BA40063A013 /* LoadingScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		FCA16AAC1CCF569800FFC839 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FCA4D95D1CE1C1AC00324FBF /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		FCAAA9F01CED3C4B000FE3F3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 			children = (
 				FC087DE41CE4126400236694 /* JodohAppAPI.swift */,
 				FC8A8B7F1CFC294600617088 /* UIImageView+Round.swift */,
+				FC99E07D1D017BA40063A013 /* LoadingScreen.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -149,6 +160,17 @@
 				FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */,
 			);
 			name = JodohApp;
+			sourceTree = "<group>";
+		};
+		FC99E0741D01744D0063A013 /* LoadingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FC99E0771D0175600063A013 /* cj_loading.gif */,
+				FC99E0751D0174D80063A013 /* preloader.gif */,
+				FC99E0791D0175CE0063A013 /* LoadingScreen.storyboard */,
+				FC99E07B1D0176020063A013 /* LoadingScreenViewController.swift */,
+			);
+			name = LoadingScreen;
 			sourceTree = "<group>";
 		};
 		FCA16AAE1CCF56A500FFC839 /* Login */ = {
@@ -228,6 +250,7 @@
 		FCFA85C21CC86FAE000F9B3B /* JodohApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC99E0741D01744D0063A013 /* LoadingScreen */,
 				FCB26C051CEC45E10006F23D /* Header */,
 				FC087DE31CE4121F00236694 /* Helper */,
 				FCA4D95C1CE1C12600324FBF /* CustomCell */,
@@ -319,14 +342,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC99E0781D0175600063A013 /* cj_loading.gif in Resources */,
 				FCFA85CE1CC86FAF000F9B3B /* LaunchScreen.storyboard in Resources */,
 				FCB26C0B1CEC6EB70006F23D /* ALHAMBRA.TTF in Resources */,
 				FCAAA9F11CED3C4B000FE3F3 /* Roboto-Regular.ttf in Resources */,
 				FCFA85CB1CC86FAF000F9B3B /* Assets.xcassets in Resources */,
 				FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */,
+				FC99E0761D0174D80063A013 /* preloader.gif in Resources */,
 				FCFA85C91CC86FAF000F9B3B /* Main.storyboard in Resources */,
 				FCC839021CD1DEEB008D1653 /* MyProfile.storyboard in Resources */,
 				FCFA85EA1CC88BA3000F9B3B /* greenBubble.png in Resources */,
+				FC99E07A1D0175CE0063A013 /* LoadingScreen.storyboard in Resources */,
 				FCB26C071CEC46C70006F23D /* HeaderSideMenu.xib in Resources */,
 				FC8550451CCF72D80054DD4A /* Register.storyboard in Resources */,
 			);
@@ -392,6 +418,7 @@
 				FCB26C091CEC48D10006F23D /* HeaderSideMenu.swift in Sources */,
 				FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */,
 				FC7DC7BE1CFBE3B80069767D /* ForgetPasswordViewController.swift in Sources */,
+				FC99E07C1D0176020063A013 /* LoadingScreenViewController.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
 				FC0B190D1CF2BB5700449FEE /* SaveImageViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,
@@ -406,6 +433,7 @@
 				FC087DE51CE4126400236694 /* JodohAppAPI.swift in Sources */,
 				FC063FEE1CCDEA2E0097B4C5 /* ExtensionFile.swift in Sources */,
 				FCCA889D1CF302D9007CB0C9 /* CustomCellsController.swift in Sources */,
+				FC99E07E1D017BA40063A013 /* LoadingScreen.swift in Sources */,
 				FC1CFEF81CE2D37E006B508C /* BaseXLFormViewController.swift in Sources */,
 				FC063FF21CCDED260097B4C5 /* LeftMenuViewController.swift in Sources */,
 				FCFA85E51CC878BC000F9B3B /* MyCollectionViewCell.swift in Sources */,

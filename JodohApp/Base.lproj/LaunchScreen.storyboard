@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashCariJodoh" translatesAutoresizingMaskIntoConstraints="NO" id="Crz-tj-KIq">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Crz-tj-KIq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="XvY-DG-O05"/>
+                            <constraint firstItem="Crz-tj-KIq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="XvY-DG-O05"/>
                             <constraint firstAttribute="trailing" secondItem="Crz-tj-KIq" secondAttribute="trailing" id="dhK-yP-VeC"/>
                             <constraint firstItem="Crz-tj-KIq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="jMX-ma-626"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Crz-tj-KIq" secondAttribute="bottom" id="tcf-KG-Ag9"/>

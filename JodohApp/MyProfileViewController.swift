@@ -165,6 +165,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"
             let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
             
+            showLoading()
+            
             JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
@@ -184,7 +186,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                         }else{
                             showErrorMessage(json["error"].string!)
                         }
-                        
+                        hideLoading()
                         print(json)
                     }
                     catch {
@@ -193,6 +195,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                     
                 case .Failure(let failureResult):
                     //print(failureResult)
+                    hideLoading()
                     showErrorMessage(failureResult.nsError.localizedDescription)
                 }
             })

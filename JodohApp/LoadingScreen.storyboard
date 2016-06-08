@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Loading Screen View Controller-->
+        <scene sceneID="gH1-NW-ZXh">
+            <objects>
+                <viewController storyboardIdentifier="LoadingScreenVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="7Ov-HG-atb" customClass="LoadingScreenViewController" customModule="Cari_Jodoh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jlM-wv-Uf4"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ND-Cc-Tow"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KCg-d2-Wox">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9e7-cu-lej">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5aS-Sk-cfO">
+                                        <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="6eM-YM-pE3"/>
+                                            <constraint firstAttribute="height" constant="200" id="tg0-uI-9HL"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="5aS-Sk-cfO" firstAttribute="centerX" secondItem="9e7-cu-lej" secondAttribute="centerX" id="1aT-g8-tDG"/>
+                                    <constraint firstItem="5aS-Sk-cfO" firstAttribute="centerY" secondItem="9e7-cu-lej" secondAttribute="centerY" id="8bC-YL-74L"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ND-Cc-Tow" firstAttribute="top" secondItem="9e7-cu-lej" secondAttribute="bottom" id="3AA-6a-DAi"/>
+                            <constraint firstAttribute="trailing" secondItem="9e7-cu-lej" secondAttribute="trailing" id="fm5-Ju-ckT"/>
+                            <constraint firstItem="9e7-cu-lej" firstAttribute="leading" secondItem="KCg-d2-Wox" secondAttribute="leading" id="mYO-BO-uPY"/>
+                            <constraint firstItem="9e7-cu-lej" firstAttribute="top" secondItem="KCg-d2-Wox" secondAttribute="top" id="sxv-mo-OgA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bgView" destination="9e7-cu-lej" id="uQO-v9-sjg"/>
+                        <outlet property="loadingImg" destination="5aS-Sk-cfO" id="SDt-a5-H2c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tNY-qv-veW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="-570"/>
+        </scene>
+    </scenes>
+</document>

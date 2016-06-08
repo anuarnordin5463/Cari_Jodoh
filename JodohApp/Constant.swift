@@ -93,3 +93,24 @@ func canOpenURL(string: String?) -> Bool {
     return predicate.evaluateWithObject(string)
 }
 
+var viewsController = UIViewController()
+
+func showLoading(){
+    
+    let appDelegate = UIApplication.sharedApplication().keyWindow
+    let root = appDelegate?.rootViewController
+    viewsController = root!
+    
+    let storyboard = UIStoryboard(name: "LoadingScreen", bundle: nil)
+    let loadingVC = storyboard.instantiateViewControllerWithIdentifier("LoadingScreenVC") as! LoadingScreenViewController
+    loadingVC.view.backgroundColor = UIColor.clearColor()
+    
+    viewsController.presentViewController(loadingVC, animated: true, completion: nil)
+    
+}
+
+func hideLoading(){
+    
+    viewsController.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+    
+}

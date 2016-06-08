@@ -46,6 +46,8 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
             let name = formValues()[Tags.ValidationUsername] as! String
             let pass = formValues()[Tags.ValidationPassword] as! String
             
+            showLoading()
+            
             JodohAppProvider.request(.Login(name,pass), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
@@ -75,7 +77,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                         }else{
                             showErrorMessage(json["message"].string!)
                         }
-                        
+                        hideLoading()
                         print(json)
                     }
                     catch {
@@ -84,6 +86,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                     
                 case .Failure(let failureResult):
                     //print(failureResult)
+                    hideLoading()
                     showErrorMessage(failureResult.nsError.localizedDescription)
                 }
             })

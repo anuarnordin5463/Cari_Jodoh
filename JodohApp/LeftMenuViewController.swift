@@ -130,6 +130,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 1{
             let signature2 = defaults.objectForKey("signature") as! String
+            showLoading()
             JodohAppProvider.request(.GetUpdate(signature2), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
@@ -152,7 +153,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                         }else {
                             showErrorMessage(json["message"].string!)
                         }
-                   
+                        hideLoading()
                         print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                         //NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
                         //print(json)
@@ -163,6 +164,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                     
                 case .Failure(let failureResult):
                     //print(failureResult)
+                    hideLoading()
                     showErrorMessage(failureResult.nsError.localizedDescription)
                 }
             })

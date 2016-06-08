@@ -47,6 +47,8 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
             let pass = formValues()[Tags.ValidationPassword] as! String
             let confirmPass = formValues()[Tags.ValidationConfirmPassword] as! String
             
+            showLoading()
+                
             JodohAppProvider.request(.Register(name,pass,confirmPass), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
@@ -64,7 +66,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
                         }else{
                             showErrorMessage(json["message"].string!)
                         }
-                        
+                        hideLoading()
                         print(json)
                     }
                     catch {
@@ -73,6 +75,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
                     
                 case .Failure(let failureResult):
                     //print(failureResult)
+                    hideLoading()
                     showErrorMessage(failureResult.nsError.localizedDescription)
                 }
             })
