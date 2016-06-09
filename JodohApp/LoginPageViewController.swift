@@ -64,8 +64,8 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             defaults.synchronize()
                             //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
-                            let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
-                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
                             
                             /*let storyboard = UIStoryboard(name: "Main", bundle: nil)

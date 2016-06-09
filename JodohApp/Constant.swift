@@ -73,7 +73,7 @@ func showInfoRegister(message:String){
 func showInfoLogin(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message+" Please fill all the details to proceed.", closeButtonTitle: "Okay", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Okay", colorStyle: 0x0679AD)
 }
 
 func showInfoSuccessUpdate(message:String){

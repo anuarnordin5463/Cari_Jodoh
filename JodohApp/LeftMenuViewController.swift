@@ -129,6 +129,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 1{
+            
             let signature2 = defaults.objectForKey("signature") as! String
             showLoading()
             JodohAppProvider.request(.GetUpdate(signature2), completion: { (result) in
@@ -139,13 +140,14 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                         if  json["status"].string == "success"{
                             
                             let data = NSKeyedArchiver.archivedDataWithRootObject(json["user_profile"].dictionaryObject!)
-                            defaults.setValue(data, forKey: "user_profile")//simpan data
+                            defaults.setObject(data, forKey: "user_profile")//simpan data
+                            defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
-                            
-                            let userInfo = defaults.objectForKey("user_profile") as! NSData
-                            let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-                            print(tempdata)
-                            print(tempdata!["user_height"] as! String)
+                            NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
+                            //let userInfo = defaults.objectForKey("user_profile") as! NSData
+                            //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
+                            //print(tempdata)
+                            //print(tempdata!["user_height"] as! String)
                             showInfoSuccessUpdate(json["message"].string!)
                             
                         }else if (json["error"].string != nil){
@@ -154,8 +156,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             showErrorMessage(json["message"].string!)
                         }
                         hideLoading()
-                        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
-                        //NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
+                        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                        //
                         //print(json)
                     }
                     catch {
@@ -168,7 +170,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                     showErrorMessage(failureResult.nsError.localizedDescription)
                 }
             })
-            
+            NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)

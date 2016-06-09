@@ -20,16 +20,11 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     var image: UIImage!
     let myPickerController = UIImagePickerController()
     
-    
+    var tempData = NSDictionary()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //user_profile = ["user_height" : ""]
-        //defaults.setValue("", forKey: "user_height")//simpan data
-        //defaults.setValue("", forKey: "user_profile")//simpan data
-        //defaults.synchronize()
-        
+
         if (image != nil) {
             userImage.image = image
             
@@ -37,13 +32,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             print("image was null")
         }
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
         setupLeftButton()
-        //self.setNavigationBarItem()
         initializeForm()
         submitButton.layer.cornerRadius = 5
-        //userImage.image = UIImage(named:"homePic")
-        //userImage.image = myPickerController.delegate as? UIImage
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -54,28 +45,13 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         userImage.addGestureRecognizer(tapGestureRecognizer)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshTable(_:)), name: "reloadTable", object: nil)
         self.title = "KEMASKINI PROFIL"
-        //Set Color
-        //Set Font Size
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
-        
-        // Do any additional setup after loading the view.
     }
     
     func refreshTable(notif:NSNotificationCenter){
-        //hideRow = true
-        //self.MyProfileTableView.reloadData()
-        //defaults.objectForKey("user_height") as! String
-        //defaults.synchronize()
-        
-        //let userInfo = defaults.objectForKey("user_profile") as! NSData
-        //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-        //print(tempdata)
-        //print(tempdata!["user_height"] as! String)
-        
-        
-        //print("lol")
-        //self.MyProfileTableView.reloadData()
-        
+        let userInfo = defaults.objectForKey("user_profile") as! NSData
+        tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
+        initializeForm()
     }
     
     func imageTapped(img: AnyObject)
@@ -87,7 +63,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         infoView.addButton("Photo Library") {
             self.photoLibrary()
         }
-        infoView.showInfo("Info", subTitle: "Choose picture using:", closeButtonTitle: "Cancel", colorStyle: 0x82EBFF)
+        infoView.showInfo("Info", subTitle: "Choose picture using:", closeButtonTitle: "Cancel", colorStyle: 0x0679AD)
     }
 
     
@@ -208,9 +184,15 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     }
     
     func initializeForm() {
-        
-
-
+        /*
+        if defaults.objectForKey("user_profile") == nil{
+            let data = NSKeyedArchiver.archivedDataWithRootObject("")
+            defaults.setObject(data, forKey: "user_profile")//simpan data
+            defaults.synchronize()
+        }
+        let userInfo = defaults.objectForKey("user_profile") as! NSData
+        let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
+        */
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
         let star = [NSForegroundColorAttributeName : UIColor.redColor()]
         let text = [NSForegroundColorAttributeName : UIColor.lightGrayColor()]
@@ -237,7 +219,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.addValidator(XLFormValidator.emailValidator())
-        //row.required = true
+        if tempData.count != 0{
+            row.value = tempData["user_email"] as! String
+        }
         section.addFormRow(row)
         
         row = XLFormRowDescriptor(tag: Tags2.ValidationKataLaluan, rowType: XLFormRowDescriptorTypePassword, title:"")
@@ -319,6 +303,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        if tempData.count != 0{
+            row.value = tempData["user_mobile"] as! String
+        }
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -330,20 +317,11 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        //row.value =
-        //contactData["mobile_phone"] as! String
+        if tempData.count != 0{
+            row.value = tempData["user_height"] as! String
+        }
         section.addFormRow(row)
-        
-        // Height
-        /*row = XLFormRowDescriptor(tag: "", rowType:XLFormRowDescriptorTypeSelectorPickerView, title:"Height *")
-         var tempArray:[AnyObject] = [AnyObject]()
-         for title in 100...200{
-         tempArray.append(XLFormOptionsObject(value: title, displayText: "\(title) cm"))
-         }
-         row.selectorOptions = tempArray
-         //row.value = tempArray[0]
-         section.addFormRow(row)*/
-        
+
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationWeight, rowType: XLFormRowDescriptorTypePhone, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Weight *"
@@ -353,6 +331,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
+        if tempData.count != 0{
+            row.value = tempData["user_weight"] as! String
+        }
         section.addFormRow(row)
         
         // Smoker/Vapes
@@ -443,6 +424,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
+        if tempData.count != 0{
+            row.value = tempData["user_education"] as! String
+        }
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -454,6 +438,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
+        if tempData.count != 0{
+            row.value = tempData["user_occupation"] as! String
+        }
         section.addFormRow(row)
         
         // Basic Information - Section------------------------------
@@ -562,11 +549,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row = XLFormRowDescriptor(tag: "", rowType: XLFormRowDescriptorTypeText, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
         attrString = NSMutableAttributedString(string: "Tiada Pakej")
-        attrString.appendAttributedString(NSAttributedString(string: "", attributes: star))
-        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        //row.required = true
         section.addFormRow(row)
 
         self.form = form
