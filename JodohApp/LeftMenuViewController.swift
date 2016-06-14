@@ -18,6 +18,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var mainViewController: UIViewController!
     var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
+   
     var hideRow : Bool = false
     
     
@@ -27,6 +28,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         if (signature2 == "") {
             userImage.image = UIImage(named:"homePic")
         } else {
+            hideRow = true
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
                 dispatch_async(dispatch_get_main_queue(), {
