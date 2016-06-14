@@ -154,7 +154,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                             showInfoSuccessUpdate(json["message"].string!)
                             defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
-                            print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)

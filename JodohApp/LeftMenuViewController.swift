@@ -134,10 +134,46 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
                 self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             }else{
-                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
-                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+                let name = defaults.objectForKey("email") as! String
+                let pass = defaults.objectForKey("password") as! String
+                    
+                showLoading()
+                JodohAppProvider.request(.List(name,pass), completion: { (result) in
+                    switch result {
+                    case .Success(let successResult):
+                        do {
+                            let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                            
+                            if  json["status"].string == "success"{
+                                
+                                showInfoLogin(json["message"].string!)
+                                
+                                let data = NSKeyedArchiver.archivedDataWithRootObject(json["listUser"].dictionaryObject!)
+                                defaults.setObject(data, forKey: "listUser")//simpan data
+                                defaults.synchronize()
+                                //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                                //NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+                                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+                                
+                            }else{
+                                showErrorMessage(json["message"].string!)
+                            }
+                            hideLoading()
+                            print(json)
+                        }
+                        catch {
+                            
+                        }
+                        
+                    case .Failure(let failureResult):
+                        //print(failureResult)
+                        hideLoading()
+                        showErrorMessage(failureResult.nsError.localizedDescription)
+                    }
+                })
             }
-            
         }else if indexPath.row == 1{
             
             showLoading()
@@ -209,6 +245,9 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             defaults.setObject("", forKey: "auth_token")
             defaults.setObject("", forKey: "user_profile")
             defaults.setObject("", forKey: "user_height")
+            defaults.setObject("", forKey: "email")
+            defaults.setObject("", forKey: "password")
+            defaults.setObject("", forKey: "listUser")
             defaults.synchronize()
             NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
             print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());

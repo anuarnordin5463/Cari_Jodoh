@@ -46,6 +46,10 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
             let name = formValues()[Tags.ValidationUsername] as! String
             let pass = formValues()[Tags.ValidationPassword] as! String
             
+            defaults.setValue(name , forKey: "email")//simpan data
+            defaults.setValue(pass , forKey: "password")//simpan data
+            defaults.synchronize()
+            
             showLoading()
             
             JodohAppProvider.request(.Login(name,pass), completion: { (result) in
