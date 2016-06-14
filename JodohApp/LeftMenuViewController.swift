@@ -126,13 +126,20 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signature2 = defaults.objectForKey("signature") as! String
         
         if indexPath.row == 0{
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            
+            if signature2 == ""{
+                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            }else{
+                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
+                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            }
+            
         }else if indexPath.row == 1{
             
-            let signature2 = defaults.objectForKey("signature") as! String
             showLoading()
             JodohAppProvider.request(.GetUpdate(signature2), completion: { (result) in
                 switch result {
@@ -146,10 +153,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
                             NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
-                            //let userInfo = defaults.objectForKey("user_profile") as! NSData
-                            //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-                            //print(tempdata)
-                            //print(tempdata!["user_height"] as! String)
                             showInfoSuccessUpdate(json["message"].string!)
                             
                         }else if (json["error"].string != nil){

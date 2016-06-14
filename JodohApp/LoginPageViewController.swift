@@ -67,12 +67,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
-                            
-                            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("LeftVC") as! LeftMenuViewController
-                            //manageFlightVC.imgName = UIImage()
-                            manageFlightVC.userName = "test"
-                            self.navigationController!.pushViewController(manageFlightVC, animated: true)*/
+ 
                             
                         }else{
                             showErrorMessage(json["message"].string!)
