@@ -21,7 +21,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
    
     var hideRow : Bool = false
     
-    
+    var tmpData = NSArray()
     override func viewDidLoad() {
         super.viewDidLoad()
         let signature2 = defaults.objectForKey("signature") as! String
@@ -130,13 +130,10 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         
         if indexPath.row == 0{
             
-            if signature2 == ""{
-                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-            }else{
+            if signature2 != ""{
                 let name = defaults.objectForKey("email") as! String
                 let pass = defaults.objectForKey("password") as! String
-                    
+                
                 showLoading()
                 JodohAppProvider.request(.List(name,pass), completion: { (result) in
                     switch result {
@@ -147,17 +144,26 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             if  json["status"].string == "success"{
                                 
                                 showInfoLogin(json["message"].string!)
-                                
-                                let data = NSKeyedArchiver.archivedDataWithRootObject(json["listUser"].dictionaryObject!)
+                                let data = json["listUser"].arrayObject
                                 defaults.setObject(data, forKey: "listUser")//simpan data
                                 defaults.synchronize()
+                                
+                                //print(defaults.objectForKey("listUser")!)
+                                //(defaults.objectForKey("listUser")! as! NSArray)[0]---use this
+                                
                                 //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                                 //NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                                 self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-                                
-                            }else{
+                                //let userInfo = defaults.objectForKey("user_profile") as! NSData
+                                //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
+                                //print(tempdata)
+                                //print(tempdata!["user_height"] as! String)
+
+                            }else if (json["error"].string != nil){
+                                showErrorMessage(json["error"].string!)
+                            }else {
                                 showErrorMessage(json["message"].string!)
                             }
                             hideLoading()
@@ -173,7 +179,11 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                         showErrorMessage(failureResult.nsError.localizedDescription)
                     }
                 })
+            }else{
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             }
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 1{
             
             showLoading()
@@ -215,30 +225,31 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 2{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 3{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 4{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 5{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 6{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 7{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else{
             SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x0679AD)
             defaults.setObject("", forKey: "signature")
@@ -253,7 +264,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }
-        self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+        //self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
     }
 }
