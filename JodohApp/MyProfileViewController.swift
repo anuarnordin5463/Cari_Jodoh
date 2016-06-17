@@ -138,16 +138,22 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let height = formValues()[Tags.ValidationHeight] as! String
             let weight = formValues()[Tags.ValidationWeight] as! String
             let smoker = (formValues()[Tags.ValidationSmokerVapes] as! XLFormOptionsObject).valueData() as! String
+            let country = (formValues()[Tags.ValidationCountry] as! XLFormOptionsObject).valueData() as! String
             let state = (formValues()[Tags.ValidationState] as! XLFormOptionsObject).valueData() as! String
             let town = formValues()[Tags.ValidationTown] as! String
-            let education = formValues()[Tags.ValidationHighEducation] as! String
-            let occupation = formValues()[Tags.ValidationOccupation] as! String
+            let education = (formValues()[Tags.ValidationHighEducation] as! XLFormOptionsObject).valueData() as! String
+            let occupation = (formValues()[Tags.ValidationOccupation] as! XLFormOptionsObject).valueData() as! String
             let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"//formatDate(selectDate)
             let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
+            let marital = (formValues()[Tags.ValidationMaritalStatus] as! XLFormOptionsObject).valueData() as! String
+            let children = (formValues()[Tags.ValidationHaveAChildren] as! XLFormOptionsObject).valueData() as! String
+            let relationship = (formValues()[Tags.ValidationRelationshipStatus] as! XLFormOptionsObject).valueData() as! String
+            let polygamy = (formValues()[Tags.ValidationPolygamy] as! XLFormOptionsObject).valueData() as! String
+            let financial = (formValues()[Tags.ValidationFinancialLevel] as! XLFormOptionsObject).valueData() as! String
             
             showLoading()
             
-            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name), completion: { (result) in
+            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name,country,marital,children,relationship,polygamy,financial), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
                     do {
@@ -197,7 +203,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let form : XLFormDescriptor
         var section : XLFormSectionDescriptor
         var row : XLFormRowDescriptor
-        let signature = defaults.objectForKey("signature") as! String
+        //let signature = defaults.objectForKey("signature") as! String
         
         form = XLFormDescriptor(title: "") //as XLFormDescriptor
         
@@ -216,9 +222,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.addValidator(XLFormValidator.emailValidator())
-        if tempData.count != 0{
+        /*if tempData.count != 0{
             row.value = tempData["user_email"] as? String
-        }
+        }*/
         section.addFormRow(row)
         
         row = XLFormRowDescriptor(tag: Tags2.ValidationKataLaluan, rowType: XLFormRowDescriptorTypePassword, title:"")
@@ -366,11 +372,23 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationSmokerVapes, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        var tempArraySmoker:[AnyObject] = [AnyObject]()
-        tempArraySmoker.append(XLFormOptionsObject(value: "Ya", displayText: "Ya"))
-        tempArraySmoker.append(XLFormOptionsObject(value: "Tidak", displayText: "Tidak"))
-        row.selectorOptions = tempArraySmoker
-        row.value = tempArraySmoker[0]
+        //var tempArraySmoker:[AnyObject] = [AnyObject]()
+        //tempArraySmoker.append(XLFormOptionsObject(value: "Ya", displayText: "Ya"))
+        //tempArraySmoker.append(XLFormOptionsObject(value: "Tidak", displayText: "Tidak"))
+        //row.selectorOptions = tempArraySmoker
+        //row.value = tempArraySmoker[0]
+        var tempSmokerArray:[AnyObject] = [AnyObject]()
+        for title in smokerArray{
+            tempSmokerArray.append(XLFormOptionsObject(value: title["smoker_code"], displayText: title["smoker_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_smoke"] as? String == title["smoker_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["smoker_code"], displayText: title["smoker_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempSmokerArray
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Merokok/Vaper", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -384,14 +402,20 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         form.addFormSection(section)
         
         // Smoker/Vapes
-        row = XLFormRowDescriptor(tag: Tags.ValidationState, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
-        //row.value = "Option 4"
-        var tempArrayNegara:[AnyObject] = [AnyObject]()
-        tempArrayNegara.append(XLFormOptionsObject(value: "Malaysia", displayText: "Malaysia"))//smpai sni,,,lain x buat
-        tempArrayNegara.append(XLFormOptionsObject(value: "Lain-lain", displayText: "Lain-lain"))
-        row.selectorOptions = tempArrayNegara
-        row.value = tempArrayNegara[0]
+        row = XLFormRowDescriptor(tag: Tags.ValidationCountry, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
+        var tempCountryArray:[AnyObject] = [AnyObject]()
+        for title in countryArray{
+            tempCountryArray.append(XLFormOptionsObject(value: title["country_code"], displayText: title["country_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_country"] as? String == title["country_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["country_code"], displayText: title["country_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempCountryArray
+        
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Negara", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -401,25 +425,19 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
  
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationState, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Johor","Kedah","Kelantan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
-        //row.value = "Option 4"
-        var tempArrayState:[AnyObject] = [AnyObject]()
-        tempArrayState.append(XLFormOptionsObject(value: "Johor", displayText: "Johor"))
-        tempArrayState.append(XLFormOptionsObject(value: "Kedah", displayText: "Kedah"))
-        tempArrayState.append(XLFormOptionsObject(value: "Kelantan", displayText: "Kelantan"))
-        tempArrayState.append(XLFormOptionsObject(value: "Melaka", displayText: "Melaka"))
-        tempArrayState.append(XLFormOptionsObject(value: "Negeri Sembilan", displayText: "Negeri Sembilan"))
-        tempArrayState.append(XLFormOptionsObject(value: "Pahang", displayText: "Pahang"))
-        tempArrayState.append(XLFormOptionsObject(value: "Perak", displayText: "Perak"))
-        tempArrayState.append(XLFormOptionsObject(value: "Perlis", displayText: "Perlis"))
-        tempArrayState.append(XLFormOptionsObject(value: "Pulau Pinang", displayText: "Pulau Pinang"))
-        tempArrayState.append(XLFormOptionsObject(value: "Sabah", displayText: "Sabah"))
-        tempArrayState.append(XLFormOptionsObject(value: "Sarawak", displayText: "Sarawak"))
-        tempArrayState.append(XLFormOptionsObject(value: "Selangor", displayText: "Selangor"))
-        tempArrayState.append(XLFormOptionsObject(value: "Terengganu", displayText: "Terengganu"))
-        tempArrayState.append(XLFormOptionsObject(value: "Wilayah Persekutuan", displayText: "Wilayah Persekutuan"))
-        row.selectorOptions = tempArrayState
-        row.value = tempArrayState[0]
+        var tempStateArray:[AnyObject] = [AnyObject]()
+        for title in stateArray{
+            tempStateArray.append(XLFormOptionsObject(value: title["state_code"], displayText: title["state_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_state"] as? String == title["state_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["state_code"], displayText: title["state_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempStateArray
+        
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Negeri", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -447,31 +465,48 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         form.addFormSection(section)
         
         // First Name/Given Name
-        row = XLFormRowDescriptor(tag: Tags.ValidationHighEducation, rowType: XLFormRowDescriptorTypeName, title:"")
-        //row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
-        attrString = NSMutableAttributedString(string: "Pendidikan Tertinggi")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
-        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
-        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        row.required = true
-        if tempData.count != 0{
-            row.value = tempData["user_education"] as? String
+        row = XLFormRowDescriptor(tag: Tags.ValidationHighEducation, rowType: XLFormRowDescriptorTypeSelectorPickerView, title:"")
+        var tempEducationArray:[AnyObject] = [AnyObject]()
+        for title in educationArray{
+            tempEducationArray.append(XLFormOptionsObject(value: title["education_code"], displayText: title["education_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_education"] as? String == title["education_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["education_code"], displayText: title["education_name"] as! String)
+                }
+            }
         }
-        section.addFormRow(row)
+        row.selectorOptions = tempEducationArray
         
-        // First Name/Given Name
-        row = XLFormRowDescriptor(tag: Tags.ValidationOccupation, rowType: XLFormRowDescriptorTypeName, title:"")
-        //row.cellConfigAtConfigure["textField.placeholder"] = "Occupation *"
-        attrString = NSMutableAttributedString(string: "Pekerjaan")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
-        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        row.required = true
-        if tempData.count != 0{
-            row.value = tempData["user_occupation"] as? String
+        attrString = NSMutableAttributedString(string: "Pendidikan Tertinggi", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
+        section.addFormRow(row)
+
+        // First Name/Given Name
+        row = XLFormRowDescriptor(tag: Tags.ValidationOccupation, rowType: XLFormRowDescriptorTypeSelectorPickerView, title:"")
+        
+        var tempOccupationArray:[AnyObject] = [AnyObject]()
+        for title in occupationArray{
+            tempOccupationArray.append(XLFormOptionsObject(value: title["occupation_code"], displayText: title["occupation_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_occupation"] as? String == title["occupation_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["occupation_code"], displayText: title["occupation_name"] as! String)
+                }
+            }
         }
+        row.selectorOptions = tempOccupationArray
+        
+        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        attrString = NSMutableAttributedString(string: "Pekerjaan", attributes: text)
+        attrText = NSMutableAttributedString(string: " *", attributes: star)
+        attrString.appendAttributedString(attrText)
+        row.cellConfig["textLabel.attributedText"] = attrString
         section.addFormRow(row)
         
         // Basic Information - Section------------------------------
@@ -481,14 +516,19 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationMaritalStatus, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Divorced", "Married", "Single", "Widowed"]
-        var tempArrayMarital:[AnyObject] = [AnyObject]()
-        tempArrayMarital.append(XLFormOptionsObject(value: "Bercerai", displayText: "Bercerai"))
-        tempArrayMarital.append(XLFormOptionsObject(value: "Berkahwin", displayText: "Berkahwin"))
-        tempArrayMarital.append(XLFormOptionsObject(value: "Bujang", displayText: "Bujang"))
-        tempArrayMarital.append(XLFormOptionsObject(value: "Janda/Duda", displayText: "Janda/Duda"))
-        row.selectorOptions = tempArrayMarital
-        row.value = tempArrayMarital[0]
+        var tempMaritalArray:[AnyObject] = [AnyObject]()
+        for title in maritalArray{
+            tempMaritalArray.append(XLFormOptionsObject(value: title["marital_code"], displayText: title["marital_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_marital"] as? String == title["marital_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["marital_code"], displayText: title["marital_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempMaritalArray
+        
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Status Perkahwinan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -499,17 +539,19 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationHaveAChildren, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Yes", "No"]
-        //row.value = "Option 4"
-        var tempArrayChildren:[AnyObject] = [AnyObject]()
-        tempArrayChildren.append(XLFormOptionsObject(value: "Tiada", displayText: "Tiada"))
-        tempArrayChildren.append(XLFormOptionsObject(value: "1", displayText: "1"))
-        tempArrayChildren.append(XLFormOptionsObject(value: "2", displayText: "2"))
-        tempArrayChildren.append(XLFormOptionsObject(value: "3", displayText: "3"))
-        tempArrayChildren.append(XLFormOptionsObject(value: "4", displayText: "4"))
-        tempArrayChildren.append(XLFormOptionsObject(value: "5 dan keatas", displayText: "5 dan keatas"))
-        row.selectorOptions = tempArrayChildren
-        row.value = tempArrayChildren[0]
+        var tempChildrenArray:[AnyObject] = [AnyObject]()
+        for title in childrenArray{
+            tempChildrenArray.append(XLFormOptionsObject(value: title["children_code"], displayText: title["children_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_children"] as? String == title["children_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["children_code"], displayText: title["children_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempChildrenArray
+        
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Bilangan Anak", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -519,15 +561,19 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationRelationshipStatus, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Serius mencari", "Tidak serius mencari", "Sedang mengenali seseorang", "Tidak pasti"]
-        //row.value = "Option 4"
-        var tempArrayRS:[AnyObject] = [AnyObject]()
-        tempArrayRS.append(XLFormOptionsObject(value: "Serius mencari", displayText: "Serius mencari"))
-        tempArrayRS.append(XLFormOptionsObject(value: "Tidak serius mencari", displayText: "Tidak serius mencari"))
-        tempArrayRS.append(XLFormOptionsObject(value: "Sedang mengenali seseorang", displayText: "Sedang mengenali seseorang"))
-        tempArrayRS.append(XLFormOptionsObject(value: "Tidak pasti", displayText: "Tidak pasti"))
-        row.selectorOptions = tempArrayRS
-        row.value = tempArrayRS[0]
+        var tempRelationshipArray:[AnyObject] = [AnyObject]()
+        for title in relationshipArray{
+            tempRelationshipArray.append(XLFormOptionsObject(value: title["relationship_code"], displayText: title["relationship_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_relationship"] as? String == title["relationship_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["relationship_code"], displayText: title["relationship_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempRelationshipArray
+        
         attrString = NSMutableAttributedString(string: "Status Perhubungan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
@@ -537,14 +583,18 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
 
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationPolygamy, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Agreed", "Can be discussed", "Do not agree", "Haven\'t thought yet"]
-        var tempArrayPolygamy:[AnyObject] = [AnyObject]()
-        tempArrayPolygamy.append(XLFormOptionsObject(value: "Agreed", displayText: "Agreed"))
-        tempArrayPolygamy.append(XLFormOptionsObject(value: "Can be discussed", displayText: "Can be discussed"))
-        tempArrayPolygamy.append(XLFormOptionsObject(value: "Do not agree", displayText: "Do not agree"))
-        tempArrayPolygamy.append(XLFormOptionsObject(value: "Haven\'t thought yet", displayText: "Haven\'t thought yet"))
-        row.selectorOptions = tempArrayPolygamy
-        row.value = tempArrayPolygamy[0]
+        var tempPolygamyArray:[AnyObject] = [AnyObject]()
+        for title in polygamyArray{
+            tempPolygamyArray.append(XLFormOptionsObject(value: title["polygamy_code"], displayText: title["polygamy_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_polygamy"] as? String == title["polygamy_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["polygamy_code"], displayText: title["polygamy_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempPolygamyArray
         attrString = NSMutableAttributedString(string: "Poligami", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
@@ -555,19 +605,22 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
 
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationFinancialLevel, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        //row.selectorOptions = ["Unemployed", "Low income", "Middle income", "High income","Need more information"]
-        var tempArrayFL:[AnyObject] = [AnyObject]()
-        tempArrayFL.append(XLFormOptionsObject(value: "Agreed", displayText: "Agreed"))
-        tempArrayFL.append(XLFormOptionsObject(value: "Can be discussed", displayText: "Can be discussed"))
-        tempArrayFL.append(XLFormOptionsObject(value: "Do not agree", displayText: "Do not agree"))
-        tempArrayFL.append(XLFormOptionsObject(value: "Haven\'t thought yet", displayText: "Haven\'t thought yet"))
-        row.selectorOptions = tempArrayFL
-        row.value = tempArrayFL[0]
+        var tempFinancialArray:[AnyObject] = [AnyObject]()
+        for title in financialArray{
+            tempFinancialArray.append(XLFormOptionsObject(value: title["financial_code"], displayText: title["financial_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_financial"] as? String == title["financial_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["financial_code"], displayText: title["financial_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempFinancialArray
         attrString = NSMutableAttributedString(string: "Kedudukan Kewangan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
-        //row.value = "Option 4"
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         section.addFormRow(row)
         
