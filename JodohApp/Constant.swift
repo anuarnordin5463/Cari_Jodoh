@@ -10,12 +10,8 @@ import UIKit
 import SCLAlertView
 
 let defaults = NSUserDefaults.standardUserDefaults()
-//defaults.setValue("", forKey: "signature")//simpan data
-//defaults.synchronize()
 
-//let dataSave = defaults.objectForKey("user_profile") as! NSData
-//let tempData = NSKeyedUnarchiver.unarchiveObjectWithData(dataSave)
-//let url = NSURL(string: tempData!["user_image"] as! String)
+var genderArray : [Dictionary<String, AnyObject>] = [["gender_code":"Perempuan","gender_name":"Perempuan"],["gender_code":"Lelaki","gender_name":"Lelaki"]]
 
 let url = NSURL(string: "http://4.bp.blogspot.com/_gZgKQFgDKrI/S_uJudJlvzI/AAAAAAAAEkU/OT5pjZXafKU/s320/mawi+af3.jpg")
 
@@ -112,5 +108,23 @@ func showLoading(){
 func hideLoading(){
     
     viewsController.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+    
+}
+
+func formatDate(date:NSDate) -> String{
+    
+    let formater = NSDateFormatter()
+    formater.dateFormat = "dd-MM-yyyy"
+    return formater.stringFromDate(date)
+    
+}
+
+func stringToDate(date:String) -> NSDate{
+    
+    let formater = NSDateFormatter()
+    formater.dateFormat = "yyyy-MM-dd"
+    let twentyFour = NSLocale(localeIdentifier: "en_GB")
+    formater.locale = twentyFour
+    return formater.dateFromString(date)!
     
 }

@@ -127,9 +127,13 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }else if formValues()[Tags2.ValidationKataLaluan]! as! String != formValues()[Tags2.ValidationSahKataLaluan]! as! String {
                 showErrorMessage("Confirm password incorrect")
             }else{*/
+            /*let date = formValues()[Tags.ValidationDOB]! as! String
+            let arrangeDate = date.componentsSeparatedByString("-")
             
+            let selectDate: NSDate = stringToDate("\(arrangeDate[2])-\(arrangeDate[1])-\(arrangeDate[0])")*/
             
             let signature = defaults.objectForKey("signature") as! String
+            let name = formValues()[Tags.ValidationName] as! String
             let mobile = formValues()[Tags.ValidationMobile] as! String
             let height = formValues()[Tags.ValidationHeight] as! String
             let weight = formValues()[Tags.ValidationWeight] as! String
@@ -138,12 +142,12 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let town = formValues()[Tags.ValidationTown] as! String
             let education = formValues()[Tags.ValidationHighEducation] as! String
             let occupation = formValues()[Tags.ValidationOccupation] as! String
-            let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"
+            let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"//formatDate(selectDate)
             let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
             
             showLoading()
             
-            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina), completion: { (result) in
+            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
                     do {
@@ -184,15 +188,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     }
     
     func initializeForm() {
-        /*
-        if defaults.objectForKey("user_profile") == nil{
-            let data = NSKeyedArchiver.archivedDataWithRootObject("")
-            defaults.setObject(data, forKey: "user_profile")//simpan data
-            defaults.synchronize()
-        }
-        let userInfo = defaults.objectForKey("user_profile") as! NSData
-        let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-        */
+
         //form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
         let star = [NSForegroundColorAttributeName : UIColor.redColor()]
         let text = [NSForegroundColorAttributeName : UIColor.lightGrayColor()]
@@ -201,6 +197,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let form : XLFormDescriptor
         var section : XLFormSectionDescriptor
         var row : XLFormRowDescriptor
+        let signature = defaults.objectForKey("signature") as! String
         
         form = XLFormDescriptor(title: "") //as XLFormDescriptor
         
@@ -220,7 +217,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
         row.addValidator(XLFormValidator.emailValidator())
         if tempData.count != 0{
-            row.value = tempData["user_email"] as! String
+            row.value = tempData["user_email"] as? String
         }
         section.addFormRow(row)
         
@@ -264,23 +261,42 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
-        //row.value = "test"
+        if tempData.count != 0{
+         row.value = tempData["user_name"] as? String
+        }
         section.addFormRow(row)
-        
+    
         // Smoker/Vapes
         row = XLFormRowDescriptor(tag: Tags.ValidationJantina, rowType: XLFormRowDescriptorTypeSelectorPickerView , title:"")
-        var tempArrayJantina:[AnyObject] = [AnyObject]()
-        tempArrayJantina.append(XLFormOptionsObject(value: "Lelaki", displayText: "Lelaki"))
-        tempArrayJantina.append(XLFormOptionsObject(value: "Perempuan", displayText: "Perempuan"))
-        row.selectorOptions = tempArrayJantina
-        row.value = tempArrayJantina[0]
+        
+        var tempArray:[AnyObject] = [AnyObject]()
+        for title in genderArray{
+            tempArray.append(XLFormOptionsObject(value: title["gender_code"], displayText: title["gender_name"] as! String))
+            
+            if tempData.count != 0{
+                
+                if tempData["user_sex"] as? String == title["gender_code"] as? String{
+                    row.value = XLFormOptionsObject(value: title["gender_code"], displayText: title["gender_name"] as! String)
+                }
+            }
+        }
+        row.selectorOptions = tempArray
+        
+        //var tempArrayJantina:[AnyObject] = [AnyObject]()
+        //tempArrayJantina.append(XLFormOptionsObject(value: "Lelaki", displayText: "Lelaki"))
+        //tempArrayJantina.append(XLFormOptionsObject(value: "Perempuan", displayText: "Perempuan"))
+        //row.selectorOptions = tempArrayJantina
+        //row.value = tempArrayJantina[0]
+        
+        
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Jantina", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
+        row.required = true
         section.addFormRow(row)
-        
+    
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationDOB, rowType: XLFormRowDescriptorTypeDate , title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "Date of Birth *"
@@ -292,6 +308,16 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfig["textLabel.attributedText"] = attrString
         row.required = true
         row.value = NSDate()
+        /*if tempData.count != 0{
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx"
+            let date = dateFormatter.dateFromString(tempData["user_dob"]! as! String)
+            row.value = date
+            //row.value = NSDate()
+        }
+        else{
+            row.value = NSDate()
+        }*/
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -303,8 +329,10 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        if tempData.count != 0{
-            row.value = tempData["user_mobile"] as! String
+        if tempData["user_mobile"] == nil{
+            row.value = ""
+        }else {
+            row.value = tempData["user_mobile"] as? String
         }
         section.addFormRow(row)
         
@@ -318,7 +346,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         if tempData.count != 0{
-            row.value = tempData["user_height"] as! String
+            row.value = tempData["user_height"] as? String
         }
         section.addFormRow(row)
 
@@ -332,7 +360,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         if tempData.count != 0{
-            row.value = tempData["user_weight"] as! String
+            row.value = tempData["user_weight"] as? String
         }
         section.addFormRow(row)
         
@@ -408,6 +436,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
+        if tempData.count != 0{
+            row.value = tempData["user_town"] as? String
+        }
         section.addFormRow(row)
         
         // Basic Information - Section--------------------------
@@ -425,7 +456,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         if tempData.count != 0{
-            row.value = tempData["user_education"] as! String
+            row.value = tempData["user_education"] as? String
         }
         section.addFormRow(row)
         
@@ -439,7 +470,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         row.required = true
         if tempData.count != 0{
-            row.value = tempData["user_occupation"] as! String
+            row.value = tempData["user_occupation"] as? String
         }
         section.addFormRow(row)
         

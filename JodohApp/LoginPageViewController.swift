@@ -160,7 +160,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        //row.addValidator(XLFormValidator.emailValidator())
+        row.addValidator(XLFormValidator.emailValidator())
         section.addFormRow(row)
         
         row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypePassword, title:"")

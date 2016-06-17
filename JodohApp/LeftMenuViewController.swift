@@ -199,7 +199,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
                             NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
-                            showInfoSuccessUpdate(json["message"].string!)
+                            //showInfoSuccessUpdate(json["message"].string!)
                             
                         }else if (json["error"].string != nil){
                             showErrorMessage(json["error"].string!)
