@@ -64,11 +64,11 @@
                                                     </constraints>
                                                 </view>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="Za3-OM-V2T">
-                                                    <rect key="frame" x="0.0" y="160" width="570" height="66"/>
+                                                    <rect key="frame" x="0.0" y="160" width="570" height="109"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvT-hM-tqH">
-                                                            <rect key="frame" x="0.0" y="16" width="570" height="50"/>
+                                                            <rect key="frame" x="0.0" y="59" width="570" height="50"/>
                                                             <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="cE4-BR-dj4"/>
@@ -81,13 +81,46 @@
                                                                 <action selector="submitButtonPressed:" destination="ucT-TN-qix" eventType="touchUpInside" id="hQk-19-afg"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiada Pakej" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzc-HA-C8d">
+                                                            <rect key="frame" x="15" y="10" width="150" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="36" id="F8O-9Y-6Rc"/>
+                                                                <constraint firstAttribute="width" constant="150" id="XKy-qI-GXj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="txtField" translatesAutoresizingMaskIntoConstraints="NO" id="jPt-kh-kJh">
+                                                            <rect key="frame" x="0.0" y="6" width="570" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="570" id="16P-vc-ETy"/>
+                                                                <constraint firstAttribute="width" constant="570" id="OPv-Ox-EKg"/>
+                                                                <constraint firstAttribute="height" constant="40" id="oRP-gZ-MFQ"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="OPv-Ox-EKg"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="TvT-hM-tqH" firstAttribute="leading" secondItem="Za3-OM-V2T" secondAttribute="leading" id="0v6-57-bWa"/>
+                                                        <constraint firstItem="Uzc-HA-C8d" firstAttribute="leading" secondItem="Za3-OM-V2T" secondAttribute="leading" constant="15" id="CYj-bc-lzJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="jPt-kh-kJh" secondAttribute="trailing" id="Hap-vF-b2M"/>
+                                                        <constraint firstItem="Uzc-HA-C8d" firstAttribute="top" secondItem="Za3-OM-V2T" secondAttribute="top" constant="10" id="Lps-M0-m80"/>
+                                                        <constraint firstItem="jPt-kh-kJh" firstAttribute="leading" secondItem="Za3-OM-V2T" secondAttribute="leading" id="Mba-kS-IV1"/>
+                                                        <constraint firstItem="jPt-kh-kJh" firstAttribute="top" secondItem="Za3-OM-V2T" secondAttribute="top" constant="6" id="YeI-Q7-AXt"/>
                                                         <constraint firstAttribute="bottom" secondItem="TvT-hM-tqH" secondAttribute="bottom" id="heH-ob-1jo"/>
                                                         <constraint firstAttribute="trailing" secondItem="TvT-hM-tqH" secondAttribute="trailing" id="rlC-ya-q9A"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Mba-kS-IV1"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                                 <variation key="default">
                                                     <mask key="constraints">
@@ -190,5 +223,6 @@
     </scenes>
     <resources>
         <image name="personIcon" width="103" height="92"/>
+        <image name="txtField" width="542" height="40"/>
     </resources>
 </document>

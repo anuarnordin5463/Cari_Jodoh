@@ -626,14 +626,14 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         section = XLFormSectionDescriptor.formSectionWithTitle("LANGGANAN")
         form.addFormSection(section)
         
-        // First Name/Given Name
+        /*// First Name/Given Name
         row = XLFormRowDescriptor(tag: "", rowType: XLFormRowDescriptorTypeText, title:"")
-        //row.cellConfigAtConfigure["textField.placeholder"] = "High Education *"
-        attrString = NSMutableAttributedString(string: "Tiada Pakej")
+        row.cellConfigAtConfigure["textField.placeholder"] = "Tiada Pakej"
+        //attrString = NSMutableAttributedString(string: "Tiada Pakej")
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
         section.addFormRow(row)
-
+         */
         self.form = form
         
     }
