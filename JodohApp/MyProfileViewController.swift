@@ -51,6 +51,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     func refreshTable(notif:NSNotificationCenter){
         let userInfo = defaults.objectForKey("user_profile") as! NSData
         tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
+        //tempData = (NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as? NSDictionary)!
         initializeForm()
     }
     
@@ -279,14 +280,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempArray
-        
-        //var tempArrayJantina:[AnyObject] = [AnyObject]()
-        //tempArrayJantina.append(XLFormOptionsObject(value: "Lelaki", displayText: "Lelaki"))
-        //tempArrayJantina.append(XLFormOptionsObject(value: "Perempuan", displayText: "Perempuan"))
-        //row.selectorOptions = tempArrayJantina
-        //row.value = tempArrayJantina[0]
-        
-        
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Jantina", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -304,15 +297,11 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
         row.required = true
-        row.value = NSDate()
-        if (tempData.count != 0) && (tempData["user_dob"] != nil){
+        if (tempData.count != 0){
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
             let date = dateFormatter.dateFromString(tempData["user_dob"]! as! String)
             row.value = date
-        }
-        else{
-            row.value = NSDate()
         }
         section.addFormRow(row)
         
@@ -384,6 +373,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
+        row.required = true
         section.addFormRow(row)
         
         // Basic Information - Section----------------------
@@ -405,7 +395,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempCountryArray
-        
+        row.required = true
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Negara", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -433,6 +423,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
+        row.required = true
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -447,6 +438,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         if tempData.count != 0{
             row.value = tempData["user_town"] as? String
         }
+        row.required = true
         section.addFormRow(row)
         
         // Basic Information - Section--------------------------
@@ -468,7 +460,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempEducationArray
-        
+        row.required = true
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Pendidikan Tertinggi", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -491,7 +483,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempOccupationArray
-        
+        row.required = true
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Pekerjaan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -518,7 +510,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempMaritalArray
-        
+        row.required = true
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Status Perkahwinan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -541,7 +533,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempChildrenArray
-        
+        row.required = true
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Bilangan Anak", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -563,7 +555,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             }
         }
         row.selectorOptions = tempRelationshipArray
-        
+        row.required = true
         attrString = NSMutableAttributedString(string: "Status Perhubungan", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
         attrString.appendAttributedString(attrText)
@@ -584,6 +576,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                 }
             }
         }
+        row.required = true
         row.selectorOptions = tempPolygamyArray
         attrString = NSMutableAttributedString(string: "Poligami", attributes: text)
         attrText = NSMutableAttributedString(string: " *", attributes: star)
@@ -612,6 +605,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         attrString.appendAttributedString(attrText)
         row.cellConfig["textLabel.attributedText"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
+        row.required = true
         section.addFormRow(row)
         
         // Basic Information - Section--------------------------

@@ -102,7 +102,7 @@ class BaseXLFormViewController: XLFormViewController {
                     }
                 }
             }
-            
+        showErrorMessageKemaskini("Sila penuhkan")
         }else{
             isValidate = true
             

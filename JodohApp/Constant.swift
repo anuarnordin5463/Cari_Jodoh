@@ -166,25 +166,31 @@ internal struct Tags2 {
 func showErrorMessage(message : String){
     
     let errorView = SCLAlertView()
-    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "Close")
+    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "Tutup")
+}
+
+func showErrorMessageKemaskini(message : String){
+    
+    let errorView = SCLAlertView()
+    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "Tutup")
 }
 
 func showInfoRegister(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Okay", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Ok", colorStyle: 0x0679AD)
 }
 
 func showInfoLogin(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Okay", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Ok", colorStyle: 0x0679AD)
 }
 
 func showInfoSuccessUpdate(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Okay", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Ok", colorStyle: 0x0679AD)
 }
 
 func canOpenURL(string: String?) -> Bool {
