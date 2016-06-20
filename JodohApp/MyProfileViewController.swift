@@ -312,9 +312,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfig["textLabel.attributedText"] = attrString
         row.required = true
         row.value = NSDate()
-        if tempData.count != 0{
+        if (tempData.count != 0) && (tempData["user_dob"] != nil){
             let dateFormatter = NSDateFormatter()
-            //dateFormatter.dateFormat = "yyyy-MM-dd"
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
             let date = dateFormatter.dateFromString(tempData["user_dob"]! as! String)
             row.value = date
