@@ -143,7 +143,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let town = formValues()[Tags.ValidationTown] as! String
             let education = (formValues()[Tags.ValidationHighEducation] as! XLFormOptionsObject).valueData() as! String
             let occupation = (formValues()[Tags.ValidationOccupation] as! XLFormOptionsObject).valueData() as! String
-            let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"//formatDate(selectDate)
+            let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"
             let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
             let marital = (formValues()[Tags.ValidationMaritalStatus] as! XLFormOptionsObject).valueData() as! String
             let children = (formValues()[Tags.ValidationHaveAChildren] as! XLFormOptionsObject).valueData() as! String
@@ -164,7 +164,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                             showInfoSuccessUpdate(json["message"].string!)
                             defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
-                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
@@ -305,7 +304,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     
         // First Name/Given Name
         row = XLFormRowDescriptor(tag: Tags.ValidationDOB, rowType: XLFormRowDescriptorTypeDate , title:"")
-        //row.cellConfigAtConfigure["textField.placeholder"] = "Date of Birth *"
         row.cellConfigAtConfigure["maximumDate"] = NSDate()
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         attrString = NSMutableAttributedString(string: "Tarikh Lahir", attributes: text)
@@ -314,16 +312,16 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.cellConfig["textLabel.attributedText"] = attrString
         row.required = true
         row.value = NSDate()
-        /*if tempData.count != 0{
+        if tempData.count != 0{
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSSSxxx"
+            //dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
             let date = dateFormatter.dateFromString(tempData["user_dob"]! as! String)
             row.value = date
-            //row.value = NSDate()
         }
         else{
             row.value = NSDate()
-        }*/
+        }
         section.addFormRow(row)
         
         // First Name/Given Name
