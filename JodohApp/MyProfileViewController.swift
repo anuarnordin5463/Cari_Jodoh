@@ -121,16 +121,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
 
         if isValidate{
             
-            /*if formValues()[Tags2.ValidationKataLaluan] == nil{
-                return
-                //showErrorMessage("Confirm password incorrect")
-            }else if formValues()[Tags2.ValidationKataLaluan]! as! String != formValues()[Tags2.ValidationSahKataLaluan]! as! String {
+            if formValues()[Tags2.ValidationKataLaluan]! as? String != formValues()[Tags2.ValidationSahKataLaluan]! as? String {
                 showErrorMessage("Confirm password incorrect")
-            }else{*/
-            /*let date = formValues()[Tags.ValidationDOB]! as! String
-            let arrangeDate = date.componentsSeparatedByString("-")
-            
-            let selectDate: NSDate = stringToDate("\(arrangeDate[2])-\(arrangeDate[1])-\(arrangeDate[0])")*/
+            }else{
             
             let signature = defaults.objectForKey("signature") as! String
             let name = formValues()[Tags.ValidationName] as! String
@@ -185,7 +178,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                 }
             })
             
-        //}
+        }
         }
         else{
             print("false,value can't be empty")

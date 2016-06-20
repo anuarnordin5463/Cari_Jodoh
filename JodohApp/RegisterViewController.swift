@@ -122,21 +122,6 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         section = XLFormSectionDescriptor.formSectionWithTitle("")
         form.addFormSection(section)
         
-        /*
-        // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: Tags.ValidationFirstName, rowType: XLFormRowDescriptorTypeName, title:"")
-        //row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
-        //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
-        attrString = NSMutableAttributedString(string: "Username")
-        attrString.appendAttributedString(NSAttributedString(string: " *", attributes: star))
-        row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
-        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
-        row.required = true
-        section.addFormRow(row)
-        */
-        
         row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
