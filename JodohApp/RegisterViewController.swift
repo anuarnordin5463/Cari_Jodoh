@@ -24,7 +24,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         self.title = "DAFTAR AKAUN"
         //Set Color
         //Set Font Size
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 25.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
         // Do any additional setup after loading the view.
     }
     

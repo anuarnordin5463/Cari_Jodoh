@@ -16,8 +16,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     var mainViewController: UIViewController!
-    var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan", "Tentang Kami","Logout"]
-    var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian", "tentangKami", "logKeluar"]
+    var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan","Log Masuk","Daftar Baru","Tentang Kami","Logout"]
+    var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian","Login","Register", "tentangKami", "logKeluar"]
    
     var hideRow : Bool = false
     
@@ -102,7 +102,9 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             (indexPath.row == 4 && hideRow == false) ||
             (indexPath.row == 5 && hideRow == false) ||
             (indexPath.row == 6 && hideRow == false) ||
-            (indexPath.row == 8 && hideRow == false)
+            (indexPath.row == 10 && hideRow == false) ||
+            (indexPath.row == 7 && hideRow == true) ||
+            (indexPath.row == 8 && hideRow == true)
         {
             return 0.0
         }else {
@@ -143,23 +145,13 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             
                             if  json["status"].string == "success"{
                                 
-                                showInfoLogin(json["message"].string!)
+                                //showInfoLogin(json["message"].string!)
                                 let data = json["listUser"].arrayObject
                                 defaults.setObject(data, forKey: "listUser")//simpan data
                                 defaults.synchronize()
-                                
-                                //print(defaults.objectForKey("listUser")!)
-                                //(defaults.objectForKey("listUser")! as! NSArray)[0]---use this
-                                
-                                //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
-                                //NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenu", object: nil)
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                                 self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-                                //let userInfo = defaults.objectForKey("user_profile") as! NSData
-                                //let tempdata = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo)
-                                //print(tempdata)
-                                //print(tempdata!["user_height"] as! String)
 
                             }else if (json["error"].string != nil){
                                 showErrorMessage(json["error"].string!)
@@ -247,10 +239,20 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 7{
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+        }else if indexPath.row == 8{
+            let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+        }else if indexPath.row == 9{
             //let storyboard = UIStoryboard(name: "Register", bundle: nil)
             //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-        }else{
+        }else {
             SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x0679AD)
             defaults.setObject("", forKey: "signature")
             defaults.setObject("", forKey: "auth_token")
