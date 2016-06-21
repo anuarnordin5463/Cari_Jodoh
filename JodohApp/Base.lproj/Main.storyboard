@@ -112,7 +112,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-Mc-pjv">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="3x9-Mc-pjv">
                                             <rect key="frame" x="100" y="8" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="3x9-Mc-pjv" secondAttribute="height" multiplier="1:1" id="0Cj-hC-zUN"/>
@@ -664,6 +664,7 @@
         <image name="galeriPhoto" width="1500" height="1100"/>
         <image name="greenBubble.png" width="600" height="600"/>
         <image name="kegemaran" width="1100" height="1100"/>
+        <image name="personIcon" width="103" height="92"/>
         <image name="sembang" width="1266" height="1029"/>
     </resources>
 </document>
