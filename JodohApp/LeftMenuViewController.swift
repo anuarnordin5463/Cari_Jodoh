@@ -26,7 +26,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         let signature2 = defaults.objectForKey("signature") as! String
         if (signature2 == "") {
-            userImage.image = UIImage(named:"homePic")
+            userImage.image = UIImage(named:"personIcon")
         } else {
             hideRow = true
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {

@@ -12,15 +12,9 @@ import SlideMenuControllerSwift
 
 class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelegate {
     
-    @IBOutlet weak var registerButtonPressed: UIButton!
-    @IBOutlet weak var loginButtonPressed: UIButton!
-        //var lblName = String()
-    
-
+    @IBOutlet weak var userNameAge: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     var imgName = UIImage()
-
-    @IBOutlet weak var userLbl: UILabel!
     var userName = String()
     
     override func viewDidLoad() {
@@ -30,7 +24,8 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
 
         profileImageView.image = imgName
         //user.text = userName
-        self.title = userName
+        self.title = ""
+        userNameAge.text = userName
         profileImageView.createBorder()
     
     }

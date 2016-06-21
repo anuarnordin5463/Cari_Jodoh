@@ -60,7 +60,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                         
                         if  json["status"].string == "success"{
                             
-                            showInfoLogin(json["message"].string!)
+                            //showInfoLogin(json["message"].string!)
                             //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             //let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
                             defaults.setValue(json["signature"].string , forKey: "signature")//simpan data
