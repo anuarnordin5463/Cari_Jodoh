@@ -47,6 +47,26 @@ class BaseXLFormViewController: XLFormViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: tools)
     }
     
+    func setupMenuButton(){
+        let tools = UIToolbar()
+        tools.frame = CGRectMake(0, 0, 95, 44)
+        tools.setBackgroundImage(UIImage(), forToolbarPosition: .Any, barMetrics: .Default)
+        tools.backgroundColor = UIColor.clearColor()
+        tools.clipsToBounds = true;
+        tools.translucent = true;
+        
+        let image1 = UIImage(named: "MenuIconWhite")! .imageWithRenderingMode(.AlwaysOriginal)
+        
+        
+        let menuButton = UIBarButtonItem(image: image1, style: .Plain, target: self, action: #selector(BaseXLFormViewController.menuTapped(_:)))
+        menuButton.imageInsets = UIEdgeInsetsMake(0, -35, 0, 0)
+        
+        let buttons:[UIBarButtonItem] = [menuButton];
+        tools.setItems(buttons, animated: false)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: tools)
+    }
+    
     func menuTapped(sender: UIBarButtonItem){
         self.slideMenuController()?.toggleLeft()
     }

@@ -16,7 +16,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     var mainViewController: UIViewController!
-    var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan","Log Masuk","Daftar Baru","Tentang Kami","Logout"]
+    var menuSections:[String] = ["Laman Utama", "Kemaskini Profil", "Galeri Foto", "Kegemaran", "Sembang", "Carian", "Tetapan","Log Masuk","Daftar Baru","Tentang Kami","Log Keluar"]
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian","Login","Register", "tentangKami", "logKeluar"]
    
     var hideRow : Bool = false
@@ -227,17 +227,23 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
         }else if indexPath.row == 4{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            let storyboard = UIStoryboard(name: "Package", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            SCLAlertView().showInfo("Info", subTitle: "Sila langgan pakej", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 5{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            let storyboard = UIStoryboard(name: "Package", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            SCLAlertView().showInfo("Info", subTitle: "Sila langgan pakej", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 6{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            let storyboard = UIStoryboard(name: "Package", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            SCLAlertView().showInfo("Info", subTitle: "Sila langgan pakej", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 7{
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
@@ -249,11 +255,12 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 9{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            let storyboard = UIStoryboard(name: "AboutUs", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("AboutUsVC") as! AboutUsViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else {
-            SCLAlertView().showInfo("Info", subTitle: "You have succesfully logout", closeButtonTitle: "Close", colorStyle: 0x0679AD)
+            SCLAlertView().showInfo("Info", subTitle: "Berjaya log keluar", closeButtonTitle: "Tutup", colorStyle: 0x0679AD)
             defaults.setObject("", forKey: "signature")
             defaults.setObject("", forKey: "auth_token")
             defaults.setObject("", forKey: "user_profile")

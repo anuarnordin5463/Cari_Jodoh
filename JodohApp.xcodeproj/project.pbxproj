@@ -37,6 +37,10 @@
 		FCC839001CD1DED6008D1653 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */; };
 		FCC839021CD1DEEB008D1653 /* MyProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */; };
 		FCCA889D1CF302D9007CB0C9 /* CustomCellsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA889C1CF302D9007CB0C9 /* CustomCellsController.swift */; };
+		FCF3BD701D1923CD00EAE220 /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF3BD6F1D1923CD00EAE220 /* AboutUs.storyboard */; };
+		FCF3BD721D1923F700EAE220 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF3BD711D1923F700EAE220 /* AboutUsViewController.swift */; };
+		FCF3BD761D1931B700EAE220 /* PackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF3BD751D1931B700EAE220 /* PackageViewController.swift */; };
+		FCF3BD781D1931C700EAE220 /* Package.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF3BD771D1931C700EAE220 /* Package.storyboard */; };
 		FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */; };
 		FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFA85C51CC86FAE000F9B3B /* ViewController.swift */; };
 		FCFA85C91CC86FAF000F9B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFA85C71CC86FAF000F9B3B /* Main.storyboard */; };
@@ -80,6 +84,10 @@
 		FCC838FF1CD1DED6008D1653 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		FCC839011CD1DEEB008D1653 /* MyProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyProfile.storyboard; sourceTree = "<group>"; };
 		FCCA889C1CF302D9007CB0C9 /* CustomCellsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellsController.swift; sourceTree = "<group>"; };
+		FCF3BD6F1D1923CD00EAE220 /* AboutUs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
+		FCF3BD711D1923F700EAE220 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		FCF3BD751D1931B700EAE220 /* PackageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageViewController.swift; sourceTree = "<group>"; };
+		FCF3BD771D1931C700EAE220 /* Package.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Package.storyboard; sourceTree = "<group>"; };
 		FCFA85C01CC86FAE000F9B3B /* Cari Jodoh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cari Jodoh.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFA85C31CC86FAE000F9B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCFA85C51CC86FAE000F9B3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +237,24 @@
 			name = LeftMenu;
 			sourceTree = "<group>";
 		};
+		FCF3BD6E1D19239A00EAE220 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				FCF3BD6F1D1923CD00EAE220 /* AboutUs.storyboard */,
+				FCF3BD711D1923F700EAE220 /* AboutUsViewController.swift */,
+			);
+			name = AboutUs;
+			sourceTree = "<group>";
+		};
+		FCF3BD741D19319F00EAE220 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				FCF3BD751D1931B700EAE220 /* PackageViewController.swift */,
+				FCF3BD771D1931C700EAE220 /* Package.storyboard */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
 		FCFA85B71CC86FAE000F9B3B = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +276,8 @@
 		FCFA85C21CC86FAE000F9B3B /* JodohApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCF3BD741D19319F00EAE220 /* Package */,
+				FCF3BD6E1D19239A00EAE220 /* AboutUs */,
 				FC99E0741D01744D0063A013 /* LoadingScreen */,
 				FCB26C051CEC45E10006F23D /* Header */,
 				FC087DE31CE4121F00236694 /* Helper */,
@@ -342,10 +370,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF3BD701D1923CD00EAE220 /* AboutUs.storyboard in Resources */,
 				FC99E0781D0175600063A013 /* cj_loading.gif in Resources */,
 				FCFA85CE1CC86FAF000F9B3B /* LaunchScreen.storyboard in Resources */,
 				FCB26C0B1CEC6EB70006F23D /* ALHAMBRA.TTF in Resources */,
 				FCAAA9F11CED3C4B000FE3F3 /* Roboto-Regular.ttf in Resources */,
+				FCF3BD781D1931C700EAE220 /* Package.storyboard in Resources */,
 				FCFA85CB1CC86FAF000F9B3B /* Assets.xcassets in Resources */,
 				FC8550491CCF9A280054DD4A /* Login.storyboard in Resources */,
 				FC99E0761D0174D80063A013 /* preloader.gif in Resources */,
@@ -418,9 +448,11 @@
 				FCB26C091CEC48D10006F23D /* HeaderSideMenu.swift in Sources */,
 				FC8550471CCF72EC0054DD4A /* RegisterViewController.swift in Sources */,
 				FC7DC7BE1CFBE3B80069767D /* ForgetPasswordViewController.swift in Sources */,
+				FCF3BD721D1923F700EAE220 /* AboutUsViewController.swift in Sources */,
 				FC99E07C1D0176020063A013 /* LoadingScreenViewController.swift in Sources */,
 				FCFA85C61CC86FAE000F9B3B /* ViewController.swift in Sources */,
 				FC0B190D1CF2BB5700449FEE /* SaveImageViewController.swift in Sources */,
+				FCF3BD761D1931B700EAE220 /* PackageViewController.swift in Sources */,
 				FCFA85C41CC86FAE000F9B3B /* AppDelegate.swift in Sources */,
 				FCA4D95E1CE1C1AC00324FBF /* SideMenuTableViewCell.swift in Sources */,
 				FC07F8CC1CD19FC1001EC8EB /* LoginPageViewController.swift in Sources */,
