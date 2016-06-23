@@ -277,7 +277,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aplikasi Cari Jodoh Untuk Muslim          Sudah Mendaftar? Daftar Sekarang" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAo-cE-vKm">
-                                        <rect key="frame" x="20" y="40" width="560" height="70"/>
+                                        <rect key="frame" x="20" y="20" width="560" height="70"/>
                                         <color key="backgroundColor" red="0.90980392156862744" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="nnT-4m-BO2"/>
@@ -287,7 +287,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cariJodoh" translatesAutoresizingMaskIntoConstraints="NO" id="77J-pu-6af">
-                                        <rect key="frame" x="207" y="140" width="187" height="168"/>
+                                        <rect key="frame" x="207" y="100" width="187" height="168"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="77J-pu-6af" secondAttribute="height" multiplier="68:61" id="DgD-Ta-bNI"/>
                                             <constraint firstAttribute="width" constant="187" id="SXf-P7-xhq"/>
@@ -300,7 +300,7 @@
                                         </variation>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMD-v1-fd1">
-                                        <rect key="frame" x="20" y="403" width="560" height="50"/>
+                                        <rect key="frame" x="20" y="343" width="560" height="50"/>
                                         <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="My3-cI-wA9"/>
@@ -324,7 +324,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFr-YT-TiD">
-                                        <rect key="frame" x="20" y="338" width="560" height="50"/>
+                                        <rect key="frame" x="20" y="278" width="560" height="50"/>
                                         <color key="backgroundColor" red="0.023529411764705882" green="0.47450980392156861" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="P1x-aN-7nJ"/>
@@ -353,17 +353,17 @@
                                     <constraint firstAttribute="trailing" secondItem="jFr-YT-TiD" secondAttribute="trailing" constant="20" id="1C3-am-7f8"/>
                                     <constraint firstItem="jFr-YT-TiD" firstAttribute="leading" secondItem="rBF-Zl-4MZ" secondAttribute="leading" constant="20" id="4Ic-41-WEn"/>
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="leading" secondItem="rBF-Zl-4MZ" secondAttribute="leading" constant="20" id="6uc-gg-9uQ"/>
-                                    <constraint firstItem="jFr-YT-TiD" firstAttribute="top" secondItem="77J-pu-6af" secondAttribute="bottom" constant="30" id="E8s-64-sHl"/>
+                                    <constraint firstItem="jFr-YT-TiD" firstAttribute="top" secondItem="77J-pu-6af" secondAttribute="bottom" constant="10" id="E8s-64-sHl"/>
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="top" secondItem="77J-pu-6af" secondAttribute="bottom" constant="50" id="GJl-dD-bwT"/>
                                     <constraint firstItem="jFr-YT-TiD" firstAttribute="top" secondItem="kMD-v1-fd1" secondAttribute="bottom" constant="15" id="Lmo-wH-dOD"/>
                                     <constraint firstItem="nAo-cE-vKm" firstAttribute="leading" secondItem="rBF-Zl-4MZ" secondAttribute="leading" constant="20" id="OwD-Tq-seu"/>
                                     <constraint firstAttribute="trailing" secondItem="jFr-YT-TiD" secondAttribute="trailing" constant="20" id="OyR-dR-eHA"/>
                                     <constraint firstItem="jFr-YT-TiD" firstAttribute="leading" secondItem="rBF-Zl-4MZ" secondAttribute="leading" constant="20" id="Ppx-k8-ted"/>
-                                    <constraint firstItem="nAo-cE-vKm" firstAttribute="top" secondItem="rBF-Zl-4MZ" secondAttribute="top" constant="40" id="Q3u-pW-Uj1"/>
+                                    <constraint firstItem="nAo-cE-vKm" firstAttribute="top" secondItem="rBF-Zl-4MZ" secondAttribute="top" constant="20" id="Q3u-pW-Uj1"/>
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="top" secondItem="77J-pu-6af" secondAttribute="bottom" constant="30" id="bRF-zp-suz"/>
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="top" secondItem="jFr-YT-TiD" secondAttribute="bottom" constant="15" id="bfE-gi-Ap4"/>
                                     <constraint firstAttribute="trailing" secondItem="kMD-v1-fd1" secondAttribute="trailing" constant="20" id="csm-K6-cpJ"/>
-                                    <constraint firstItem="77J-pu-6af" firstAttribute="top" secondItem="nAo-cE-vKm" secondAttribute="bottom" constant="30" id="f1C-Xi-65y"/>
+                                    <constraint firstItem="77J-pu-6af" firstAttribute="top" secondItem="nAo-cE-vKm" secondAttribute="bottom" constant="10" id="f1C-Xi-65y"/>
                                     <constraint firstAttribute="trailing" secondItem="jFr-YT-TiD" secondAttribute="trailing" constant="20" id="hhX-zF-MOw"/>
                                     <constraint firstAttribute="trailing" secondItem="kMD-v1-fd1" secondAttribute="trailing" constant="20" id="idQ-a8-B4P"/>
                                     <constraint firstItem="kMD-v1-fd1" firstAttribute="leading" secondItem="rBF-Zl-4MZ" secondAttribute="leading" constant="20" id="jqF-6A-v3R"/>

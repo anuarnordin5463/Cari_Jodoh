@@ -86,7 +86,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         userId.text = defaults.objectForKey("signature") as? String
         hideRow = false
         self.leftTableView.reloadData()
-        userImage.image = UIImage(named:"homePic")
+        userImage.image = UIImage(named:"personIcon")
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
