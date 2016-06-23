@@ -17,6 +17,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     @IBOutlet weak var MyProfileTableView: UITableView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var packageName: UILabel!
     var image: UIImage!
     let myPickerController = UIImagePickerController()
     
@@ -46,6 +47,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshTable(_:)), name: "reloadTable", object: nil)
         self.title = "KEMASKINI PROFIL"
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
+        
     }
     
     func refreshTable(notif:NSNotificationCenter){
@@ -53,6 +55,12 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
         //tempData = (NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as? NSDictionary)!
         initializeForm()
+        packageName.text = tempData["user_package"] as? String
+        if (tempData["user_image"] as? String) == ""{
+            userImage.image = UIImage(named: "personIcon.jpg")
+        }else{
+            userImage.image = UIImage(named: "emma.jpg")
+        }
     }
     
     func imageTapped(img: AnyObject)
@@ -300,9 +308,10 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         if (tempData.count != 0){
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
-            let date = dateFormatter.dateFromString(tempData["user_dob"]! as! String)
+            let date = dateFormatter.dateFromString((tempData["user_dob"]! as? String)!)
             row.value = date
         }
+        //row.value = NSDate()
         section.addFormRow(row)
         
         // First Name/Given Name
@@ -613,14 +622,6 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         section = XLFormSectionDescriptor.formSectionWithTitle("LANGGANAN")
         form.addFormSection(section)
         
-        /*// First Name/Given Name
-        row = XLFormRowDescriptor(tag: "", rowType: XLFormRowDescriptorTypeText, title:"")
-        row.cellConfigAtConfigure["textField.placeholder"] = "Tiada Pakej"
-        //attrString = NSMutableAttributedString(string: "Tiada Pakej")
-        row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
-        row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
-        section.addFormRow(row)
-         */
         self.form = form
         
     }

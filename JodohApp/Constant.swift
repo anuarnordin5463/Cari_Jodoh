@@ -178,19 +178,21 @@ func showErrorMessageKemaskini(message : String){
 func showInfoRegister(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message+" Please login to proceed.", closeButtonTitle: "Ok", colorStyle: 0x0679AD)
+    //infoView.showInfo("Info", subTitle: message+"Sila Log Masuk", closeButtonTitle: "OK", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: "Sila Log Masuk", closeButtonTitle: "OK", colorStyle: 0x0679AD)
 }
 
 func showInfoLogin(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Ok", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "OK", colorStyle: 0x0679AD)
 }
 
 func showInfoSuccessUpdate(message:String){
     
     let infoView = SCLAlertView()
-    infoView.showInfo("Info", subTitle: message, closeButtonTitle: "Ok", colorStyle: 0x0679AD)
+    //infoView.showInfo("Info", subTitle: message, closeButtonTitle: "OK", colorStyle: 0x0679AD)
+    infoView.showInfo("Info", subTitle: "Kemaskini Berjaya", closeButtonTitle: "OK", colorStyle: 0x0679AD)
 }
 
 func canOpenURL(string: String?) -> Bool {

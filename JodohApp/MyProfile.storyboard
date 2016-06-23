@@ -49,7 +49,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="570" height="160"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-Kb-xoB">
+                                                        <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personIcon" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-Kb-xoB">
                                                             <rect key="frame" x="220" y="0.0" width="130" height="130"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="130" id="LeH-DT-tDp"/>
@@ -81,7 +81,7 @@
                                                                 <action selector="submitButtonPressed:" destination="ucT-TN-qix" eventType="touchUpInside" id="hQk-19-afg"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiada Pakej" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzc-HA-C8d">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzc-HA-C8d">
                                                             <rect key="frame" x="15" y="10" width="150" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="F8O-9Y-6Rc"/>
@@ -170,6 +170,7 @@
                     </view>
                     <connections>
                         <outlet property="MyProfileTableView" destination="tJY-Dd-bof" id="rqS-SD-nJJ"/>
+                        <outlet property="packageName" destination="Uzc-HA-C8d" id="SIa-Fm-CSM"/>
                         <outlet property="submitButton" destination="TvT-hM-tqH" id="U85-O1-8J2"/>
                         <outlet property="tableView" destination="tJY-Dd-bof" id="UxS-Cv-Tq8"/>
                         <outlet property="userImage" destination="b2X-Kb-xoB" id="WsI-Yf-vVo"/>
