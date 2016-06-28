@@ -20,8 +20,9 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var menuIcon:[String] = ["lamanUtama", "kemaskiniProfil", "galeriPhoto", "kegemaran", "sembang", "carian", "tetapanCarian","Login","Register", "tentangKami", "logKeluar"]
    
     var hideRow : Bool = false
-    
+    var tempData = NSDictionary()
     var tmpData = NSArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let signature2 = defaults.objectForKey("signature") as! String
@@ -67,6 +68,10 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshSideMenu(notif:NSNotificationCenter){
         userId.text = defaults.objectForKey("signature") as? String
+        /*let userInfo = defaults.objectForKey("user_profile") as! NSData
+        tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
+        userId.text = tempData["user_id"] as? String*/
+        
         hideRow = true
         self.leftTableView.reloadData()
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
@@ -219,31 +224,33 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 2{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            let storyboard = UIStoryboard(name: "PhotoGallery", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoGalleryVC") as! PhotoGalleryViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 3{
-            //let storyboard = UIStoryboard(name: "Register", bundle: nil)
-            //let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            //self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            let storyboard = UIStoryboard(name: "Favourite", bundle: nil)
+            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("FavouriteVC") as! FavouriteViewController
+            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 4{
             let storyboard = UIStoryboard(name: "Package", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
-            SCLAlertView().showInfo("Info", subTitle: "Sila langgan pakej", closeButtonTitle: "OK", colorStyle: 0x0679AD)
+            SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 5{
             let storyboard = UIStoryboard(name: "Package", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
-            SCLAlertView().showInfo("Info", subTitle: "Sila langgan pakej", closeButtonTitle: "OK", colorStyle: 0x0679AD)
+            SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 6{
             let storyboard = UIStoryboard(name: "Package", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
-            SCLAlertView().showInfo("Info", subTitle: "Sila langgan pakej", closeButtonTitle: "OK", colorStyle: 0x0679AD)
+            SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 7{
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
@@ -260,20 +267,30 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else {
-            SCLAlertView().showInfo("Info", subTitle: "Berjaya log keluar", closeButtonTitle: "Tutup", colorStyle: 0x0679AD)
-            defaults.setObject("", forKey: "signature")
-            defaults.setObject("", forKey: "auth_token")
-            defaults.setObject("", forKey: "user_profile")
-            defaults.setObject("", forKey: "user_height")
-            defaults.setObject("", forKey: "email")
-            defaults.setObject("", forKey: "password")
-            defaults.setObject("", forKey: "listUser")
-            defaults.synchronize()
-            NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
-            print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
-            let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
-            self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-            self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            // create the alert
+            let alert = UIAlertController(title: "Adakah anda pasti mahu log keluar?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Log Keluar", style: UIAlertActionStyle.Default, handler: { action in
+                defaults.setObject("", forKey: "signature")
+                defaults.setObject("", forKey: "auth_token")
+                defaults.setObject("", forKey: "user_profile")
+                defaults.setObject("", forKey: "user_height")
+                defaults.setObject("", forKey: "email")
+                defaults.setObject("", forKey: "password")
+                defaults.setObject("", forKey: "listUser")
+                defaults.synchronize()
+                NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
+                print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+                self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Batal", style: UIAlertActionStyle.Cancel, handler: nil))
+            
+            // show the alert
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
         //self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
     }

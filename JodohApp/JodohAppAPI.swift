@@ -4,7 +4,7 @@
 //
 //  Created by Nazri Hussein on 5/12/16.
 //  Copyright © 2016 intern. All rights reserved.
-//
+//m
 
 import Foundation
 import Moya
@@ -45,7 +45,7 @@ extension JodohAppAPI : TargetType {
         //return kStageURL
         //return "http://192.168.0.148:8012/fly/public/"
         return "http://carijodoh.me-tech.com.my/"
-        //return "http://192.168.0.107/fly/public/"
+        //return "http://192.168.0.106/fly/public/"
     }
     
     public var baseURL: NSURL { return NSURL(string: base)! }

@@ -10,11 +10,27 @@ import UIKit
 
 class PackageViewController: UIViewController {
 
+    @IBOutlet weak var pakej1: UIImageView!
+    @IBOutlet weak var pakej2: UIImageView!
+    @IBOutlet weak var pakej3: UIImageView!
+    @IBOutlet weak var pakej4: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
-        //setupMenuButton()
-        // Do any additional setup after loading the view.
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(PackageViewController.imageTapped(_:)))
+        pakej1.userInteractionEnabled = true
+        pakej1.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target:self, action:#selector(PackageViewController.imageTapped(_:)))
+        pakej2.userInteractionEnabled = true
+        pakej2.addGestureRecognizer(tapGestureRecognizer2)
+        let tapGestureRecognizer3 = UITapGestureRecognizer(target:self, action:#selector(PackageViewController.imageTapped(_:)))
+        pakej3.userInteractionEnabled = true
+        pakej3.addGestureRecognizer(tapGestureRecognizer3)
+        let tapGestureRecognizer4 = UITapGestureRecognizer(target:self, action:#selector(PackageViewController.imageTapped(_:)))
+        pakej4.userInteractionEnabled = true
+        pakej4.addGestureRecognizer(tapGestureRecognizer4)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,15 +38,10 @@ class PackageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func imageTapped(img: AnyObject)
+    {
+        let storyboard = UIStoryboard(name: "Package", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("PackageListVC") as! PackageListViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
     }
-    */
-
 }

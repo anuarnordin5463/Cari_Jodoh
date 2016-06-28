@@ -130,17 +130,17 @@ internal struct Tags {
     static let ValidationDOB = "DOB"
     static let ValidationNewPassword = "New Password"
     static let ValidationConfirmPassword = "Confirm Password"
-    static var ValidationName = "Name"
+    static var ValidationName = "Nama"
     static var ValidationFirstName = "First Name"
     static var ValidationLastName = "Last Name"
     static var ValidationDate = "Date"
     static var ValidationCountry = "Country"
-    static let ValidationTown = "Town"
+    static let ValidationTown = "Bandar"
     static let ValidationState = "State"
-    static let ValidationMobile = "Mobile"
+    static let ValidationMobile = "Telefon Bimbit"
     static let ValidationEmail = "Email"
-    static var ValidationHeight = "Height"
-    static var ValidationWeight = "Weight"
+    static var ValidationHeight = "Tinggi"
+    static var ValidationWeight = "Berat"
     static var ValidationSmokerVapes = "Smoker/Vapes"
     static var ValidationHighEducation = "High Education"
     static var ValidationOccupation = "Occupation"
@@ -166,13 +166,13 @@ internal struct Tags2 {
 func showErrorMessage(message : String){
     
     let errorView = SCLAlertView()
-    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "Tutup")
+    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "OK")
 }
 
 func showErrorMessageKemaskini(message : String){
     
     let errorView = SCLAlertView()
-    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "Tutup")
+    errorView.showError("Error!", subTitle:message, colorStyle: 0x0679AD, closeButtonTitle : "OK")
 }
 
 func showInfoRegister(message:String){

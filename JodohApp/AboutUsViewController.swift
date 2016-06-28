@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import XLForm
 
-class AboutUsViewController: BaseXLFormViewController {
+class AboutUsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMenuButton()
-        self.title = "TENTANG KAMI"
-        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
+        self.setNavigationBarItem()
+
     }
 
     override func didReceiveMemoryWarning() {

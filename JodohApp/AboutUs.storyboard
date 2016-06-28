@@ -16,7 +16,54 @@
                     <view key="view" contentMode="scaleToFill" id="QOU-rY-11i">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HUBUNGI KAMI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-uz-0Cs">
+                                <rect key="frame" x="178" y="40" width="245" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="KUf-Ew-Htp"/>
+                                    <constraint firstAttribute="height" constant="21" id="u25-JL-imh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPh-ck-KL6">
+                                <rect key="frame" x="155" y="218" width="290" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="XGc-n1-ho4"/>
+                                    <constraint firstAttribute="height" constant="49" id="jCh-xk-hSf"/>
+                                </constraints>
+                                <string key="text">Tel: +603-83251970 
+Fax: +603-83251973</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmw-9g-Eqh">
+                                <rect key="frame" x="155" y="91" width="290" height="127"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="127" id="jvW-gp-y7M"/>
+                                    <constraint firstAttribute="width" constant="290" id="oo5-MP-Z05"/>
+                                </constraints>
+                                <string key="text">ME-Tech Solution Sdn Bhd (700819-U)
+C-1-2A, Block C, Jalan GC1,
+Glomac Cyberjaya, Cyber 4,
+63200 Cyberjaya, Selangor Darul Ehsan,
+Malaysia</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jmw-9g-Eqh" firstAttribute="top" secondItem="9ob-uz-0Cs" secondAttribute="bottom" constant="30" id="Dae-MA-8HL"/>
+                            <constraint firstItem="9ob-uz-0Cs" firstAttribute="centerX" secondItem="QOU-rY-11i" secondAttribute="centerX" id="HyA-ra-zQR"/>
+                            <constraint firstItem="9ob-uz-0Cs" firstAttribute="top" secondItem="dv7-gx-mvO" secondAttribute="bottom" constant="20" id="WpW-Bi-SGj"/>
+                            <constraint firstItem="yPh-ck-KL6" firstAttribute="centerX" secondItem="QOU-rY-11i" secondAttribute="centerX" id="XPk-u4-vBm"/>
+                            <constraint firstItem="yPh-ck-KL6" firstAttribute="top" secondItem="jmw-9g-Eqh" secondAttribute="bottom" id="aZ0-uf-fKt"/>
+                            <constraint firstItem="jmw-9g-Eqh" firstAttribute="centerX" secondItem="QOU-rY-11i" secondAttribute="centerX" id="urf-nA-yfF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nra-sz-xLg" userLabel="First Responder" sceneMemberID="firstResponder"/>

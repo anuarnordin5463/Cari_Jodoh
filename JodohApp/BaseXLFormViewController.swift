@@ -8,6 +8,7 @@
 
 import UIKit
 import XLForm
+import SCLAlertView
 
 class BaseXLFormViewController: XLFormViewController {
     
@@ -81,6 +82,7 @@ class BaseXLFormViewController: XLFormViewController {
         
         if array.count != 0 {
             isValidate = false
+            SCLAlertView().showInfo("Info", subTitle: "Sila Penuhkan", closeButtonTitle: "OK", colorStyle: 0x0679AD)
             for errorItem in array {
                 let error = errorItem as! NSError
                 let validationStatus : XLFormValidationStatus = error.userInfo[XLValidationStatusErrorKey] as! XLFormValidationStatus
@@ -116,13 +118,10 @@ class BaseXLFormViewController: XLFormViewController {
                     
                     if let rowDescriptor = validationStatus.rowDescriptor, let indexPath = form.indexPathOfFormRow(rowDescriptor), let cell = tableView.cellForRowAtIndexPath(indexPath) as? XLFormTextFieldCell {
                         let textFieldAttrib = NSAttributedString.init(string: validationStatus.msg, attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
-                        //rowDescriptor.cellConfig["textField.textAlignment"] = NSTextAlignment.Right.rawValue
                         cell.textField?.attributedPlaceholder = textFieldAttrib
-                        
                     }
                 }
             }
-        showErrorMessageKemaskini("Sila penuhkan")
         }else{
             isValidate = true
             
