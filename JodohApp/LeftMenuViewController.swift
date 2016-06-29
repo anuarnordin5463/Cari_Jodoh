@@ -30,12 +30,13 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             userImage.image = UIImage(named:"personIcon")
         } else {
             hideRow = true
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
                 dispatch_async(dispatch_get_main_queue(), {
                     self.userImage.image = UIImage(data: data!)
                 })
-            }
+            }*/
+            userImage.image = UIImage(named:"personIcon")
         }
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
@@ -138,44 +139,13 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0{
             
             if signature2 != ""{
-                let name = defaults.objectForKey("email") as! String
-                let pass = defaults.objectForKey("password") as! String
+              
                 
-                showLoading()
-                JodohAppProvider.request(.List(name,pass), completion: { (result) in
-                    switch result {
-                    case .Success(let successResult):
-                        do {
-                            let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
-                            
-                            if  json["status"].string == "success"{
-                                
-                                //showInfoLogin(json["message"].string!)
-                                let data = json["listUser"].arrayObject
-                                defaults.setObject(data, forKey: "listUser")//simpan data
-                                defaults.synchronize()
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
-                                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
-
-                            }else if (json["error"].string != nil){
-                                showErrorMessage(json["error"].string!)
-                            }else {
-                                showErrorMessage(json["message"].string!)
-                            }
-                            hideLoading()
-                            print(json)
-                        }
-                        catch {
-                            
-                        }
-                        
-                    case .Failure(let failureResult):
-                        //print(failureResult)
-                        hideLoading()
-                        showErrorMessage(failureResult.nsError.localizedDescription)
-                    }
-                })
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC")
+                    as! ViewController
+                self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+                
             }else{
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)

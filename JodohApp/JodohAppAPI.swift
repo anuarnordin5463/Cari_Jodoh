@@ -29,6 +29,8 @@ public enum JodohAppAPI {
     case Update(String, String, String, String, String, String, String, String, String,String,String,String,String,String,String,String,String,String)
     case GetUpdate(String)
     case List(String, String)
+    case GetDetail(String)
+    
 }
 
 extension JodohAppAPI : TargetType {
@@ -62,12 +64,14 @@ extension JodohAppAPI : TargetType {
             return "api/getProfile"
         case List:
             return "api/list"
+        case GetDetail:
+            return "api/getDetail"
             
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .Login, .Register, .Update, .GetUpdate, .List:
+        case .Login, .Register, .Update, .GetUpdate, .List, .GetDetail:
             return .POST
         }
     }
@@ -119,6 +123,10 @@ extension JodohAppAPI : TargetType {
         case .List(let username, let password):
             return ["email": username,
                     "password" : password]
+            
+        case .GetDetail(let id):
+            return ["id" : id]
+
             
         default:
         return nil
