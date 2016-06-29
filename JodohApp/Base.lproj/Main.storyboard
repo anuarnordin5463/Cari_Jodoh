@@ -662,8 +662,11 @@
                     <connections>
                         <outlet property="ageLbl" destination="uVf-tc-ZF6" id="RzL-Ts-evV"/>
                         <outlet property="detailView" destination="cnV-Ov-KCf" id="JT8-3O-Nly"/>
+                        <outlet property="fotoView" destination="hFP-DZ-1hg" id="fGG-uq-xTm"/>
                         <outlet property="heightLbl" destination="jFt-yF-nqe" id="Zf9-IJ-6be"/>
+                        <outlet property="kegemaranView" destination="zKe-1h-TJt" id="d9n-qK-QZg"/>
                         <outlet property="profileImageView" destination="6XY-6c-TOA" id="vpi-hT-nUK"/>
+                        <outlet property="sembangView" destination="WuK-Cj-vhV" id="k1k-hg-xln"/>
                         <outlet property="sexLbl" destination="O4p-Ql-m4H" id="kDm-ah-5wP"/>
                         <outlet property="statusLbl" destination="Usd-3q-pru" id="wN7-lM-YWL"/>
                         <outlet property="userNameAge" destination="3Qf-UK-L6N" id="24D-Bm-Jnp"/>

@@ -153,7 +153,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let polygamy = (formValues()[Tags.ValidationPolygamy] as! XLFormOptionsObject).valueData() as! String
             let financial = (formValues()[Tags.ValidationFinancialLevel] as! XLFormOptionsObject).valueData() as! String
             
-            showLoading()
+            //showLoading()
             
             JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name,country,marital,children,relationship,polygamy,financial), completion: { (result) in
                 switch result {

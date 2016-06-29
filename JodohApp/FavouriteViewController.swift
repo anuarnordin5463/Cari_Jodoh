@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FavouriteViewController: UIViewController {
+class FavouriteViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+        //self.setNavigationBarItem()
+        setupLeftButton()
         // Do any additional setup after loading the view.
     }
 

@@ -245,3 +245,4 @@ func stringToDate(date:String) -> NSDate{
     return formater.dateFromString(date)!
     
 }
+

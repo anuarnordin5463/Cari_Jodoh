@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PackageViewController: UIViewController {
+class PackageViewController: BaseViewController {
 
     @IBOutlet weak var pakej1: UIImageView!
     @IBOutlet weak var pakej2: UIImageView!
@@ -17,7 +17,8 @@ class PackageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+        //self.setNavigationBarItem()
+        setupLeftButton()
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(PackageViewController.imageTapped(_:)))
         pakej1.userInteractionEnabled = true
         pakej1.addGestureRecognizer(tapGestureRecognizer)

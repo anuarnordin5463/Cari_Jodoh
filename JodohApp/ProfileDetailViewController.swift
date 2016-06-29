@@ -9,10 +9,14 @@
 import UIKit
 import SlideMenuControllerSwift
 import SwiftyJSON
+import SCLAlertView
 
 
 class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelegate {
     
+    @IBOutlet weak var kegemaranView: UIImageView!
+    @IBOutlet weak var fotoView: UIImageView!
+    @IBOutlet weak var sembangView: UIImageView!
     @IBOutlet weak var ageLbl: UILabel!
     @IBOutlet weak var sexLbl: UILabel!
     @IBOutlet weak var heightLbl: UILabel!
@@ -28,7 +32,15 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
     //var userArray :[JSON] = [JSON]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target:self, action:#selector(ProfileDetailViewController.imageTapped1(_:)))
+        kegemaranView.userInteractionEnabled = true
+        kegemaranView.addGestureRecognizer(tapGestureRecognizer1)
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target:self, action:#selector(ProfileDetailViewController.imageTapped2(_:)))
+        fotoView.userInteractionEnabled = true
+        fotoView.addGestureRecognizer(tapGestureRecognizer2)
+        let tapGestureRecognizer3 = UITapGestureRecognizer(target:self, action:#selector(ProfileDetailViewController.imageTapped3(_:)))
+        sembangView.userInteractionEnabled = true
+        sembangView.addGestureRecognizer(tapGestureRecognizer3)
         setupLeftButton()
         //profileImageView.image = imgName
         //user.text = userName
@@ -105,6 +117,27 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
+    func imageTapped1(img: AnyObject)
+    {
+        let storyboard = UIStoryboard(name: "Favourite", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("FavouriteVC") as! FavouriteViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+    }
+    
+    func imageTapped2(img: AnyObject)
+    {
+        let storyboard = UIStoryboard(name: "PhotoGallery", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("PhotoGalleryVC") as! PhotoGalleryViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+    }
+    
+    func imageTapped3(img: AnyObject)
+    {
+        let storyboard = UIStoryboard(name: "Package", bundle: nil)
+        let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+        self.navigationController!.pushViewController(manageFlightVC, animated: true)
+        SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
+    }
 
 
 }
