@@ -82,6 +82,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let user_id = self.userArray[indexPath.item].dictionary!["user_id"]!.stringValue
         let birthday = self.userArray[indexPath.item].dictionary!["user_dob"]!.stringValue
         let status = self.userArray[indexPath.item].dictionary!["user_status"]!.stringValue
+        let image = self.userArray[indexPath.item].dictionary!["user_image"]!.stringValue
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.myLabel.text = "\(user_id)"
         cell.statusLbl.text = "\(status)"
@@ -90,8 +91,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }else{
         cell.ageLbl.text = "-"
         }
-        //cell.userImageView.kf_setImageWithURL(NSURL(string: "carijodoh.me-tech.com.my/user_image/"+(userImage)!)!)
-        //print(calcAge("\(birthday)"))
+        if image != ""{
+        cell.userImageView.kf_setImageWithURL(NSURL(string: "http://carijodoh.me-tech.com.my/user_image/\(image)")!)
+        //print("http://carijodoh.me-tech.com.my/user_image/\(image)")
+        }
+        
+        //print(image)
         //print(calcAge("\(birthday)"))
         //cell.picImageView.image = self.userArray[indexPath.item]
         cell.backgroundColor = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1)
@@ -111,6 +116,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if birthday != ""{
                 destVC.passedValue = "\(NSDate.calculateYearFromToday(birthday)) Tahun"
             }
+            
         }
     }
 }
