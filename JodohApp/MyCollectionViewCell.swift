@@ -14,5 +14,6 @@ class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var picImageView: UIImageView!
     @IBOutlet weak var ageLbl: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
     
 }

@@ -228,21 +228,5 @@ func hideLoading(){
     
 }
 
-func formatDate(date:NSDate) -> String{
-    
-    let formater = NSDateFormatter()
-    formater.dateFormat = "dd-MM-yyyy"
-    return formater.stringFromDate(date)
-    
-}
 
-func stringToDate(date:String) -> NSDate{
-    
-    let formater = NSDateFormatter()
-    formater.dateFormat = "yyyy-MM-dd"
-    let twentyFour = NSLocale(localeIdentifier: "en_GB")
-    formater.locale = twentyFour
-    return formater.dateFromString(date)!
-    
-}
 

@@ -75,12 +75,14 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         
         hideRow = true
         self.leftTableView.reloadData()
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        /*    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
                 dispatch_async(dispatch_get_main_queue(), {
                     self.userImage.image = UIImage(data: data!)
                 })
             }
+        */
+        userImage.image = UIImage(named:"personIcon")
         userImage.layer.borderWidth = 1
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -249,6 +251,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 defaults.setObject("", forKey: "email")
                 defaults.setObject("", forKey: "password")
                 defaults.setObject("", forKey: "listUser")
+                defaults.setObject("", forKey: "user")
                 defaults.synchronize()
                 NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
                 print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());

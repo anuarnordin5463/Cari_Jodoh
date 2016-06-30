@@ -10,10 +10,12 @@ import UIKit
 import SlideMenuControllerSwift
 import SwiftyJSON
 import SCLAlertView
+import Kingfisher
 
 
-class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelegate {
+class ProfileDetailViewController: UIViewController, SlideMenuControllerDelegate {
     
+    @IBOutlet weak var onoffLbl: UILabel!
     @IBOutlet weak var kegemaranView: UIImageView!
     @IBOutlet weak var fotoView: UIImageView!
     @IBOutlet weak var sembangView: UIImageView!
@@ -25,6 +27,9 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var userNameAge: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    var passedValue : String = ""
+    var age : String = ""
+    var userStatus : String = ""
     var userId : String = ""
     var imgName = UIImage()
     var userName = String()
@@ -41,11 +46,14 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
         let tapGestureRecognizer3 = UITapGestureRecognizer(target:self, action:#selector(ProfileDetailViewController.imageTapped3(_:)))
         sembangView.userInteractionEnabled = true
         sembangView.addGestureRecognizer(tapGestureRecognizer3)
-        setupLeftButton()
+        //setupLeftButton()
         //profileImageView.image = imgName
         //user.text = userName
-        self.title = ""
+        self.title = "PROFIL"
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
         print("user ID is \(userId)")
+        print("user Status is \(userStatus)")
+        print("age is \(passedValue)")
         userNameAge.text = userName
         profileImageView.createBorder()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ProfileDetailViewController.refreshDetail(_:)), name: "reloadDetail", object: nil)
@@ -65,7 +73,7 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
                         NSNotificationCenter.defaultCenter().postNotificationName("reloadDetail", object: nil)
                         
                     }else if (json["error"].string != nil){
-                        //showErrorMessage(json["error"].string!)
+                        showErrorMessage(json["error"].string!)
                     }else {
                         showErrorMessage(json["message"].string!)
                     }
@@ -90,16 +98,22 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
         tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
         print(tempData)
         let id = tempData["user_id"]! as? String
-        let dob = tempData["user_dob"]! as? String
+        //let dob = tempData["user_dob"]! as? String
         let height = tempData["user_height"]! as? String
         let weight = tempData["user_weight"]! as? String
+
         if height != nil{
-            ageLbl.text = tempData["user_dob"]! as? String
+            ageLbl.text = passedValue
             sexLbl.text = tempData["user_sex"]! as? String
             statusLbl.text = tempData["user_marital"]! as? String
-            heightLbl.text = (height)!+" cm"
+            heightLbl.text = "\(height!) cm"
             weightLbl.text = (weight)!+" kg"
-            userNameAge.text = (id)!+", "+(dob)!
+            userNameAge.text = (id)!+", "+passedValue
+            if let userImage = tempData["user_image"] {
+            let tempString = "http://carijodoh.me-tech.com.my/user_image/\(userImage)"
+                 print(tempString)
+                 profileImageView.kf_setImageWithURL(NSURL(string: tempString)!)
+            }
         }else{
             heightLbl.text = "-"
             weightLbl.text = "-"
@@ -108,7 +122,7 @@ class ProfileDetailViewController: BaseViewController, SlideMenuControllerDelega
             sexLbl.text = "-"
             statusLbl.text = "-"
         }
-        
+        onoffLbl.text = userStatus
     }
     
 

@@ -46,3 +46,17 @@ extension UIApplication {
         return viewController
     }
 }
+
+extension NSDate {
+    class func calculateYearFromToday(date:String) -> Int{
+        let dateFormater = NSDateFormatter()
+        dateFormater.dateStyle = .ShortStyle
+        dateFormater.locale = NSLocale(localeIdentifier: "en_GB")
+        let birthdayDate = dateFormater.dateFromString(date)
+        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let now: NSDate! = NSDate()
+        let calcAge = calendar.components(.Year, fromDate: birthdayDate!, toDate: now, options: [])
+        let age = calcAge.year
+        return age
+    }
+}

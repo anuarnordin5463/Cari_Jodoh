@@ -9,15 +9,17 @@
 import UIKit
 import SwiftyJSON
 import SlideMenuControllerSwift
+import Kingfisher
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SlideMenuControllerDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var valueToPass:String!
     var userArray :[JSON] = [JSON]()
-    
+    var tempData = NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.refreshDetail(_:)), name: "reloadDetail", object: nil)
         let name = defaults.objectForKey("email") as! String
         let pass = defaults.objectForKey("password") as! String
         showLoading()
@@ -34,6 +36,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         //defaults.synchronize()
                         self.userArray = json["listUser"].array!
                         self.collectionView.reloadData()
+                        print(json["listUser"].array!)
                         
                     }else if (json["error"].string != nil){
                         showErrorMessage(json["error"].string!)
@@ -53,15 +56,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 showErrorMessage(failureResult.nsError.localizedDescription)
             }
         })
-        
+        //print(calcAge("1991-08-21 16:00:00 +0000"))
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
     
-    // MARK: - UICollectionViewDataSource protocol
-    //@IBOutlet weak var myLabel: MyCollectionViewCell!
-    // tell the collection view how many cells to make
+    func refreshDetail(notif:NSNotificationCenter){
+        
+        let userInfo = defaults.objectForKey("userProfile") as! NSData
+        tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
+        //print(tempData)
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return self.items.count
@@ -82,29 +86,31 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.myLabel.text = "\(user_id)"
         cell.statusLbl.text = "\(status)"
         if birthday != ""{
-        cell.ageLbl.text = "\(birthday)"
+        cell.ageLbl.text = "\(NSDate.calculateYearFromToday(birthday)) Tahun"
         }else{
         cell.ageLbl.text = "-"
         }
-        
+        //cell.userImageView.kf_setImageWithURL(NSURL(string: "carijodoh.me-tech.com.my/user_image/"+(userImage)!)!)
+        //print(calcAge("\(birthday)"))
+        //print(calcAge("\(birthday)"))
         //cell.picImageView.image = self.userArray[indexPath.item]
         cell.backgroundColor = UIColor(red: 243/255.0, green: 243/255.0, blue: 243/255.0, alpha: 1)
-        
         cell.picImageView.createBorder()
         
         return cell
     }
     
-
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toDetail"){
+            
             let destVC =  segue.destinationViewController as! ProfileDetailViewController
             let selectedIndexPath = self.collectionView.indexPathsForSelectedItems()!.last
             destVC.userId = self.userArray[(selectedIndexPath?.item)!]["id"].stringValue
-            
-           // destVC.imgName = (pics[selectedIndexPath!.item])
-            //destVC.userName = (items[selectedIndexPath!.item])
+            destVC.userStatus = self.userArray[(selectedIndexPath?.item)!]["user_status"].stringValue
+            let birthday = self.userArray[(selectedIndexPath?.item)!]["user_dob"].stringValue
+            if birthday != ""{
+                destVC.passedValue = "\(NSDate.calculateYearFromToday(birthday)) Tahun"
+            }
         }
     }
 }

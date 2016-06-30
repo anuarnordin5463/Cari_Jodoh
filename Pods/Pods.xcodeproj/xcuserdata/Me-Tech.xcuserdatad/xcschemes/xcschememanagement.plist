@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Moya.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04F8EC377FE681246412EDD3446A2AF9</key>
+		<key>19521110E34D19839695F79CEEDF0195</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>261ACF03A1A1C16EE1C264FFE8BF3258</key>
+		<key>61F53ED11CA09D41A87747765BE81EFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B2F2983C03F9812CEAB8EF885624AB4</key>
+		<key>868541D4A1D84759F0AC38AEE302B633</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7730AB043011EA8C0EAED7C708EB93C</key>
+		<key>86BC2C85F7994CE3F6832375AE891A4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D04656C654DFA99B79692877840B39C1</key>
+		<key>8D38094E18CB3096D36B7113EC21D5F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FFFB6726799B031F831AFC084C7F695</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FC34C5C8D4EBAA86C2EF359A28664D3A</key>
+		<key>E96E13C4D3B5B5FC0651440734C2BF4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

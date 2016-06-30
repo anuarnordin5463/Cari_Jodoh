@@ -47,8 +47,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MyProfileViewController.refreshTable(_:)), name: "reloadTable", object: nil)
         self.title = "KEMASKINI PROFIL"
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
-        
     }
+
+    
     
     func refreshTable(notif:NSNotificationCenter){
         let userInfo = defaults.objectForKey("user_profile") as! NSData
@@ -111,10 +112,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
-        let saveImageViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
-        saveImageViewController.image = image
-        self.navigationController!.pushViewController(saveImageViewController, animated: true)
+        self.userImage.image = image
         dismissViewControllerAnimated(true, completion: nil)
 
     }
@@ -145,7 +143,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let town = formValues()[Tags.ValidationTown] as! String
             let education = (formValues()[Tags.ValidationHighEducation] as! XLFormOptionsObject).valueData() as! String
             let occupation = (formValues()[Tags.ValidationOccupation] as! XLFormOptionsObject).valueData() as! String
-            let DOB = "\(formValues()[Tags.ValidationDOB] as! NSDate)"
+            let DOB = formValues()[Tags.ValidationDOB] as! NSDate
+                
             let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
             let marital = (formValues()[Tags.ValidationMaritalStatus] as! XLFormOptionsObject).valueData() as! String
             let children = (formValues()[Tags.ValidationHaveAChildren] as! XLFormOptionsObject).valueData() as! String
@@ -154,8 +153,11 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let financial = (formValues()[Tags.ValidationFinancialLevel] as! XLFormOptionsObject).valueData() as! String
             
             //showLoading()
-            
-            JodohAppProvider.request(.Update(DOB,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name,country,marital,children,relationship,polygamy,financial), completion: { (result) in
+            let dateFormater = NSDateFormatter()
+           dateFormater.dateFormat = "dd-MM-yyyy"
+
+             let birthdayDate = dateFormater.stringFromDate(DOB)
+            JodohAppProvider.request(.Update(birthdayDate,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name,country,marital,children,relationship,polygamy,financial), completion: { (result) in
                 switch result {
                 case .Success(let successResult):
                     do {
@@ -171,7 +173,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
                             
                         }else{
-                            showErrorMessage(json["error"].string!)
+                            //showErrorMessage(json["error"].string!)
                         }
                         hideLoading()
                         print(json)
@@ -309,7 +311,8 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         row.required = true
         if (tempData.count != 0){
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
+            dateFormatter.dateStyle = .ShortStyle
+            dateFormatter.locale = NSLocale(localeIdentifier: "fr_FR")
             let date = dateFormatter.dateFromString((tempData["user_dob"]! as? String)!)
             row.value = date
         }

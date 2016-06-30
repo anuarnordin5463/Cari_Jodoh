@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (3.4.0)
   - Eureka (1.6.0)
+  - Kingfisher (2.4.1)
   - Moya (5.3.0):
     - Moya/Core (= 5.3.0)
   - Moya/Core (5.3.0):
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Eureka (~> 1.5)
+  - Kingfisher (~> 2.4)
   - Moya (~> 5.0)
   - SCLAlertView
   - SlideMenuControllerSwift
@@ -26,6 +28,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
+  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
   Moya: dfd9310f3dfb198927976dad445ead477ca6c2a3
   Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
   SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49

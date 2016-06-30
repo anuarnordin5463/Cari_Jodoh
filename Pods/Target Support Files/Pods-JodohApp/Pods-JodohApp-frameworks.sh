@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-JodohApp/Alamofire.framework"
   install_framework "Pods-JodohApp/Eureka.framework"
+  install_framework "Pods-JodohApp/Kingfisher.framework"
   install_framework "Pods-JodohApp/Moya.framework"
   install_framework "Pods-JodohApp/Result.framework"
   install_framework "Pods-JodohApp/SCLAlertView.framework"
@@ -97,6 +98,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-JodohApp/Alamofire.framework"
   install_framework "Pods-JodohApp/Eureka.framework"
+  install_framework "Pods-JodohApp/Kingfisher.framework"
   install_framework "Pods-JodohApp/Moya.framework"
   install_framework "Pods-JodohApp/Result.framework"
   install_framework "Pods-JodohApp/SCLAlertView.framework"

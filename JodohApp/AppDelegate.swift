@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // create viewController code...
         if(defaults.objectForKey("signature") == nil){
+            defaults.setValue(NSData(), forKey: "user")//simpan data
             defaults.setValue("", forKey: "signature")//simpan data
             defaults.synchronize()
         }

@@ -50,7 +50,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
             defaults.setValue(pass , forKey: "password")//simpan data
             defaults.synchronize()
             
-            showLoading()
+            //showLoading()
             
             JodohAppProvider.request(.Login(name,pass), completion: { (result) in
                 switch result {
@@ -63,6 +63,8 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             //showInfoLogin(json["message"].string!)
                             //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
                             //let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
+                            let data = NSKeyedArchiver.archivedDataWithRootObject(json["user"].dictionaryObject!)
+                            defaults.setObject(data, forKey: "user")//simpan data
                             defaults.setValue(json["signature"].string , forKey: "signature")//simpan data
                             defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
