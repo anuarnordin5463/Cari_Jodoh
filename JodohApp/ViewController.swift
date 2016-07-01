@@ -12,6 +12,8 @@ import SlideMenuControllerSwift
 import Kingfisher
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SlideMenuControllerDelegate {
+    @IBOutlet weak var onoffImage: UIImageView!
+    @IBOutlet weak var onoffLbl: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     var valueToPass:String!
     var userArray :[JSON] = [JSON]()
@@ -85,15 +87,30 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let image = self.userArray[indexPath.item].dictionary!["user_image"]!.stringValue
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.myLabel.text = "\(user_id)"
-        cell.statusLbl.text = "\(status)"
+        //cell.statusLbl.text = "\(status)"
+        if status == "online"{
+            cell.onoffImage.image = UIImage(named:"online")
+        }else{
+            cell.onoffImage.image = UIImage(named:"offline")
+        }
         if birthday != ""{
         cell.ageLbl.text = "\(NSDate.calculateYearFromToday(birthday)) Tahun"
         }else{
         cell.ageLbl.text = "-"
         }
         if image != ""{
-        cell.userImageView.kf_setImageWithURL(NSURL(string: "http://carijodoh.me-tech.com.my/user_image/\(image)")!)
-        //print("http://carijodoh.me-tech.com.my/user_image/\(image)")
+            
+            cell.picImageView.kf_setImageWithURL(NSURL(string: "http://carijodoh.me-tech.com.my/user_image/\(image)")!, placeholderImage: nil,
+                                                  optionsInfo: [.Transition(ImageTransition.Fade(1))],
+                                                  progressBlock: { receivedSize, totalSize in
+                                                    print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
+                },
+                                                  completionHandler: { image, error, cacheType, imageURL in
+                                                    print("\(indexPath.row + 1): Finished")
+            })
+               //print("http://carijodoh.me-tech.com.my/user_image/\(image)")
+        } else {
+            cell.picImageView.image = UIImage(named:"personIcon")
         }
         
         //print(image)
@@ -103,6 +120,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.picImageView.createBorder()
         
         return cell
+    }
+    
+    
+     func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        
+        // This will cancel all unfinished downloading task when the cell disappearing.
+        // swiftlint:disable force_cast
+        (cell as! MyCollectionViewCell).picImageView.kf_cancelDownloadTask()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

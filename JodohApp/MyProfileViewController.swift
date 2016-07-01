@@ -11,6 +11,7 @@ import XLForm
 import SlideMenuControllerSwift
 import SwiftyJSON
 import SCLAlertView
+import Alamofire
 
 class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -57,11 +58,13 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //tempData = (NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as? NSDictionary)!
         initializeForm()
         packageName.text = tempData["user_package"] as? String
-        if (tempData["user_image"] as? String) == ""{
+        userImage.image = UIImage(named: "personIcon.jpg")
+        /*if (tempData["user_image"] as? String) == ""{
             userImage.image = UIImage(named: "personIcon.jpg")
-        }else{
-            userImage.image = UIImage(named: "emma.jpg")
         }
+        else{
+            userImage.image = UIImage(named: "emma.jpg")
+        }*/
     }
     
     func imageTapped(img: AnyObject)
@@ -113,6 +116,69 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.userImage.image = image
+        
+        //let imageData:NSData = UIImagePNGRepresentation(image)!
+        //let strBase64:String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        //print(strBase64)
+        
+        //UIImage(named:"personIcon")
+        
+        //Use image name from bundle to create NSData
+        let imageSelected : UIImage = image
+        //Now use image to create into NSData format
+        //let imageSelected : UIImage = UIImage(named:"personIcon")!
+        let imageData:NSData = UIImagePNGRepresentation(imageSelected)!
+        //let strBase64:String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        let strBase64:String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        //let strBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
+        //iprint(strBase64)
+        
+        defaults.setValue(strBase64, forKey: "strBase64")//simpan data
+        defaults.synchronize()
+        
+        //let imageSelected : UIImage = UIImage(named:"personIcon")!
+        //Now use image to create into NSData format
+        //let imageData:NSData = UIImagePNGRepresentation(imageSelected)!
+        //let strBase64:String = imageData.base64EncodedStringWithOptions(.NSDataBase64EncodingEndLineWithLineFeed)
+       // print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+
+        let signature = defaults.objectForKey("signature") as! String
+        let imageBase64 = strBase64
+        showLoading()
+        JodohAppProvider.request(.Upload(signature,imageBase64), completion: { (result) in
+            switch result {
+            case .Success(let successResult):
+                do {
+                    let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                    
+                    if  json["status"].string == "success"{
+                        
+                        //showInfoLogin(json["message"].string!)
+                        //defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
+                        //defaults.synchronize()
+                        //self.userArray = json["listUser"].array!
+                        //self.collectionView.reloadData()
+                        //print(json["listUser"].array!)
+                        
+                    }else if (json["error"].string != nil){
+                        showErrorMessage(json["error"].string!)
+                    }else {
+                        showErrorMessage(json["message"].string!)
+                    }
+                    hideLoading()
+                    print(json)
+                }
+                catch {
+                    
+                }
+                
+            case .Failure(let failureResult):
+                //print(failureResult)
+                hideLoading()
+                showErrorMessage(failureResult.nsError.localizedDescription)
+            }
+        })
+        
         dismissViewControllerAnimated(true, completion: nil)
 
     }

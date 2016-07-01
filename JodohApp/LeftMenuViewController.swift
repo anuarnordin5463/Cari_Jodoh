@@ -252,6 +252,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 defaults.setObject("", forKey: "password")
                 defaults.setObject("", forKey: "listUser")
                 defaults.setObject("", forKey: "user")
+                defaults.setObject("", forKey: "strBase64")
                 defaults.synchronize()
                 NSNotificationCenter.defaultCenter().postNotificationName("reloadSideMenuLogOut", object: nil)
                 print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());

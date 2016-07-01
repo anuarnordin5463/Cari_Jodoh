@@ -15,6 +15,8 @@ import Kingfisher
 
 class ProfileDetailViewController: UIViewController, SlideMenuControllerDelegate {
     
+
+    @IBOutlet weak var onoffImage: UIImageView!
     @IBOutlet weak var onoffLbl: UILabel!
     @IBOutlet weak var kegemaranView: UIImageView!
     @IBOutlet weak var fotoView: UIImageView!
@@ -122,7 +124,12 @@ class ProfileDetailViewController: UIViewController, SlideMenuControllerDelegate
             sexLbl.text = "-"
             statusLbl.text = "-"
         }
-        onoffLbl.text = userStatus
+        
+        if userStatus == "online"{
+            onoffImage.image = UIImage(named:"online")
+        }else{
+            onoffImage.image = UIImage(named:"offline")
+        }
     }
     
 

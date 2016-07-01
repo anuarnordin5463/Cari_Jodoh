@@ -30,6 +30,7 @@ public enum JodohAppAPI {
     case GetUpdate(String)
     case List(String, String)
     case GetDetail(String)
+    case Upload(String, String)
     
 }
 
@@ -66,12 +67,14 @@ extension JodohAppAPI : TargetType {
             return "api/list"
         case GetDetail:
             return "api/getDetail"
+        case Upload:
+            return "api/uploadImage"
             
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .Login, .Register, .Update, .GetUpdate, .List, .GetDetail:
+        case .Login, .Register, .Update, .GetUpdate, .List, .GetDetail, .Upload:
             return .POST
         }
     }
@@ -126,7 +129,10 @@ extension JodohAppAPI : TargetType {
             
         case .GetDetail(let id):
             return ["id" : id]
-
+            
+        case .Upload(let signature, let imageBase64):
+            return ["signature": signature,
+                    "user_image" : imageBase64]
             
         default:
         return nil

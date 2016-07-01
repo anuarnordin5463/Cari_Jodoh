@@ -479,6 +479,7 @@
                                                           handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+#ifndef XL_APP_EXTENSIONS
     else{
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"XLFormViewController_ValidationErrorTitle", nil)
                                                              message:error.localizedDescription
@@ -487,6 +488,7 @@
                                                    otherButtonTitles:nil];
         [alertView show];
     }
+#endif
 #endif
 }
 
@@ -722,9 +724,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XLFormRowDescriptor *rowDescriptor = [self.form formRowAtIndex:indexPath];
-    Class cellClass = [[rowDescriptor cellForFormController:self] class];
-    if ([cellClass respondsToSelector:@selector(formDescriptorCellHeightForRowDescriptor:)]){
-        return [cellClass formDescriptorCellHeightForRowDescriptor:rowDescriptor];
+    [rowDescriptor cellForFormController:self];
+    CGFloat height = rowDescriptor.height;
+    if (height != XLFormUnspecifiedCellHeight){
+        return height;
     }
     return self.tableView.rowHeight;
 }
@@ -732,9 +735,10 @@
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XLFormRowDescriptor *rowDescriptor = [self.form formRowAtIndex:indexPath];
-    Class cellClass = [[rowDescriptor cellForFormController:self] class];
-    if ([cellClass respondsToSelector:@selector(formDescriptorCellHeightForRowDescriptor:)]){
-        return [cellClass formDescriptorCellHeightForRowDescriptor:rowDescriptor];
+    [rowDescriptor cellForFormController:self];
+    CGFloat height = rowDescriptor.height;
+    if (height != XLFormUnspecifiedCellHeight){
+        return height;
     }
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")){
         return self.tableView.estimatedRowHeight;
@@ -898,6 +902,10 @@
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+	return YES;
 }
 
 #pragma mark - UIScrollViewDelegate
