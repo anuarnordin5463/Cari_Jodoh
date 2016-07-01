@@ -24,7 +24,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.refreshDetail(_:)), name: "reloadDetail", object: nil)
         let name = defaults.objectForKey("email") as! String
         let pass = defaults.objectForKey("password") as! String
-        showLoading()
+        //hideLoading()
         JodohAppProvider.request(.List(name,pass), completion: { (result) in
             switch result {
             case .Success(let successResult):

@@ -20,6 +20,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var packageName: UILabel!
     var image: UIImage!
+    var fromWhere = String()
     let myPickerController = UIImagePickerController()
     
     var tempData = NSDictionary()
@@ -33,7 +34,12 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         } else {
             print("image was null")
         }
-        self.setNavigationBarItem()
+        if fromWhere == "Side"{
+            self.setNavigationBarItem()
+        }else{
+            setupLeftButton()
+        }
+        //self.setNavigationBarItem()
         //setupLeftButton()
         initializeForm()
         submitButton.layer.cornerRadius = 5
@@ -105,7 +111,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         }
 
     func noCamera(){
-        let alertVC = UIAlertController(title: "No Camera",message: "Sorry, this device has no camera",preferredStyle: .Alert)
+        let alertVC = UIAlertController(title: "No Camera",message: "Maaf, telefon ini tidak mempunyai kamera",preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "OK",style:.Default,handler: nil)
         alertVC.addAction(okAction)
         presentViewController(alertVC,animated: true,completion: nil)
@@ -133,14 +139,14 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         //let strBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
         //iprint(strBase64)
         
-        defaults.setValue(strBase64, forKey: "strBase64")//simpan data
-        defaults.synchronize()
+        //defaults.setValue(strBase64, forKey: "strBase64")//simpan data
+        //defaults.synchronize()
         
         //let imageSelected : UIImage = UIImage(named:"personIcon")!
         //Now use image to create into NSData format
         //let imageData:NSData = UIImagePNGRepresentation(imageSelected)!
         //let strBase64:String = imageData.base64EncodedStringWithOptions(.NSDataBase64EncodingEndLineWithLineFeed)
-       // print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
 
         let signature = defaults.objectForKey("signature") as! String
         let imageBase64 = strBase64
@@ -218,9 +224,9 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let polygamy = (formValues()[Tags.ValidationPolygamy] as! XLFormOptionsObject).valueData() as! String
             let financial = (formValues()[Tags.ValidationFinancialLevel] as! XLFormOptionsObject).valueData() as! String
             
-            //showLoading()
+            showLoading()
             let dateFormater = NSDateFormatter()
-           dateFormater.dateFormat = "dd-MM-yyyy"
+            dateFormater.dateFormat = "dd-MM-yyyy"
 
              let birthdayDate = dateFormater.stringFromDate(DOB)
             JodohAppProvider.request(.Update(birthdayDate,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name,country,marital,children,relationship,polygamy,financial), completion: { (result) in
@@ -232,7 +238,7 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
                         if  json["status"].string == "success"{
                             
                             showInfoSuccessUpdate(json["message"].string!)
-                            defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
+                            //defaults.setObject(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController

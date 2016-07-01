@@ -502,7 +502,7 @@ CGFloat XLFormRowInitialHeight = -2;
                 msg = self.requireMsg;
             } else {
                 // default message for required msg
-                msg = NSLocalizedString(@"Sila Penuhkan: %@", nil);
+                msg = NSLocalizedString(@"Sila Penuhkan: %@ *", nil);
             }
 
             if (self.title != nil) {

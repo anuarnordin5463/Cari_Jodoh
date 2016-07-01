@@ -75,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
             self.window?.rootViewController = slideMenuController
             self.window?.makeKeyAndVisible()
+            showLoading()
         }
         //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
         // Override point for customization after application launch.

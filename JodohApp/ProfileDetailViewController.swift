@@ -70,7 +70,7 @@ class ProfileDetailViewController: UIViewController, SlideMenuControllerDelegate
                     if  json["status"].string == "success"{
                         let data = NSKeyedArchiver.archivedDataWithRootObject(json["user_profile"].dictionaryObject!)
                         defaults.setObject(data, forKey: "userProfile")//simpan data
-                        defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
+                        //defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                         defaults.synchronize()
                         NSNotificationCenter.defaultCenter().postNotificationName("reloadDetail", object: nil)
                         
@@ -113,8 +113,8 @@ class ProfileDetailViewController: UIViewController, SlideMenuControllerDelegate
             userNameAge.text = (id)!+", "+passedValue
             if let userImage = tempData["user_image"] {
             let tempString = "http://carijodoh.me-tech.com.my/user_image/\(userImage)"
-                 print(tempString)
-                 profileImageView.kf_setImageWithURL(NSURL(string: tempString)!)
+            //print(tempString)
+            profileImageView.kf_setImageWithURL(NSURL(string: tempString)!)
             }
         }else{
             heightLbl.text = "-"
@@ -123,6 +123,17 @@ class ProfileDetailViewController: UIViewController, SlideMenuControllerDelegate
             ageLbl.text = "-"
             sexLbl.text = "-"
             statusLbl.text = "-"
+            if tempData["user_image"] as! String == ""{
+                profileImageView.image = UIImage(named:"personIcon")
+            }else{
+                if let userImage = tempData["user_image"] {
+                let tempString = "http://carijodoh.me-tech.com.my/user_image/\(userImage)"
+                print(tempString)
+                profileImageView.kf_setImageWithURL(NSURL(string: tempString)!)
+                }
+            }
+            
+            
         }
         
         if userStatus == "online"{

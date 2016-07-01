@@ -15,10 +15,17 @@ class PackageViewController: BaseViewController {
     @IBOutlet weak var pakej3: UIImageView!
     @IBOutlet weak var pakej4: UIImageView!
     
+    var fromWhere = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.setNavigationBarItem()
-        setupLeftButton()
+        if fromWhere == "Side"{
+            self.setNavigationBarItem()
+        }else{
+            setupLeftButton()
+        }
+        //setupLeftButton()
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(PackageViewController.imageTapped(_:)))
         pakej1.userInteractionEnabled = true
         pakej1.addGestureRecognizer(tapGestureRecognizer)

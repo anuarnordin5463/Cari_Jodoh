@@ -142,7 +142,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             
             if signature2 != ""{
               
-                
+                showLoading()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MainVC")
                     as! ViewController
@@ -165,7 +165,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                             
                             let data = NSKeyedArchiver.archivedDataWithRootObject(json["user_profile"].dictionaryObject!)
                             defaults.setObject(data, forKey: "user_profile")//simpan data
-                            defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
+                            //defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
                             defaults.synchronize()
                             NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
                             //showInfoSuccessUpdate(json["message"].string!)
@@ -193,44 +193,52 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
             let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 2{
             let storyboard = UIStoryboard(name: "PhotoGallery", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PhotoGalleryVC") as! PhotoGalleryViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 3{
             let storyboard = UIStoryboard(name: "Favourite", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("FavouriteVC") as! FavouriteViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 4{
             let storyboard = UIStoryboard(name: "Package", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
             SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 5{
             let storyboard = UIStoryboard(name: "Package", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
             SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 6{
             let storyboard = UIStoryboard(name: "Package", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("PackageVC") as! PackageViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
             SCLAlertView().showInfo("Info", subTitle: "Anda perlu menjadi ahli premium", closeButtonTitle: "OK", colorStyle: 0x0679AD)
         }else if indexPath.row == 7{
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginPageVC") as! LoginPageViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 8{
             let storyboard = UIStoryboard(name: "Register", bundle: nil)
             let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("RegisterVC") as! RegisterViewController
+            swiftViewController.fromWhere = "Side"
             self.mainViewController = UINavigationController(rootViewController: swiftViewController)
             self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
         }else if indexPath.row == 9{

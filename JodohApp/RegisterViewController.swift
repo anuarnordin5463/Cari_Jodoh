@@ -14,11 +14,17 @@ import SCLAlertView
 
 class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDelegate {
 
+    var fromWhere = String()
     @IBOutlet weak var registerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
-        setupLeftButton()
+        if fromWhere == "Side"{
+            self.setNavigationBarItem()
+        }else{
+            setupLeftButton()
+        }
+        //self.setNavigationBarItem()
+        //setupLeftButton()
         initializeForm()
         registerButton.layer.cornerRadius = 5
         self.title = "DAFTAR AKAUN"

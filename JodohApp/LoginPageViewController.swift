@@ -14,13 +14,18 @@ import SwiftyJSON
 import Eureka
 
 class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDelegate {
-
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    var fromWhere = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
-        setupLeftButton()
+        if fromWhere == "Side"{
+            self.setNavigationBarItem()
+        }else{
+            setupLeftButton()
+        }
         initializeForm()
         registerButton.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
@@ -50,7 +55,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
             defaults.setValue(pass , forKey: "password")//simpan data
             defaults.synchronize()
             
-            //showLoading()
+            showLoading()
             
             JodohAppProvider.request(.Login(name,pass), completion: { (result) in
                 switch result {

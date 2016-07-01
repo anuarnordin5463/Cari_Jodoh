@@ -10,10 +10,16 @@ import UIKit
 
 class PhotoGalleryViewController: BaseViewController {
 
+    var fromWhere = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.setNavigationBarItem()
-        setupLeftButton()
+        if fromWhere == "Side"{
+            self.setNavigationBarItem()
+        }else{
+            setupLeftButton()
+        }
+        //setupLeftButton()
         // Do any additional setup after loading the view.
     }
 
