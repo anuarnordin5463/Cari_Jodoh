@@ -152,7 +152,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationUsername)", rowType: XLFormRowDescriptorTypeEmail)
         //row.cellConfigAtConfigure["textField.placeholder"] = "User ID (Email) *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
@@ -165,7 +165,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         row.addValidator(XLFormValidator.emailValidator())
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationPassword)", rowType: XLFormRowDescriptorTypePassword)
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")
@@ -175,6 +175,7 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
         row.cellConfigAtConfigure["textField.attributedPlaceholder"] = attrString
         row.cellConfigAtConfigure["backgroundColor"] = UIColor(patternImage: UIImage(named: "txtField")!)
         row.cellConfigAtConfigure["textField.textAlignment"] =  NSTextAlignment.Left.rawValue
+        //row.addValidator(XLFormRegexValidator(msg: "At least 6, max 32 characters", andRegexString: "^(?=.*\\d)(?=.*[A-Za-z]).{8,32}$"))
         section.addFormRow(row)
         
         self.form = form

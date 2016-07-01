@@ -139,7 +139,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             destVC.userStatus = self.userArray[(selectedIndexPath?.item)!]["user_status"].stringValue
             let birthday = self.userArray[(selectedIndexPath?.item)!]["user_dob"].stringValue
             if birthday != ""{
-                destVC.passedValue = "\(NSDate.calculateYearFromToday(birthday)) Tahun"
+            destVC.passedValue = "\(NSDate.calculateYearFromToday(birthday)) Tahun"
             }
             
         }

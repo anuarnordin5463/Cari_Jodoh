@@ -66,7 +66,7 @@ class ForgetPasswordViewController: BaseXLFormViewController, SlideMenuControlle
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationUsername)", rowType: XLFormRowDescriptorTypeEmail)
         //row.cellConfigAtConfigure["textField.placeholder"] = "User ID (Email) *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         //row.cellConfig.setObject(UIColor.greenColor(), forKey: "textField.textColor")

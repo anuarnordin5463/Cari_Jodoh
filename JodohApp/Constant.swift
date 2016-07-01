@@ -125,11 +125,11 @@ var occupationArray : [Dictionary<String, AnyObject>] =
 let url = NSURL(string: "http://4.bp.blogspot.com/_gZgKQFgDKrI/S_uJudJlvzI/AAAAAAAAEkU/OT5pjZXafKU/s320/mawi+af3.jpg")
 
 internal struct Tags {
-    static let ValidationUsername = "Email"
-    static let ValidationPassword = "Password"
+    static let ValidationUsername = "Emel"
+    static let ValidationPassword = "Kata Laluan"
     static let ValidationDOB = "DOB"
     static let ValidationNewPassword = "New Password"
-    static let ValidationConfirmPassword = "Confirm Password"
+    static let ValidationConfirmPassword = "Sah Kata Laluan"
     static var ValidationName = "Nama"
     static var ValidationFirstName = "First Name"
     static var ValidationLastName = "Last Name"

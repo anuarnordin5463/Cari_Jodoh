@@ -67,7 +67,7 @@ class PasswordExpiredViewController: BaseXLFormViewController, SlideMenuControll
         form.addFormSection(section)
         
         // First Name/Given Name-------------------
-        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeName, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationUsername)", rowType: XLFormRowDescriptorTypeName)
         //row.cellConfigAtConfigure["textField.placeholder"] = "Username *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Emel")
@@ -79,7 +79,7 @@ class PasswordExpiredViewController: BaseXLFormViewController, SlideMenuControll
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationKataLaluanLama, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationKataLaluanLama)", rowType: XLFormRowDescriptorTypePassword)
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Kata Laluan Lama")
@@ -91,7 +91,7 @@ class PasswordExpiredViewController: BaseXLFormViewController, SlideMenuControll
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationKataLaluanBaru, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationKataLaluanBaru)", rowType: XLFormRowDescriptorTypePassword)
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Kata Laluan Baru")
@@ -103,7 +103,7 @@ class PasswordExpiredViewController: BaseXLFormViewController, SlideMenuControll
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationSahKataLaluan, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationSahKataLaluan)", rowType: XLFormRowDescriptorTypePassword)
         //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Sah Kata Laluan")

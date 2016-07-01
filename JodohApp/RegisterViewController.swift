@@ -122,7 +122,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         section = XLFormSectionDescriptor.formSectionWithTitle("")
         form.addFormSection(section)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationUsername, rowType: XLFormRowDescriptorTypeEmail, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationUsername)", rowType: XLFormRowDescriptorTypeEmail)
         //row.cellConfigAtConfigure["textField.placeholder"] = "E-mail *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Emel")
@@ -135,7 +135,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationPassword)", rowType: XLFormRowDescriptorTypePassword)
         //row.cellConfigAtConfigure["textField.placeholder"] = "Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Kata Laluan")
@@ -147,7 +147,7 @@ class RegisterViewController: BaseXLFormViewController, SlideMenuControllerDeleg
         row.required = true
         section.addFormRow(row)
         
-        row = XLFormRowDescriptor(tag: Tags.ValidationConfirmPassword, rowType: XLFormRowDescriptorTypePassword, title:"")
+        row = XLFormRowDescriptor(tag: "\(Tags.ValidationConfirmPassword)", rowType: XLFormRowDescriptorTypePassword)
         //row.cellConfigAtConfigure["textField.placeholder"] = "Confirm Password *"
         //row.cellConfig.setObject(UIColor.blueColor(), forKey: "backgroundColor")
         attrString = NSMutableAttributedString(string: "Sah Kata Laluan")
