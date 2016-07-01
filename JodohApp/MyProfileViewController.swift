@@ -133,21 +133,23 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         let imageSelected : UIImage = image
         //Now use image to create into NSData format
         //let imageSelected : UIImage = UIImage(named:"personIcon")!
+        
         let imageData:NSData = UIImagePNGRepresentation(imageSelected)!
-        //let strBase64:String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         let strBase64:String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-        //let strBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
-        //iprint(strBase64)
+        
+        //print(strBase64)
         
         //defaults.setValue(strBase64, forKey: "strBase64")//simpan data
         //defaults.synchronize()
+        
+        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
         
         //let imageSelected : UIImage = UIImage(named:"personIcon")!
         //Now use image to create into NSData format
         //let imageData:NSData = UIImagePNGRepresentation(imageSelected)!
         //let strBase64:String = imageData.base64EncodedStringWithOptions(.NSDataBase64EncodingEndLineWithLineFeed)
         //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
-
+        
         let signature = defaults.objectForKey("signature") as! String
         let imageBase64 = strBase64
         showLoading()
@@ -199,8 +201,10 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
         validateForm()
 
         if isValidate{
-            
-            if formValues()[Tags2.ValidationKataLaluan]! as? String != formValues()[Tags2.ValidationSahKataLaluan]! as? String {
+            /*if defaults.objectForKey("strBase64") as! String == ""{
+                print("please add photo")
+            }
+            else*/ if formValues()[Tags2.ValidationKataLaluan]! as? String != formValues()[Tags2.ValidationSahKataLaluan]! as? String {
                 showErrorMessage("Sah Kata Laluan tidak sama")
             }else{
             
@@ -216,19 +220,19 @@ class MyProfileViewController: BaseXLFormViewController, SlideMenuControllerDele
             let education = (formValues()[Tags.ValidationHighEducation] as! XLFormOptionsObject).valueData() as! String
             let occupation = (formValues()[Tags.ValidationOccupation] as! XLFormOptionsObject).valueData() as! String
             let DOB = formValues()[Tags.ValidationDOB] as! NSDate
-                
             let jantina = (formValues()[Tags.ValidationJantina] as! XLFormOptionsObject).valueData() as! String
             let marital = (formValues()[Tags.ValidationMaritalStatus] as! XLFormOptionsObject).valueData() as! String
             let children = (formValues()[Tags.ValidationHaveAChildren] as! XLFormOptionsObject).valueData() as! String
             let relationship = (formValues()[Tags.ValidationRelationshipStatus] as! XLFormOptionsObject).valueData() as! String
             let polygamy = (formValues()[Tags.ValidationPolygamy] as! XLFormOptionsObject).valueData() as! String
             let financial = (formValues()[Tags.ValidationFinancialLevel] as! XLFormOptionsObject).valueData() as! String
+            //let userImage = defaults.objectForKey("strBase64") as! String
             
             showLoading()
             let dateFormater = NSDateFormatter()
             dateFormater.dateFormat = "dd-MM-yyyy"
 
-             let birthdayDate = dateFormater.stringFromDate(DOB)
+            let birthdayDate = dateFormater.stringFromDate(DOB)
             JodohAppProvider.request(.Update(birthdayDate,mobile,height,weight,smoker,state,town,education,occupation,signature,jantina,name,country,marital,children,relationship,polygamy,financial), completion: { (result) in
                 switch result {
                 case .Success(let successResult):

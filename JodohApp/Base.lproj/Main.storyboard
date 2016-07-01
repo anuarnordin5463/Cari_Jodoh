@@ -176,14 +176,26 @@
                                                 </mask>
                                             </variation>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRa-Dz-0qU">
+                                            <rect key="frame" x="223" y="95" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="d4m-X2-Q7W"/>
+                                                <constraint firstAttribute="height" constant="21" id="yF4-Sr-hka"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="nRa-Dz-0qU" firstAttribute="leading" secondItem="oo6-G9-OpX" secondAttribute="trailing" constant="-25" id="0xB-jH-3dl"/>
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="top" secondItem="YHk-To-z0z" secondAttribute="top" constant="8" id="2bu-pm-MCF"/>
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="top" secondItem="YHk-To-z0z" secondAttribute="top" constant="8" id="4e9-lD-QpM"/>
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="40" id="BvB-lE-966"/>
                                         <constraint firstItem="3x9-Mc-pjv" firstAttribute="leading" secondItem="YHk-To-z0z" secondAttribute="leading" constant="100" id="IFE-iQ-25A"/>
                                         <constraint firstItem="3x9-Mc-pjv" firstAttribute="top" secondItem="oo6-G9-OpX" secondAttribute="bottom" constant="8" id="Kln-Js-uO8"/>
+                                        <constraint firstAttribute="bottom" secondItem="nRa-Dz-0qU" secondAttribute="bottom" constant="10" id="UIG-x5-jKr"/>
                                         <constraint firstItem="oo6-G9-OpX" firstAttribute="top" secondItem="3x9-Mc-pjv" secondAttribute="bottom" constant="7" id="irK-FY-FAp"/>
                                         <constraint firstItem="3x9-Mc-pjv" firstAttribute="top" secondItem="YHk-To-z0z" secondAttribute="top" constant="8" id="jdO-yP-xbs"/>
                                         <constraint firstItem="3x9-Mc-pjv" firstAttribute="top" secondItem="YHk-To-z0z" secondAttribute="top" constant="8" id="nXO-AB-Mkg"/>
@@ -276,8 +288,10 @@
                     </view>
                     <connections>
                         <outlet property="leftTableView" destination="GBk-zj-3AX" id="Sep-Vg-673"/>
+                        <outlet property="sideMenuView" destination="YHk-To-z0z" id="Ono-dh-vJY"/>
                         <outlet property="userId" destination="oo6-G9-OpX" id="ZBI-Mg-8Xx"/>
                         <outlet property="userImage" destination="3x9-Mc-pjv" id="GsR-7e-zHD"/>
+                        <outlet property="versionLbl" destination="nRa-Dz-0qU" id="Yai-oC-h0Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJf-bY-d2D" userLabel="First Responder" sceneMemberID="firstResponder"/>

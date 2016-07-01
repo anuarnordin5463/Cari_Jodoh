@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var versionLbl: UILabel!
+    @IBOutlet weak var sideMenuView: UIView!
     @IBOutlet weak var leftTableView: UITableView!
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var userImage: UIImageView!
@@ -22,12 +24,18 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var hideRow : Bool = false
     var tempData = NSDictionary()
     var tmpData = NSArray()
+    let version = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let signature2 = defaults.objectForKey("signature") as! String
         if (signature2 == "") {
             userImage.image = UIImage(named:"personIcon")
+            userId.text = "   CARI JODOH"
+            versionLbl.text = "V\(version)"
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(LeftMenuViewController.imageTapped(_:)))
+            userImage.userInteractionEnabled = true
+            userImage.addGestureRecognizer(tapGestureRecognizer)
         } else {
             hideRow = true
             /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
@@ -37,6 +45,11 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 })
             }*/
             userImage.image = UIImage(named:"personIcon")
+            userId.text = signature2
+            versionLbl.text = "V\(version)"
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(LeftMenuViewController.imageTapped2(_:)))
+            userImage.userInteractionEnabled = true
+            userImage.addGestureRecognizer(tapGestureRecognizer)
         }
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftMenuViewController.refreshSideMenu(_:)), name: "reloadSideMenu", object: nil)
@@ -46,7 +59,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         //userImage.backgroundColor = UIColor.whiteColor() // make cell more visible in our example project
         //userImage.image = image
         //userImage.image = UIImage(named:"mawi")
-        userId.text = signature2
+        //self.sideMenuView.hidden = true
         //userId.text = userName---
         //var x : [String : AnyObject?] = ["test" : nil]
         //x["test"] = nil
@@ -67,8 +80,64 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func imageTapped(img: AnyObject)
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+    }
+    func imageTapped2(img: AnyObject){
+        let signature2 = defaults.objectForKey("signature") as! String
+        showLoading()
+        JodohAppProvider.request(.GetUpdate(signature2), completion: { (result) in
+            switch result {
+            case .Success(let successResult):
+                do {
+                    let json = try JSON(NSJSONSerialization.JSONObjectWithData(successResult.data, options: .MutableContainers))
+                    if  json["status"].string == "success"{
+                        
+                        let data = NSKeyedArchiver.archivedDataWithRootObject(json["user_profile"].dictionaryObject!)
+                        defaults.setObject(data, forKey: "user_profile")//simpan data
+                        //defaults.setValue(json["auth_token"].string , forKey: "auth_token")//simpan data
+                        defaults.synchronize()
+                        NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
+                        //showInfoSuccessUpdate(json["message"].string!)
+                        
+                    }else if (json["error"].string != nil){
+                        showErrorMessage(json["error"].string!)
+                    }else {
+                        showErrorMessage(json["message"].string!)
+                    }
+                    hideLoading()
+                    //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+                    //
+                    //print(json)
+                }
+                catch {
+                    
+                }
+                
+            case .Failure(let failureResult):
+                //print(failureResult)
+                hideLoading()
+                showErrorMessage(failureResult.nsError.localizedDescription)
+            }
+        })
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
+        let storyboard = UIStoryboard(name: "MyProfile", bundle: nil)
+        let swiftViewController = storyboard.instantiateViewControllerWithIdentifier("MyProfileVC") as! MyProfileViewController
+        swiftViewController.fromWhere = "Side"
+        self.mainViewController = UINavigationController(rootViewController: swiftViewController)
+        self.slideMenuController()?.changeMainViewController(self.mainViewController, close: true)
+    }
+    
     func refreshSideMenu(notif:NSNotificationCenter){
         userId.text = defaults.objectForKey("signature") as? String
+        versionLbl.text = "V\(version)"
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(LeftMenuViewController.imageTapped2(_:)))
+        userImage.userInteractionEnabled = true
+        userImage.addGestureRecognizer(tapGestureRecognizer)
         /*let userInfo = defaults.objectForKey("user_profile") as! NSData
         tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
         userId.text = tempData["user_id"] as? String*/
@@ -92,6 +161,10 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshSideMenuLogOut(notif:NSNotificationCenter){
         userId.text = defaults.objectForKey("signature") as? String
+        versionLbl.text = "V\(version)"
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(LeftMenuViewController.imageTapped(_:)))
+        userImage.userInteractionEnabled = true
+        userImage.addGestureRecognizer(tapGestureRecognizer)
         hideRow = false
         self.leftTableView.reloadData()
         userImage.image = UIImage(named:"personIcon")
@@ -100,6 +173,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         userImage.layer.borderColor = UIColor.lightGrayColor().CGColor
         userImage.layer.cornerRadius = userImage.frame.height/2
         userImage.clipsToBounds = true
+        userId.text = "   CARI JODOH"
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -26,7 +26,7 @@ private extension String {
 public enum JodohAppAPI {
     case Login(String, String)
     case Register(String, String, String)
-    case Update(String, String, String, String, String, String, String, String, String,String,String,String,String,String,String,String,String,String)
+    case Update(String, String, String, String, String, String, String, String, String, String,String,String,String,String,String,String,String,String)
     case GetUpdate(String)
     case List(String, String)
     case GetDetail(String)

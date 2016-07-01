@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(defaults.objectForKey("signature") == nil){
             defaults.setValue(NSData(), forKey: "user")//simpan data
             defaults.setValue("", forKey: "signature")//simpan data
+            //defaults.setValue("", forKey: "strBase64")//simpan
             defaults.synchronize()
         }
         
@@ -56,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
         }else{
+            
             //let mainViewController = storyboard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController //unhide ni
             
             //let mainViewController = storyboard3.instantiateViewControllerWithIdentifier("PasswordExpiredVC") as! PasswordExpiredViewController
