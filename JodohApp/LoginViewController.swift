@@ -12,6 +12,7 @@ import SlideMenuControllerSwift
 class LoginViewController: UIViewController, SlideMenuControllerDelegate{
     
     @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var greetingLabel2: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
@@ -20,6 +21,8 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         loginButton.layer.cornerRadius = 5
         greetingLabel.layer.cornerRadius = 5
         greetingLabel.layer.masksToBounds = true
+        greetingLabel2.layer.cornerRadius = 5
+        greetingLabel2.layer.masksToBounds = true
         //greetingLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         //greetingLabel.numberOfLines = 2
         self.setNavigationBarItem()
