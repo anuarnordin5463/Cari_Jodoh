@@ -16,31 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="R31-iR-07j">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(PHOTO GALLERY)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxA-EF-JdA">
-                                <rect key="frame" x="227" y="289" width="146" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THIS IS TEST PAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARe-9x-h9j">
-                                <rect key="frame" x="226" y="260" width="149" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="QKT-Sr-FnF"/>
-                                    <constraint firstAttribute="width" constant="149" id="ZIK-Bl-PNG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="TxA-EF-JdA" firstAttribute="centerX" secondItem="R31-iR-07j" secondAttribute="centerX" id="TZE-XI-Jwa"/>
-                            <constraint firstItem="TxA-EF-JdA" firstAttribute="centerY" secondItem="R31-iR-07j" secondAttribute="centerY" id="dzC-9n-mgR"/>
-                            <constraint firstItem="TxA-EF-JdA" firstAttribute="top" secondItem="ARe-9x-h9j" secondAttribute="bottom" constant="8" id="fhZ-dD-4gK"/>
-                            <constraint firstItem="ARe-9x-h9j" firstAttribute="centerX" secondItem="R31-iR-07j" secondAttribute="centerX" id="myt-oJ-eco"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb8-H5-Tmw" userLabel="First Responder" sceneMemberID="firstResponder"/>

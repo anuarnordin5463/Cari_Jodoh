@@ -122,7 +122,7 @@ var occupationArray : [Dictionary<String, AnyObject>] =
      ["occupation_code":"Sukarelawan / NGO","occupation_name":"Sukarelawan / NGO"],
      ["occupation_code":"Undang-undang","occupation_name":"Undang-undang"]]
 
-let url = NSURL(string: "http://4.bp.blogspot.com/_gZgKQFgDKrI/S_uJudJlvzI/AAAAAAAAEkU/OT5pjZXafKU/s320/mawi+af3.jpg")
+let url = NSURL(string: "http://carijodoh.me-tech.com.my/user_image/")
 
 internal struct Tags {
     static let ValidationUsername = "Emel"

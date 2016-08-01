@@ -9,6 +9,7 @@
 import UIKit
 import SCLAlertView
 import SwiftyJSON
+import Kingfisher
 
 class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -28,6 +29,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let signature2 = defaults.objectForKey("signature") as! String
         if (signature2 == "") {
             userImage.image = UIImage(named:"personIcon")
@@ -38,13 +40,29 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             userImage.addGestureRecognizer(tapGestureRecognizer)
         } else {
             hideRow = true
+            
+            /*var imageName = String()
+            let userInfo = defaults.objectForKey("user") as! NSData
+            tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
+            imageName = (tempData["user_image"] as? String)!
+            print(imageName)
+            //userImage.image = UIImage(named: "personIcon.jpg")*/
+            
             /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
                 dispatch_async(dispatch_get_main_queue(), {
                     self.userImage.image = UIImage(data: data!)
+                    print(data)
                 })
             }*/
             userImage.image = UIImage(named:"personIcon")
+            /*let userInfo = defaults.objectForKey("user") as! NSData
+            tempData = NSKeyedUnarchiver.unarchiveObjectWithData(userInfo) as! NSDictionary
+            if let userImage = tempData["user_image"] {
+                let tempString = "http://carijodoh.me-tech.com.my/user_image/\(userImage)"
+                //print(tempString)
+                userImage.kf_setImageWithURL(NSURL(string: tempString)!)
+            }*/
             userId.text = signature2
             versionLbl.text = "V\(version)"
             let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(LeftMenuViewController.imageTapped2(_:)))

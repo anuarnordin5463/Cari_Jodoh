@@ -65,9 +65,6 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                         
                         if  json["status"].string == "success"{
                             
-                            //showInfoLogin(json["message"].string!)
-                            //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
-                            //let defaults = NSUserDefaults.standardUserDefaults()//declare default tok save data
                             let data = NSKeyedArchiver.archivedDataWithRootObject(json["user"].dictionaryObject!)
                             defaults.setObject(data, forKey: "user")//simpan data
                             defaults.setValue(json["signature"].string , forKey: "signature")//simpan data
@@ -78,7 +75,6 @@ class LoginPageViewController: BaseXLFormViewController,SlideMenuControllerDeleg
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let manageFlightVC = storyboard.instantiateViewControllerWithIdentifier("MainVC") as! ViewController
                             self.navigationController!.pushViewController(manageFlightVC, animated: true)
- 
                             
                         }else{
                             showErrorMessage(json["message"].string!)

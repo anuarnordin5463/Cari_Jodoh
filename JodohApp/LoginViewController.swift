@@ -23,16 +23,8 @@ class LoginViewController: UIViewController, SlideMenuControllerDelegate{
         greetingLabel.layer.masksToBounds = true
         greetingLabel2.layer.cornerRadius = 5
         greetingLabel2.layer.masksToBounds = true
-        //greetingLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //greetingLabel.numberOfLines = 2
         self.setNavigationBarItem()
-        //self.navigationController?.navigationBarHidden =  false
-        //self.title = "Cari Jodoh"
-        //Set Color
-        //Set Font Size
-        //self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ALHAMBRA", size: 25.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
-        // Do any additional setup after loading the view.
-        //print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation());
+
     }
     
     override func didReceiveMemoryWarning() {

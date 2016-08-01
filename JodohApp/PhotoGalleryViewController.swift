@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Kingfisher
 
 class PhotoGalleryViewController: BaseViewController {
 
@@ -19,8 +21,8 @@ class PhotoGalleryViewController: BaseViewController {
         }else{
             setupLeftButton()
         }
-        //setupLeftButton()
-        // Do any additional setup after loading the view.
+        self.title = "GALERI FOTO"
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 20.0)!,NSForegroundColorAttributeName: UIColor.whiteColor()];
     }
 
     override func didReceiveMemoryWarning() {
